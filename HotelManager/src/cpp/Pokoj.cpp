@@ -2,6 +2,6 @@
 #include <vector>
 using namespace std;
 
-#include "Pokój.h"
+#include "Pokoj.h"
 #include "Rezerwacja.h"
 

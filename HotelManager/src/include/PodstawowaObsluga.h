@@ -14,7 +14,7 @@ namespace hotel_klasowy
 
 namespace hotel_klasowy
 {
-	__abstract class PodstawowaObsluga
+	class PodstawowaObsluga
 	{
 		protected: hotel_klasowy::Osoba klient;
 
