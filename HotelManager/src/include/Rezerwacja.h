@@ -9,7 +9,7 @@
 namespace hotel_klasowy
 {
 	class Termin;
-	class Pokój;
+	class Pokoj;
 	class Klient;
 	class Rezerwacja;
 }
@@ -25,7 +25,7 @@ namespace hotel_klasowy
 		public: hotel_klasowy::Termin termin_pobytu;
 		public: bool zakwaterowana;
 		public: bool oplacona;
-		public: hotel_klasowy::Pokój* unnamed_Pokój_;
+		public: hotel_klasowy::Pokoj* unnamed_Pokój_;
 		public: hotel_klasowy::Klient* unnamed_Klient_;
 	};
 }

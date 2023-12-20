@@ -1,8 +1,8 @@
 #include <exception>
 using namespace std;
 
-#ifndef __Zarz?dzanieRezerwacjami_h__
-#define __Zarz?dzanieRezerwacjami_h__
+#ifndef __ZarzadzanieRezerwacjami_h__
+#define __ZarzadzanieRezerwacjami_h__
 
 #include "Rezerwacja.h"
 #include "Klient.h"
@@ -13,12 +13,12 @@ namespace hotel_klasowy
 	class Rezerwacja;
 	class Klient;
 	class Termin;
-	class Zarz?dzanieRezerwacjami;
+	class ZaradzanieRezerwacjami;
 }
 
 namespace hotel_klasowy
 {
-	class Zarz?dzanieRezerwacjami
+	class ZarzadzanieRezerwacjami
 	{
 		private: hotel_klasowy::Rezerwacja rezerwacje[];
 

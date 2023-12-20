@@ -1,6 +1,6 @@
 
 #include "Rezerwacja.h"
 #include "Termin.h"
-#include "Pokój.h"
+#include "Pokoj.h"
 #include "Klient.h"
 

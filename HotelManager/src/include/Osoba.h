@@ -11,9 +11,9 @@ namespace hotel_klasowy
 
 namespace hotel_klasowy
 {
-	__abstract class Osoba
+	class Osoba
 	{
-		protected: string imi?;
+		protected: string imie;
 		protected: string nazwisko;
 		protected: int id;
 		protected: int typ_konta;

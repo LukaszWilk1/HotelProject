@@ -2,7 +2,7 @@
 using namespace std;
 
 #include "ZarzadzanieHotelem.h"
-#include "Zarz?dzanieRezerwacjami.h"
+#include "ZarzadzanieRezerwacjami.h"
 #include "ZarzadzaniePokojami.h"
 
 void hotel_klasowy::ZarzadzanieHotelem::start() {

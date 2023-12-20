@@ -4,11 +4,11 @@ using namespace std;
 #ifndef __ObslugaSprzataczki_h__
 #define __ObslugaSprzataczki_h__
 
-#include "Sprz?taczka.h"
+#include "Sprzataczka.h"
 
 namespace hotel_klasowy
 {
-	class Sprz?taczka;
+	class Sprzataczka;
 	class ObslugaSprzataczki;
 }
 
@@ -16,7 +16,7 @@ namespace hotel_klasowy
 {
 	class ObslugaSprzataczki
 	{
-		private: hotel_klasowy::Sprz?taczka sprzataczka;
+		private: hotel_klasowy::Sprzataczka sprzataczka;
 
 		public: void interfejs();
 

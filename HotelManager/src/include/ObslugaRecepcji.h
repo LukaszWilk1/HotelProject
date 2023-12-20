@@ -5,10 +5,11 @@ using namespace std;
 #define __ObslugaRecepcji_h__
 
 #include "PodstawowaObsluga.h"
+#include "Klient.h"
 
 namespace hotel_klasowy
 {
-	// class PodstawowaObsluga;
+	class Klient;
 	class ObslugaRecepcji;
 }
 
@@ -16,7 +17,7 @@ namespace hotel_klasowy
 {
 	class ObslugaRecepcji: public hotel_klasowy::PodstawowaObsluga
 	{
-		private: hotel_klasowy::ObslugaRecepcji klient;
+	private: hotel_klasowy::Klient klient;
 
 		public: bool oplacRezerwacje(int idRezerwacji);
 

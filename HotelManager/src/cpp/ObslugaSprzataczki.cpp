@@ -2,7 +2,7 @@
 using namespace std;
 
 #include "ObslugaSprzataczki.h"
-#include "Sprz?taczka.h"
+#include "Sprzataczka.h"
 
 void hotel_klasowy::ObslugaSprzataczki::interfejs() {
 	throw "Not yet implemented";
