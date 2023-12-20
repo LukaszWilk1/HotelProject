@@ -1,5 +1,23 @@
 #include <iostream>
 
+using namespace std;
+
 int main() {
-	std::cout << "Welcome!\n";
+	cout << "------------------------------------------------------------------------------------------------------------------"<<endl;
+	cout << "-                                                                                                                -"<<endl;
+	cout << "-                                                                                                                -" << endl;
+	cout << "-                                                                                                                -" << endl;
+	cout << "-                                                                                                                -" << endl;
+	cout << "-                                                  LOGOWANIE                                                     -" << endl;
+	cout << "-                                           =======================                                              -" << endl;
+	cout << "-                                           |                     |                                              -" << endl;
+	cout << "-                                           |      1. KLIENT      |                                              -" << endl;
+	cout << "-                                           |  2. RECEPCJONISTA   |                                              -" << endl;
+	cout << "-                                           |                     |                                              -" << endl;
+	cout << "-                                           =======================                                              -" << endl;
+	cout << "-                                                                                                                -" << endl;
+	cout << "-                                                                                                                -" << endl;
+	cout << "-                                                                                                                -" << endl;
+	cout << "-                                                                                                                -" << endl;
+	cout << "------------------------------------------------------------------------------------------------------------------"<<endl;
 }
