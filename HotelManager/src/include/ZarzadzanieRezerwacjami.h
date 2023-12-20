@@ -20,7 +20,7 @@ namespace hotel_klasowy
 {
 	class ZarzadzanieRezerwacjami
 	{
-		private: hotel_klasowy::Rezerwacja rezerwacje[];
+		private: std::vector<hotel_klasowy::Rezerwacja> rezerwacje;
 
 		public: int dodajRezerwacje(hotel_klasowy::Klient klient, hotel_klasowy::Termin termin, int typPokoju);
 
