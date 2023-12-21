@@ -1,4 +1,5 @@
 #include <exception>
+#include <iostream>
 using namespace std;
 
 #include "ObslugaKlienta.h"
@@ -6,7 +7,8 @@ using namespace std;
 #include "PodstawowaObsluga.h"
 
 void hotel_klasowy::ObslugaKlienta::interfejs() {
-	throw "Not yet implemented";
+	system("cls");
+	cout << "Jestes zalogowany jako klient" << endl;
 }
 
 void hotel_klasowy::ObslugaKlienta::dodajRezerwacje() {

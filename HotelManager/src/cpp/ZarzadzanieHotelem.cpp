@@ -7,6 +7,7 @@ using namespace std;
 #include "ZarzadzaniePokojami.h"
 #include "BazaUzytkownikow.h"
 #include "Osoba.h"
+#include "ObslugaKlienta.h"
 
 void hotel_klasowy::ZarzadzanieHotelem::start() {
 	int id;
@@ -36,6 +37,7 @@ void hotel_klasowy::ZarzadzanieHotelem::start() {
 	case 0: 
 		system("cls");
 		cout << "Jestes zalogowany jako klient" << endl;
+
 		break;
 	case 1:
 		system("cls");
