@@ -13,6 +13,8 @@ namespace hotel_klasowy
 {
 	class Osoba
 	{
+	public:
+		Osoba(string im, string n, int i, int t) : imie(im), nazwisko(n), id(i), typ_konta(t) {}
 		protected: string imie;
 		protected: string nazwisko;
 		protected: int id;
