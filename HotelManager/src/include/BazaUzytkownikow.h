@@ -9,7 +9,7 @@ namespace hotel_klasowy {
 	};
 
 	class BazaUzytkownikow {
-		Osoba getUzytkownik(int id) {
+	public: Osoba getUzytkownik(int id) {
 			return {
 				"Adam",
 				"Mrozek",

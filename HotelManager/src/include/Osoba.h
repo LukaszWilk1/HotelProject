@@ -18,7 +18,7 @@ namespace hotel_klasowy
 		protected: string imie;
 		protected: string nazwisko;
 		protected: int id;
-		protected: int typ_konta;
+		public: int typ_konta;
 	};
 }
 
