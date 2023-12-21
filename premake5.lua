@@ -7,7 +7,6 @@ local function premakeVersionComment(prj)
 end
 
 local function vcpkg(prj)
-    print(prj.name)
     if prj.name:find("Test") then
         premake.w('<ProjectSubType>NativeUnitTestProject</ProjectSubType>')
     end

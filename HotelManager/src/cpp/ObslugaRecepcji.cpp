@@ -44,8 +44,8 @@ void hotel_klasowy::ObslugaRecepcji::wyswietlWszstkieRezerwacje() {
 	throw "Not yet implemented";
 }
 
-void hotel_klasowy::ObslugaRecepcji::anulujRezerwacje(string idRezerwacji) {
-	throw "Not yet implemented";
+void hotel_klasowy::ObslugaRecepcji::anulujRezerwacje(int idRezerwacji)
+{
 }
 
 void hotel_klasowy::ObslugaRecepcji::wyswietlRezerwacje(int idRezerwacji) {
