@@ -10,32 +10,24 @@ using namespace std;
 namespace hotel_klasowy
 {
 	class Klient;
-	// class PodstawowaObsluga;
 	class ObslugaKlienta;
 }
 
 namespace hotel_klasowy
 {
-	class ObslugaKlienta: public hotel_klasowy::PodstawowaObsluga
+	class ObslugaKlienta : public hotel_klasowy::PodstawowaObsluga 
 	{
-		private: hotel_klasowy::Klient klient;
+	public:
+		ObslugaKlienta() {}
+		ObslugaKlienta(Osoba k) : PodstawowaObsluga(k) {}
+		virtual void interfejs() override;
 
-		/// <summary>
-		/// /// <summary>
-		/// /// Obs?uga iterfejsu klienta
-		/// /// </summary>
-		/// </summary>
-		public: virtual void interfejs();
-
-		protected: virtual void dodajRezerwacje();
-
-		protected: virtual void wyswietlWszstkieRezerwacje();
-
-		protected: virtual void anulujRezerwacje(string idRezerwacji);
-
-		protected: virtual void wyswietlRezerwacje(int idRezerwacji);
-
-		protected: virtual bool zmienTerminRezerwacji(int idRezerwacji);
+	private:
+		virtual void dodajRezerwacje() override;
+		virtual void wyswietlWszstkieRezerwacje() override;
+		virtual void anulujRezerwacje(int idRezerwacji) override;
+		virtual void wyswietlRezerwacje(int idRezerwacji) override;
+		virtual bool zmienTerminRezerwacji(int idRezerwacji) override;
 	};
 }
 

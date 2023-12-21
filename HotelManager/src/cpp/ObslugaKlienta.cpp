@@ -11,23 +11,24 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 	cout << "Jestes zalogowany jako klient" << endl;
 }
 
-void hotel_klasowy::ObslugaKlienta::dodajRezerwacje() {
-	throw "Not yet implemented";
+void hotel_klasowy::ObslugaKlienta::dodajRezerwacje()
+{
 }
 
-void hotel_klasowy::ObslugaKlienta::wyswietlWszstkieRezerwacje() {
-	throw "Not yet implemented";
+void hotel_klasowy::ObslugaKlienta::wyswietlWszstkieRezerwacje()
+{
 }
 
-void hotel_klasowy::ObslugaKlienta::anulujRezerwacje(string idRezerwacji) {
-	throw "Not yet implemented";
+void hotel_klasowy::ObslugaKlienta::anulujRezerwacje(int idRezerwacji)
+{
 }
 
-void hotel_klasowy::ObslugaKlienta::wyswietlRezerwacje(int idRezerwacji) {
-	throw "Not yet implemented";
+void hotel_klasowy::ObslugaKlienta::wyswietlRezerwacje(int idRezerwacji)
+{
 }
 
-bool hotel_klasowy::ObslugaKlienta::zmienTerminRezerwacji(int idRezerwacji) {
-	throw "Not yet implemented";
+bool hotel_klasowy::ObslugaKlienta::zmienTerminRezerwacji(int idRezerwacji)
+{
+	return false;
 }
 

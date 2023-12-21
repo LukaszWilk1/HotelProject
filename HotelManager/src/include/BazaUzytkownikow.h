@@ -1,13 +1,8 @@
 #pragma once
 #include "Osoba.h"
+#include "TypyKont.h"
 
 namespace hotel_klasowy {
-	enum Typy_Kont {
-		KLIENT = 0,
-		RECEPCJA = 1,
-		SPRZATACZKA = 2
-	};
-
 	class BazaUzytkownikow {
 	public: Osoba getUzytkownik(int id) {
 			return {

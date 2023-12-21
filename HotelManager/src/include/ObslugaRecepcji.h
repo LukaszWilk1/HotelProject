@@ -6,6 +6,7 @@ using namespace std;
 
 #include "PodstawowaObsluga.h"
 #include "Klient.h"
+#include "Recepcjonista.h"
 
 namespace hotel_klasowy
 {
@@ -17,38 +18,27 @@ namespace hotel_klasowy
 {
 	class ObslugaRecepcji: public hotel_klasowy::PodstawowaObsluga
 	{
-	private: hotel_klasowy::Klient klient;
+		public:
+			ObslugaRecepcji() {};
+			ObslugaRecepcji(Osoba r) : recepcjonista(r) {};
+			bool oplacRezerwacje(int idRezerwacji);
+			virtual void interfejs() override;
 
-		public: bool oplacRezerwacje(int idRezerwacji);
+		private: 
+			hotel_klasowy::Recepcjonista recepcjonista;
+			void wyswietlPokoj(int idPokoju);
+			void wyswietlWszystkiePokoje();
+			bool zablokujPokoj(string idPokoju);
+			bool zakwateruj(int idRezerwacji);
+			bool wykwateruj(int idRezerwacji);
+			void odblokujPokoj(int idPokoju);
 
-		private: void wyswietlPokoj(int idPokoju);
-
-		private: void wyswietlWszystkiePokoje();
-
-		private: bool zablokujPokoj(string idPokoju);
-
-		private: bool zakwateruj(int idRezerwacji);
-
-		private: bool wykwateruj(int idRezerwacji);
-
-		private: void odblokujPokoj(int idPokoju);
-
-		/// <summary>
-		/// /// <summary>
-		/// /// Obs?uga iterfejsu klienta
-		/// /// </summary>
-		/// </summary>
-		public: virtual void interfejs();
-
-		protected: virtual void dodajRezerwacje();
-
-		protected: virtual void wyswietlWszstkieRezerwacje();
-
-		protected: virtual void anulujRezerwacje(string idRezerwacji);
-
-		protected: virtual void wyswietlRezerwacje(int idRezerwacji);
-
-		protected: virtual bool zmienTerminRezerwacji(int idRezerwacji);
+		protected: 
+			virtual void dodajRezerwacje() override;
+			virtual void wyswietlWszstkieRezerwacje() override;
+			virtual void anulujRezerwacje(int idRezerwacji) override;
+			virtual void wyswietlRezerwacje(int idRezerwacji) override;
+			virtual bool zmienTerminRezerwacji(int idRezerwacji) override;
 	};
 }
 
