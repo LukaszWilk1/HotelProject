@@ -18,7 +18,11 @@ namespace hotel_klasowy
 		protected: string imie;
 		protected: string nazwisko;
 		protected: int id;
-		public: int typ_konta;
+		protected: int typ_konta;
+		
+		public: int getTypKonta() {
+			return typ_konta;
+		}
 	};
 }
 

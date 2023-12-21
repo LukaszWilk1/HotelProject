@@ -29,6 +29,24 @@ void hotel_klasowy::ZarzadzanieHotelem::start() {
 	cout << "------------------------------------------------------------------------------------------------------------------" << endl;
 	cin >> id;
 	hotel_klasowy::Osoba uzytkownik = baza.getUzytkownik(5);
-	cout << uzytkownik.typ_konta << endl;
+	int typKonta = uzytkownik.getTypKonta();
+
+	switch (typKonta)
+	{
+	case 0: 
+		system("cls");
+		cout << "Jestes zalogowany jako klient" << endl;
+		break;
+	case 1:
+		system("cls");
+		cout << "Jestes zalogowany jako recepcjonista" << endl;
+		break;
+	case 2:
+		system("cls");
+		cout << "Jestes zalogowany jako recepcjonista" << endl;
+		break;
+	default:
+		break;
+	}
 }
 
