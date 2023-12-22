@@ -24,6 +24,9 @@ premake.override(premake.vstudio.vc2010.elements, "globals", function(base, prj)
     return calls
 end)
 
+-- Includes
+IncludeDirs = {}
+IncludeDirs["fmt"] = "vendor/fmt/include"
 
 workspace "HotelManager"
     architecture "x64"
