@@ -1,10 +1,13 @@
 #pragma once
 #include "Osoba.h"
-#include "TypyKont.h"
+#include "Utils.h"
+#include <vector>
 
 namespace hotel_klasowy {
 	class BazaUzytkownikow {
-	public: Osoba getUzytkownik(int id) {
+	public:
+		int dodajUzytkownika(string imie, string nazwisko, TypKonta typ);
+		Osoba getUzytkownik(int id) {
 			return {
 				"Adam",
 				"Mrozek",
@@ -12,5 +15,10 @@ namespace hotel_klasowy {
 				KLIENT
 			};
 		}
+	private:
+		std::vector<Osoba> uzytkownicy;
+		int nextID = 0;
+		void zapiszDane();
+		void odczytajDane();
 	};
 }
