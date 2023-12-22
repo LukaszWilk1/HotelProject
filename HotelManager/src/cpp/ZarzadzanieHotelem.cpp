@@ -30,7 +30,7 @@ void hotel_klasowy::ZarzadzanieHotelem::start() {
 	cout << "-                                                                                                                -" << endl;
 	cout << "------------------------------------------------------------------------------------------------------------------" << endl;
 	cin >> id;
-	hotel_klasowy::Osoba uzytkownik = bazaUzytkownikow.getUzytkownik(5);
+	hotel_klasowy::Osoba uzytkownik = bazaUzytkownikow.getUzytkownik(id);
 	hotel_klasowy::TypKonta typKonta = uzytkownik.typ_konta;
 
 	if (typKonta == KLIENT) {
@@ -44,5 +44,8 @@ void hotel_klasowy::ZarzadzanieHotelem::start() {
 	else if (typKonta == SPRZATACZKA) {
 		hotel_klasowy::ObslugaSprzataczki obslugaSprzataczki(uzytkownik);
 		obslugaSprzataczki.interfejs();
+	}
+	else {
+		//jeszcze raz wpisz id
 	}
 }

@@ -16,14 +16,7 @@ namespace hotel_klasowy {
 	public:
 		BazaUzytkownikow();
 		int dodajUzytkownika(string imie, string nazwisko, TypKonta typ);
-		Osoba getUzytkownik(int id) {
-			return {
-				"Adam",
-				"Mrozek",
-				0,
-				KLIENT
-			};
-		}
+		const Osoba& getUzytkownik(int id) const;
 	private:
 		vector<Osoba> uzytkownicy;
 		int nextID = 0;
