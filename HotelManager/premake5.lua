@@ -10,11 +10,13 @@ project "HotelManager"
     files {
         "src/cpp/**.cpp",
         "src/include/**.h",
-        "src/include/**.hpp"
+        "src/include/**.hpp",
+        "vendor/fmt/src/**.cc"
     }
 
     includedirs {
-        "src/include"
+        "src/include",
+        "vendor/fmt/include"
     }
 
     filter { "system:windows" }

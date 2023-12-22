@@ -6,19 +6,23 @@ project "HotelManagerTests"
     targetdir("../bin/" .. outputdir .. "/%{prj.name}")
     objdir("../obj/" .. outputdir .. "/%{prj.name}")
 
-    links { "HotelManager" }
+    links { 
+        "HotelManager"
+    }
 
     files {
         "src/cpp/**.cpp",
         "src/include/**.h",
-        "src/include/**.hpp"
+        "src/include/**.hpp",
+        "vendor/fmt/src/**.cc"
     }
 
     includedirs {
         "src/include",
         "$(VCInstallDir)UnitTest\\include",
         "../HotelManager/src/include",
-        "../HotelManager/src/cpp"
+        "../HotelManager/src/cpp",
+        "vendor/fmt/include"
     }
 
     libdirs {
