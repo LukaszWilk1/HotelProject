@@ -1,4 +1,5 @@
 #include <exception>
+#include <iostream>
 using namespace std;
 
 #include "ObslugaRecepcji.h"
@@ -33,7 +34,8 @@ void hotel_klasowy::ObslugaRecepcji::odblokujPokoj(int idPokoju) {
 }
 
 void hotel_klasowy::ObslugaRecepcji::interfejs() {
-	throw "Not yet implemented";
+	system("cls");
+	cout << "Jestes zalogowany jako Recepcjonista" << endl;
 }
 
 void hotel_klasowy::ObslugaRecepcji::dodajRezerwacje() {

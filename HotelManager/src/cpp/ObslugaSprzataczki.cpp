@@ -1,11 +1,13 @@
 #include <exception>
+#include <iostream>
 using namespace std;
 
 #include "ObslugaSprzataczki.h"
 #include "Sprzataczka.h"
 
 void hotel_klasowy::ObslugaSprzataczki::interfejs() {
-	throw "Not yet implemented";
+	system("cls");
+	cout << "Jestes zalogowany jako Sprzataczka" << endl;
 }
 
 void hotel_klasowy::ObslugaSprzataczki::wyswietlPokojeDoPosprzatania() {

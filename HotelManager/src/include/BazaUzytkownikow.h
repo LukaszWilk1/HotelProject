@@ -9,7 +9,7 @@ namespace hotel_klasowy {
 				"Adam",
 				"Mrozek",
 				0,
-				RECEPCJA
+				SPRZATACZKA
 			};
 		}
 	};

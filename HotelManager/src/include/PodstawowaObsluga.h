@@ -26,6 +26,7 @@ namespace hotel_klasowy
 			hotel_klasowy::Osoba klient;
 			virtual void dodajRezerwacje() = 0;
 			virtual void wyswietlWszstkieRezerwacje() = 0;
+			void anulujRezerwacje(string idRezerwacji);
 			virtual void anulujRezerwacje(int idRezerwacji) = 0;
 			virtual void wyswietlRezerwacje(int idRezerwacji) = 0;
 			virtual bool zmienTerminRezerwacji(int idRezerwacji) = 0;

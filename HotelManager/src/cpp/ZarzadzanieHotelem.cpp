@@ -8,6 +8,8 @@ using namespace std;
 #include "BazaUzytkownikow.h"
 #include "Osoba.h"
 #include "ObslugaKlienta.h"
+#include "ObslugaRecepcji.h"
+#include "ObslugaSprzataczki.h"
 
 void hotel_klasowy::ZarzadzanieHotelem::start() {
 	int id;
@@ -32,23 +34,16 @@ void hotel_klasowy::ZarzadzanieHotelem::start() {
 	hotel_klasowy::Osoba uzytkownik = baza.getUzytkownik(5);
 	int typKonta = uzytkownik.getTypKonta();
 
-	switch (typKonta)
-	{
-	case 0: 
-		system("cls");
-		cout << "Jestes zalogowany jako klient" << endl;
-
-		break;
-	case 1:
-		system("cls");
-		cout << "Jestes zalogowany jako recepcjonista" << endl;
-		break;
-	case 2:
-		system("cls");
-		cout << "Jestes zalogowany jako recepcjonista" << endl;
-		break;
-	default:
-		break;
+	if (typKonta == 0) {
+		hotel_klasowy::ObslugaKlienta obslugaKlienta(uzytkownik);
+		obslugaKlienta.interfejs();
+	}
+	else if (typKonta == 1) {
+		hotel_klasowy::ObslugaRecepcji obslugaRecepcji(uzytkownik);
+		obslugaRecepcji.interfejs();
+	}
+	else if (typKonta == 2) {
+		hotel_klasowy::ObslugaSprzataczki obslugaSprzataczki(uzytkownik);
+		obslugaSprzataczki.interfejs();
 	}
 }
-
