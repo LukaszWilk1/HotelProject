@@ -1,8 +1,11 @@
 #include <iostream>
+#include "BazaUzytkownikow.h"
 
 using namespace std;
 
 int main() {
+	hotel_klasowy::BazaUzytkownikow b;
+	b.test();
 	cout << "------------------------------------------------------------------------------------------------------------------"<<endl;
 	cout << "-                                                                                                                -"<<endl;
 	cout << "-                                                                                                                -" << endl;

@@ -11,14 +11,20 @@ namespace hotel_klasowy
 
 namespace hotel_klasowy
 {
+	enum TypKonta {
+		KLIENT = 0,
+		RECEPCJA = 1,
+		SPRZATACZKA = 2
+	};
+
 	class Osoba
 	{
 	public:
 		Osoba(string im, string n, int i, int t) : imie(im), nazwisko(n), id(i), typ_konta(t) {}
-		protected: string imie;
-		protected: string nazwisko;
-		protected: int id;
-		protected: int typ_konta;
+		string imie;
+		string nazwisko;
+		int id;
+		TypKonta typ_konta;
 	};
 }
 
