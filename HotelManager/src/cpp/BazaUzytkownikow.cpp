@@ -1,5 +1,11 @@
 #include "BazaUzytkownikow.h"
 #include <fstream>
+#include <iostream>
+
+hotel_klasowy::BazaUzytkownikow::BazaUzytkownikow()
+{
+	odczytajDane();
+}
 
 int hotel_klasowy::BazaUzytkownikow::dodajUzytkownika(string imie, string nazwisko, TypKonta typ)
 {
@@ -31,8 +37,9 @@ void hotel_klasowy::BazaUzytkownikow::odczytajDane() {
 		nextID = stoi(line);
 		while (getline(myfile, line))
 		{
-			//cout << line << '\n';
+			
 		}
+		myfile.close();
 	}
 	else {
 		throw "Unable to open users.hotel file";

@@ -6,6 +6,7 @@ using namespace std;
 
 #include "ZarzadzanieRezerwacjami.h"
 #include "ZarzadzaniePokojami.h"
+#include "BazaUzytkownikow.h"
 
 namespace hotel_klasowy
 {
@@ -18,10 +19,13 @@ namespace hotel_klasowy
 {
 	class ZarzadzanieHotelem
 	{
-		private: hotel_klasowy::ZarzadzanieRezerwacjami zarzadzanieRezerwacjami;
-		private: hotel_klasowy::ZarzadzaniePokojami zarzadzaniePokojami;
+		private:
+			ZarzadzanieRezerwacjami zarzadzanieRezerwacjami;
+			ZarzadzaniePokojami zarzadzaniePokojami;
+			BazaUzytkownikow bazaUzytkownikow;
 
-		public: void start();
+		public:
+			void start();
 	};
 }
 

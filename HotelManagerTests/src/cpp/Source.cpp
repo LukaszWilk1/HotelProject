@@ -1,5 +1,8 @@
 #include "pch.h"
 #include "CppUnitTest.h"
+#include "Utils.cpp"
+#include <iostream>
+#include <format>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -9,10 +12,11 @@ namespace UnitTestTest
 	{
 	public:
 
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(StringSplit)
 		{
-			int a = 5;
-			Assert::AreEqual(a, 5);
+			auto sp = hotel_klasowy::Utils::split("a;b;c", ";");
+			std::vector<std::string> expected = { "a", "b", "c" };
+			Assert::IsTrue(expected == sp);
 		}
 	};
 }

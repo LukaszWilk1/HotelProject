@@ -16,7 +16,9 @@ project "HotelManagerTests"
 
     includedirs {
         "src/include",
-        "$(VCInstallDir)UnitTest\\include"
+        "$(VCInstallDir)UnitTest\\include",
+        "../HotelManager/src/include",
+        "../HotelManager/src/cpp"
     }
 
     libdirs {
