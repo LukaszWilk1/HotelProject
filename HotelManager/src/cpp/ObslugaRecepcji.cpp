@@ -1,4 +1,5 @@
 #include <exception>
+#include <iostream>
 using namespace std;
 
 #include "ObslugaRecepcji.h"
@@ -33,7 +34,28 @@ void hotel_klasowy::ObslugaRecepcji::odblokujPokoj(int idPokoju) {
 }
 
 void hotel_klasowy::ObslugaRecepcji::interfejs() {
-	throw "Not yet implemented";
+	system("cls");
+	cout << "------------------------------------------------------------------------------------------------------------------" << endl;
+	cout << "-                                                                                                                -" << endl;
+	cout << "-                                  Jestes zalogowany/a jako Recepcjonista/ka                                     -" << endl;
+	cout << "-                                                                                                                -" << endl;
+	cout << "-                                                   OPCJE                                                        -" << endl;
+	cout << "-                                                                                                                -" << endl;
+	cout << "-                                  ========================================                                      -" << endl;
+	cout << "-                                  |                                      |                                      -" << endl;
+	cout << "-                                  |         1. Dodaj Recerwacje          |                                      -" << endl;
+	cout << "-                                  |                                      |                                      -" << endl;
+	cout << "-                                  |   2. Wyswietl wszystkie rezerwacje   |                                      -" << endl;
+	cout << "-                                  |                                      |                                      -" << endl;
+	cout << "-                                  |         3. Anuluj rezerwacje         |                                      -" << endl;
+	cout << "-                                  |                                      |                                      -" << endl;
+	cout << "-                                  |        4. Wyswietl rezerwacje        |                                      -" << endl;
+	cout << "-                                  |                                      |                                      -" << endl;
+	cout << "-                                  |      5. Zmien termin rezerwacji      |                                      -" << endl;
+	cout << "-                                  |                                      |                                      -" << endl;
+	cout << "-                                  ========================================                                      -" << endl;
+	cout << "-                                                                                                                -" << endl;
+	cout << "------------------------------------------------------------------------------------------------------------------" << endl;
 }
 
 void hotel_klasowy::ObslugaRecepcji::dodajRezerwacje() {
@@ -44,8 +66,8 @@ void hotel_klasowy::ObslugaRecepcji::wyswietlWszstkieRezerwacje() {
 	throw "Not yet implemented";
 }
 
-void hotel_klasowy::ObslugaRecepcji::anulujRezerwacje(string idRezerwacji) {
-	throw "Not yet implemented";
+void hotel_klasowy::ObslugaRecepcji::anulujRezerwacje(int idRezerwacji)
+{
 }
 
 void hotel_klasowy::ObslugaRecepcji::wyswietlRezerwacje(int idRezerwacji) {
