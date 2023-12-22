@@ -35,7 +35,27 @@ void hotel_klasowy::ObslugaRecepcji::odblokujPokoj(int idPokoju) {
 
 void hotel_klasowy::ObslugaRecepcji::interfejs() {
 	system("cls");
-	cout << "Jestes zalogowany jako Recepcjonista" << endl;
+	cout << "------------------------------------------------------------------------------------------------------------------" << endl;
+	cout << "-                                                                                                                -" << endl;
+	cout << "-                                  Jestes zalogowany/a jako Recepcjonista/ka                                     -" << endl;
+	cout << "-                                                                                                                -" << endl;
+	cout << "-                                                   OPCJE                                                        -" << endl;
+	cout << "-                                                                                                                -" << endl;
+	cout << "-                                  ========================================                                      -" << endl;
+	cout << "-                                  |                                      |                                      -" << endl;
+	cout << "-                                  |         1. Dodaj Recerwacje          |                                      -" << endl;
+	cout << "-                                  |                                      |                                      -" << endl;
+	cout << "-                                  |   2. Wyswietl wszystkie rezerwacje   |                                      -" << endl;
+	cout << "-                                  |                                      |                                      -" << endl;
+	cout << "-                                  |         3. Anuluj rezerwacje         |                                      -" << endl;
+	cout << "-                                  |                                      |                                      -" << endl;
+	cout << "-                                  |        4. Wyswietl rezerwacje        |                                      -" << endl;
+	cout << "-                                  |                                      |                                      -" << endl;
+	cout << "-                                  |      5. Zmien termin rezerwacji      |                                      -" << endl;
+	cout << "-                                  |                                      |                                      -" << endl;
+	cout << "-                                  ========================================                                      -" << endl;
+	cout << "-                                                                                                                -" << endl;
+	cout << "------------------------------------------------------------------------------------------------------------------" << endl;
 }
 
 void hotel_klasowy::ObslugaRecepcji::dodajRezerwacje() {
