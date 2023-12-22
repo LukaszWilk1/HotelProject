@@ -16,22 +16,20 @@ namespace hotel_klasowy
 {
 	class PodstawowaObsluga
 	{
-		protected: hotel_klasowy::Osoba klient;
 
-		/// <summary>
-		/// Obs?uga iterfejsu klienta
-		/// </summary>
-		public: virtual void interfejs() = 0;
+		public:
+			PodstawowaObsluga() {}
+			PodstawowaObsluga(Osoba o) : klient(o) {}
+			virtual void interfejs() = 0;
 
-		protected: virtual void dodajRezerwacje() = 0;
-
-		protected: virtual void wyswietlWszstkieRezerwacje() = 0;
-
-		protected: virtual void anulujRezerwacje(string idRezerwacji) = 0;
-
-		protected: virtual void wyswietlRezerwacje(int idRezerwacji) = 0;
-
-		protected: virtual bool zmienTerminRezerwacji(int idRezerwacji) = 0;
+		protected: 
+			hotel_klasowy::Osoba klient;
+			virtual void dodajRezerwacje() = 0;
+			virtual void wyswietlWszstkieRezerwacje() = 0;
+			void anulujRezerwacje(string idRezerwacji);
+			virtual void anulujRezerwacje(int idRezerwacji) = 0;
+			virtual void wyswietlRezerwacje(int idRezerwacji) = 0;
+			virtual bool zmienTerminRezerwacji(int idRezerwacji) = 0;
 	};
 }
 

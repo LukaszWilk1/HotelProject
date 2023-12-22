@@ -12,7 +12,7 @@ namespace hotel_klasowy {
 				"Adam",
 				"Mrozek",
 				0,
-				RECEPCJA
+				KLIENT
 			};
 		}
 	private:

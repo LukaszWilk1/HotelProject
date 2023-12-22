@@ -18,7 +18,9 @@ namespace hotel_klasowy
 {
 	class Klient: public hotel_klasowy::Osoba
 	{
-		public: std::vector<hotel_klasowy::Rezerwacja*> unnamed_Rezerwacja_;
+	public:
+		Klient(const Osoba& o) : Osoba(o) {};
+		using Osoba::Osoba;
 	};
 }
 

@@ -20,11 +20,19 @@ namespace hotel_klasowy
 	class Osoba
 	{
 	public:
+		Osoba() {}
 		Osoba(string im, string n, int i, int t) : imie(im), nazwisko(n), id(i), typ_konta(t) {}
-		string imie;
-		string nazwisko;
-		int id;
-		TypKonta typ_konta;
+		Osoba(const Osoba& o) {
+			imie = o.imie;
+			nazwisko = o.nazwisko;
+			id = o.id;
+			typ_konta = o.typ_konta;
+		}
+    
+		string imie = "";
+		string nazwisko = "";
+		int id = -1;
+		TypKonta typ_konta = -1;
 	};
 }
 

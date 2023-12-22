@@ -14,6 +14,9 @@ namespace hotel_klasowy
 {
 	class Sprzataczka: public hotel_klasowy::Osoba
 	{
+	public:
+		Sprzataczka(const Osoba& o) : Osoba(o) {};
+		using Osoba::Osoba;
 	};
 }
 
