@@ -29,26 +29,56 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 	cout << "-                                  ========================================                                      -" << endl;
 	cout << "-                                                                                                                -" << endl;
 	cout << "------------------------------------------------------------------------------------------------------------------" << endl;
+	int opcja = 0;
+	cin >> opcja;
+
+	switch (opcja) {
+	case 1:
+		dodajRezerwacje();
+		break;
+	case 2:
+		wyswietlWszstkieRezerwacje();
+		break;
+	case 3:
+		anulujRezerwacje(2);
+		break;
+	case 4:
+		wyswietlRezerwacje(2);
+		break;
+	case 5:
+		zmienTerminRezerwacji(2);
+		break;
+	}
 }
 
 void hotel_klasowy::ObslugaKlienta::dodajRezerwacje()
 {
+	system("cls");
+	cout << "Dodawanie rezerwacji" << endl;
 }
 
 void hotel_klasowy::ObslugaKlienta::wyswietlWszstkieRezerwacje()
 {
+	system("cls");
+	cout << "Wyswietlanie wszystkich rezerwacji" << endl;
 }
 
 void hotel_klasowy::ObslugaKlienta::anulujRezerwacje(int idRezerwacji)
 {
+	system("cls");
+	cout << "Anulowanie rezerwacji" << endl;
 }
 
 void hotel_klasowy::ObslugaKlienta::wyswietlRezerwacje(int idRezerwacji)
 {
+	system("cls");
+	cout << "Wyswietlenie rezerwacji" << endl;
 }
 
 bool hotel_klasowy::ObslugaKlienta::zmienTerminRezerwacji(int idRezerwacji)
 {
+	system("cls");
+	cout << "Zmiana terminu rezerwacji" << endl;
 	return false;
 }
 
