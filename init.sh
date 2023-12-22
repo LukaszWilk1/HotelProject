@@ -22,6 +22,6 @@ PrintHelp()
 if [ "$1" = "" ] ;then 
     PrintHelp
 else
-    ./vendor/premake5 $1
+    ./vendor/bin/premake5 $1
     exit
 fi

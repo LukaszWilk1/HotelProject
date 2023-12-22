@@ -18,16 +18,13 @@ namespace hotel_klasowy
 {
 	class ZarzadzaniePokojami
 	{
-		private: hotel_klasowy::Pokoj listaPokoi[];
+		public: 
+			int znajdzWolnyPokoj(int typPokoju, hotel_klasowy::Termin termin);
+			Pokoj* getPokoj(int idPokoju);
+			bool zablokujPokoj();
 
-		public: int znajdzWolnyPokoj(int typPokoju, hotel_klasowy::Termin termin);
-
-		public: hotel_klasowy::Pokoj* getPokoj(int idPokoju);
-
-		/// <summary>
-		/// Zablokuj pokój je?eli nie posiada rezerwacji
-		/// </summary>
-		public: bool zablokujPokoj();
+		private: 
+			std::vector<Pokoj> listaPokoi;
 	};
 }
 

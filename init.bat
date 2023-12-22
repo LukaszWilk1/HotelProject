@@ -2,7 +2,7 @@
 
 IF "%1" == "" GOTO help
 
-vendor\premake5.exe %1
+vendor\bin\premake5.exe %1
 goto:eof
 
 :help
