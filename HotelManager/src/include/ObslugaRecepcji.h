@@ -22,7 +22,7 @@ namespace hotel_klasowy
 			ObslugaRecepcji() {};
 			ObslugaRecepcji(Osoba r) : recepcjonista(r) {};
 			bool oplacRezerwacje(int idRezerwacji);
-			virtual void interfejs() override;
+			virtual void interfejs(Osoba osoba) override;
 
 		private: 
 			hotel_klasowy::Recepcjonista recepcjonista;

@@ -33,11 +33,11 @@ void hotel_klasowy::ObslugaRecepcji::odblokujPokoj(int idPokoju) {
 	throw "Not yet implemented";
 }
 
-void hotel_klasowy::ObslugaRecepcji::interfejs() {
+void hotel_klasowy::ObslugaRecepcji::interfejs(Osoba osoba) {
 	system("cls");
 	cout << "------------------------------------------------------------------------------------------------------------------" << endl;
-	cout << "-                                                                                                                -" << endl;
-	cout << "-                                  Jestes zalogowany/a jako Recepcjonista/ka                                     -" << endl;
+	cout << "-                                                                                                    " << osoba.imie << " " << osoba.nazwisko << " - " << endl;
+	cout << "-                                  Jestes zalogowany/a jako Recepcjonista/ka                                   " << osoba.id << " -" << endl;
 	cout << "-                                                                                                                -" << endl;
 	cout << "-                                                   OPCJE                                                        -" << endl;
 	cout << "-                                                                                                                -" << endl;

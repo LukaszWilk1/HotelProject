@@ -4,7 +4,7 @@ using namespace std;
 #include "PodstawowaObsluga.h"
 #include "Osoba.h"
 
-void hotel_klasowy::PodstawowaObsluga::interfejs() {
+void hotel_klasowy::PodstawowaObsluga::interfejs(Osoba osoba) {
 	throw "Not yet implemented";
 }
 

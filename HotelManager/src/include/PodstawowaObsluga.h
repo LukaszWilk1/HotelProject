@@ -20,7 +20,7 @@ namespace hotel_klasowy
 		public:
 			PodstawowaObsluga() {}
 			PodstawowaObsluga(Osoba o) : klient(o) {}
-			virtual void interfejs() = 0;
+			virtual void interfejs(Osoba osoba) = 0;
 
 		protected: 
 			hotel_klasowy::Osoba klient;
