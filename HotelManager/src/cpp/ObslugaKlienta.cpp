@@ -6,11 +6,13 @@ using namespace std;
 #include "Klient.h"
 #include "PodstawowaObsluga.h"
 
-void hotel_klasowy::ObslugaKlienta::interfejs() {
+void hotel_klasowy::ObslugaKlienta::interfejs(Osoba osoba) {
 	system("cls");
 	cout << "------------------------------------------------------------------------------------------------------------------" << endl;
+	cout << "-                                                                                                    "<< osoba.imie << " " << osoba.nazwisko << " - " << endl;
+	cout << "-                                    Jestes zalogowany/a jako Klient/ka                                        "<<osoba.id<<" -" << endl;
 	cout << "-                                                                                                                -" << endl;
-	cout << "-                                    Jestes zalogowany/a jako Klient/ka                                          -" << endl;
+	cout << "-                                                                                                                -" << endl;
 	cout << "-                                                                                                                -" << endl;
 	cout << "-                                                   OPCJE                                                        -" << endl;
 	cout << "-                                                                                                                -" << endl;

@@ -58,14 +58,14 @@ void hotel_klasowy::ZarzadzanieHotelem::start() {
 
 	if (typKonta == KLIENT) {
 		hotel_klasowy::ObslugaKlienta obslugaKlienta(uzytkownik);
-		obslugaKlienta.interfejs();
+		obslugaKlienta.interfejs(uzytkownik);
 	}
 	else if (typKonta == RECEPCJA) {
 		hotel_klasowy::ObslugaRecepcji obslugaRecepcji(uzytkownik);
-		obslugaRecepcji.interfejs();
+		obslugaRecepcji.interfejs(uzytkownik);
 	}
 	else if (typKonta == SPRZATACZKA) {
 		hotel_klasowy::ObslugaSprzataczki obslugaSprzataczki(uzytkownik);
-		obslugaSprzataczki.interfejs();
+		obslugaSprzataczki.interfejs(uzytkownik);
 	}
 }

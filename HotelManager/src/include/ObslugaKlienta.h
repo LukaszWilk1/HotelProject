@@ -20,7 +20,7 @@ namespace hotel_klasowy
 	public:
 		ObslugaKlienta() {}
 		ObslugaKlienta(Osoba k) : PodstawowaObsluga(k) {}
-		virtual void interfejs() override;
+		virtual void interfejs(Osoba osoba) override;
 
 	private:
 		virtual void dodajRezerwacje() override;

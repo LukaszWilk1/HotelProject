@@ -5,10 +5,11 @@ using namespace std;
 #include "ObslugaSprzataczki.h"
 #include "Sprzataczka.h"
 
-void hotel_klasowy::ObslugaSprzataczki::interfejs() {
+void hotel_klasowy::ObslugaSprzataczki::interfejs(Osoba osoba) {
 	system("cls");
 	cout << "------------------------------------------------------------------------------------------------------------------" << endl;
-	cout << "-                                   Jestes zalogowany/a jako Sprzatacz/ka                                        -" << endl;
+	cout << "-                                                                                                    " << osoba.imie << " " << osoba.nazwisko << " - " << endl;
+	cout << "-                                    Jestes zalogowany/a jako Sprzatacz/ka                                     " << osoba.id << " -" << endl;
 	cout << "-                                                                                                                -" << endl;
 	cout << "-                                                                                                                -" << endl;
 	cout << "-                                                   OPCJE                                                        -" << endl;

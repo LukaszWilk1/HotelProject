@@ -18,7 +18,7 @@ namespace hotel_klasowy
 	{
 		public:
 			ObslugaSprzataczki(Sprzataczka s) : sprzataczka(s) {}
-			void interfejs();
+			void interfejs(Osoba osoba);
 			void wyswietlPokojeDoPosprzatania();
 			bool oznaczPokojJakoPosprzatany(int idPokoju);
 
