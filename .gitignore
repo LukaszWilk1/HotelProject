@@ -1,6 +1,7 @@
 .vs
 **.vcxproj
 **.sln
-bin
+bin/*
 obj
 **.vcxproj.*
+!vendor/bin/*
