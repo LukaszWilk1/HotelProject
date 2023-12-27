@@ -1,4 +1,5 @@
 #include <string>
+#include "TypyKont.h"
 using namespace std;
 
 #ifndef __Osoba_h__
@@ -15,21 +16,13 @@ namespace hotel_klasowy
 	{
 	public:
 		Osoba() {}
-		Osoba(string im, string n, int i, int t) : imie(im), nazwisko(n), id(i), typ_konta(t) {}
-		Osoba(const Osoba& o) {
-			imie = o.imie;
-			nazwisko = o.nazwisko;
-			id = o.id;
-			typ_konta = o.typ_konta;
-		}
-		protected: string imie = "";
-		protected: string nazwisko = "";
-		protected: int id = -1;
-		protected: int typ_konta = -1;
-		
-		public: int getTypKonta() {
-			return typ_konta;
-		}
+		Osoba(string im, string n, int i, TypKonta t) : imie(im), nazwisko(n), id(i), typ_konta(t) {}
+		Osoba(const Osoba& o) : imie (o.imie), nazwisko(o.nazwisko), id(o.id), typ_konta(o.typ_konta) {}
+    
+		const string imie = "";
+		const string nazwisko = "";
+		const int id = -1;
+		const TypKonta typ_konta = NONE;
 	};
 }
 

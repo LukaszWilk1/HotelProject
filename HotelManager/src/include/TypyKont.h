@@ -1,6 +1,7 @@
 #pragma once
 namespace hotel_klasowy {
-	enum Typy_Kont {
+	enum TypKonta {
+		NONE = -1,
 		KLIENT = 0,
 		RECEPCJA = 1,
 		SPRZATACZKA = 2
