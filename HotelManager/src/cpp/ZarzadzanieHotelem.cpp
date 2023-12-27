@@ -33,6 +33,29 @@ void hotel_klasowy::ZarzadzanieHotelem::start() {
 	hotel_klasowy::Osoba uzytkownik = bazaUzytkownikow.getUzytkownik(id);
 	hotel_klasowy::TypKonta typKonta = uzytkownik.typ_konta;
 
+	while (typKonta == NONE) {
+		system("cls");
+		cout << "------------------------------------------------------------------------------------------------------------------" << endl;
+		cout << "-                                                                                                                -" << endl;
+		cout << "-                                                                                                                -" << endl;
+		cout << "-                                                                                                                -" << endl;
+		cout << "-                                                                                                                -" << endl;
+		cout << "-                                                  LOGOWANIE                                                     -" << endl;
+		cout << "-                                           =======================                                              -" << endl;
+		cout << "-                                           |                     |                                              -" << endl;
+		cout << "-                                           |      Podaj ID:      |                                              -" << endl;
+		cout << "-                                           |                     |                                              -" << endl;
+		cout << "-                                           =======================                                              -" << endl;
+		cout << "-                                                                                                                -" << endl;
+		cout << "-                                                                                                                -" << endl;
+		cout << "-                                                                                                                -" << endl;
+		cout << "-                                                                                                                -" << endl;
+		cout << "------------------------------------------------------------------------------------------------------------------" << endl;
+		cout << "Uzytkownik o tym ID nie istnieje! Wprowadz poprawne ID: ";
+		cin >> id;
+		typKonta = bazaUzytkownikow.getUzytkownik(id).typ_konta;
+	}
+
 	if (typKonta == KLIENT) {
 		hotel_klasowy::ObslugaKlienta obslugaKlienta(uzytkownik);
 		obslugaKlienta.interfejs();
@@ -44,8 +67,5 @@ void hotel_klasowy::ZarzadzanieHotelem::start() {
 	else if (typKonta == SPRZATACZKA) {
 		hotel_klasowy::ObslugaSprzataczki obslugaSprzataczki(uzytkownik);
 		obslugaSprzataczki.interfejs();
-	}
-	else {
-		//jeszcze raz wpisz id
 	}
 }
