@@ -34,6 +34,35 @@ void hotel_klasowy::ObslugaKlienta::interfejs(Osoba osoba) {
 	int opcja = 0;
 	cin >> opcja;
 
+	while (opcja != 1 && opcja != 2 && opcja != 3 && opcja != 4 && opcja != 5) {
+		system("cls");
+		cout << "------------------------------------------------------------------------------------------------------------------" << endl;
+		cout << "-                                                                                                    " << osoba.imie << " " << osoba.nazwisko << " - " << endl;
+		cout << "-                                    Jestes zalogowany/a jako Klient/ka                                        " << osoba.id << " -" << endl;
+		cout << "-                                                                                                                -" << endl;
+		cout << "-                                                                                                                -" << endl;
+		cout << "-                                                                                                                -" << endl;
+		cout << "-                                                   OPCJE                                                        -" << endl;
+		cout << "-                                                                                                                -" << endl;
+		cout << "-                                  ========================================                                      -" << endl;
+		cout << "-                                  |                                      |                                      -" << endl;
+		cout << "-                                  |         1. Dodaj Recerwacje          |                                      -" << endl;
+		cout << "-                                  |                                      |                                      -" << endl;
+		cout << "-                                  |   2. Wyswietl wszystkie rezerwacje   |                                      -" << endl;
+		cout << "-                                  |                                      |                                      -" << endl;
+		cout << "-                                  |         3. Anuluj rezerwacje         |                                      -" << endl;
+		cout << "-                                  |                                      |                                      -" << endl;
+		cout << "-                                  |        4. Wyswietl rezerwacje        |                                      -" << endl;
+		cout << "-                                  |                                      |                                      -" << endl;
+		cout << "-                                  |      5. Zmien termin rezerwacji      |                                      -" << endl;
+		cout << "-                                  |                                      |                                      -" << endl;
+		cout << "-                                  ========================================                                      -" << endl;
+		cout << "-                                                                                                                -" << endl;
+		cout << "------------------------------------------------------------------------------------------------------------------" << endl;
+		cout << "Nie ma takiej operacji!" << endl;
+		cin >> opcja;
+	}
+
 	switch (opcja) {
 	case 1:
 		dodajRezerwacje();
