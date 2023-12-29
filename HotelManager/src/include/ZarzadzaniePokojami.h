@@ -6,6 +6,7 @@ using namespace std;
 
 #include "Pokoj.h"
 #include "Termin.h"
+#include "OpisPokoju.h"
 
 namespace hotel_klasowy
 {
@@ -18,13 +19,22 @@ namespace hotel_klasowy
 {
 	class ZarzadzaniePokojami
 	{
-		public: 
+		public:
+			ZarzadzaniePokojami();
+
 			int znajdzWolnyPokoj(int typPokoju, hotel_klasowy::Termin termin);
-			const Pokoj& getPokoj(int idPokoju);
-			bool zablokujPokoj();
+			Pokoj& getPokoj(int idPokoju);
+			const std::vector<OpisPokoju>& getRodzajePokoji() const {
+				return rodzajePokoji;
+			}
+
 
 		private: 
 			std::vector<Pokoj> listaPokoi;
+			std::vector<OpisPokoju> rodzajePokoji;
+			void zapiszPokoje();
+			void odczytajPokoje();
+			void odczytajRodzajePokoji();
 	};
 }
 

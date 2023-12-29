@@ -60,7 +60,6 @@ void hotel_klasowy::BazaUzytkownikow::odczytajDane() {
 			uzytkownicy.push_back(o);
 		}
 		myfile.close();
-		std::cout << uzytkownicy.size();
 	}
 	else {
 		throw "Unable to open users.hotel file";
