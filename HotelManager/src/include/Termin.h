@@ -16,18 +16,10 @@ namespace hotel_klasowy
 {
 	class Termin
 	{
-		public: hotel_klasowy::Date od;
-		public: hotel_klasowy::Date do_5;
-
-		public: int dlugosPobytu();
-
-		public: void setOd(hotel_klasowy::Date od);
-
-		public: hotel_klasowy::Date getOd();
-
-		public: void setDo_5(hotel_klasowy::Date do_5);
-
-		public: hotel_klasowy::Date getDo_5();
+	public: 
+		hotel_klasowy::Date from;
+		hotel_klasowy::Date to;
+		int dlugosPobytu();
 	};
 }
 

@@ -16,7 +16,12 @@ project "HotelManager"
 
     includedirs {
         "src/include",
-        "vendor/fmt/include"
+        "vendor/fmt/include",
+        "vendor/yaml-cpp/include"
+    }
+
+    links {
+        "yaml-cpp"
     }
 
     filter { "system:windows" }

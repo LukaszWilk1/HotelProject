@@ -20,7 +20,7 @@ namespace hotel_klasowy
 	{
 		public: 
 			int znajdzWolnyPokoj(int typPokoju, hotel_klasowy::Termin termin);
-			Pokoj* getPokoj(int idPokoju);
+			const Pokoj& getPokoj(int idPokoju);
 			bool zablokujPokoj();
 
 		private: 

@@ -9,7 +9,7 @@ int hotel_klasowy::ZarzadzaniePokojami::znajdzWolnyPokoj(int typPokoju, hotel_kl
 	throw "Not yet implemented";
 }
 
-hotel_klasowy::Pokoj* hotel_klasowy::ZarzadzaniePokojami::getPokoj(int idPokoju) {
+const hotel_klasowy::Pokoj& hotel_klasowy::ZarzadzaniePokojami::getPokoj(int idPokoju) {
 	throw "Not yet implemented";
 }
 

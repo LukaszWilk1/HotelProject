@@ -17,12 +17,12 @@ namespace hotel_klasowy
 {
 	class Pokoj
 	{
-		public: int numer;
-		public: int typ_pokoju;
-		public: bool do_sprzatania;
-		public: bool zablokowany;
-		public: string uwagi;
-		public: std::vector<hotel_klasowy::Rezerwacja*> unnamed_Rezerwacja_;
+	public: 
+		int numer;
+		int typ_pokoju;
+		bool do_sprzatania;
+		bool zablokowany;
+		string uwagi;
 	};
 }
 

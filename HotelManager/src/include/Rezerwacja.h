@@ -25,8 +25,6 @@ namespace hotel_klasowy
 		public: hotel_klasowy::Termin termin_pobytu;
 		public: bool zakwaterowana;
 		public: bool oplacona;
-		public: hotel_klasowy::Pokoj* unnamed_Pokój_;
-		public: hotel_klasowy::Klient* unnamed_Klient_;
 	};
 }
 

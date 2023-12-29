@@ -40,5 +40,9 @@ workspace "HotelManager"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+group "Dependencies"
+    include "HotelManager/vendor/yaml-cpp"
+group ""
+
 include "HotelManager"
 include "HotelManagerTests"
