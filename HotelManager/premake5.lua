@@ -26,12 +26,14 @@ project "HotelManager"
 
     filter { "system:windows" }
         defines {
-            "WINDOWS"
+            "WINDOWS",
+            "YAML_CPP_STATIC_DEFINE"
         }
 
     filter { "system:linux" }
         defines {
-            "LINUX"
+            "LINUX",
+            "YAML_CPP_STATIC_DEFINE"
         }
 
     filter { "configurations:Debug" }

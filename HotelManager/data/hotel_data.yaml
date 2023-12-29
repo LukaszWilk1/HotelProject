@@ -1,0 +1,17 @@
+nazwa_hotelu: "Hotel Malinka"
+typy_pokoji:
+  - id: 0
+    nazwa: "Pokoj jednoosobowy"
+    opis: "Przestronny pokoj"
+    maxOsob: 1
+    cena: 70.00
+  - id: 1
+    nazwa: "Pokoj dwuosobowy"
+    opis: "Przestronny pokoj"
+    maxOsob: 2
+    cena: 120.00
+  - id: 3
+    nazwa: "Pokoj trzyosobowy"
+    opis: "Przestronny pokoj"
+    maxOsob: 3
+    cena: 150.00

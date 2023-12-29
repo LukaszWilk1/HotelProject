@@ -2,6 +2,7 @@
 #include <fstream>
 #include <Utils.h>
 #include <iostream>
+#include <yaml-cpp/yaml.h>
 #include "fmt/core.h"
 #include "ZarzadzaniePokojami.h"
 #include "Pokoj.h"
@@ -58,9 +59,6 @@ void hotel_klasowy::ZarzadzaniePokojami::odczytajPokoje()
 			listaPokoi.push_back(p);
 		}
 		myfile.close();
-		for (auto& p : listaPokoi) {
-			std::cout << fmt::format("{:d};{:d};{:b};{:b};{}\n", p.numer, p.typ_pokoju, p.zablokowany, p.do_sprzatania, p.uwagi);
-		}
 	}
 	else {
 		throw "Unable to open pokoje.hotel file";
@@ -69,5 +67,16 @@ void hotel_klasowy::ZarzadzaniePokojami::odczytajPokoje()
 
 void hotel_klasowy::ZarzadzaniePokojami::odczytajRodzajePokoji()
 {
+	YAML::Node n;
+	
+	YAML::Node config = YAML::LoadFile(DATA_FOLDER("hotel_data.yaml"));
+	if (config["typy_pokoji"]) {
+		for (auto& n : config["typy_pokoji"]) {
+			OpisPokoju p = n.as<OpisPokoju>();
+			rodzajePokoji.push_back(p);
+			std::cout << fmt::format("{};{};{};{}\n", p.id(), p.nazwa(), p.opis(), p.cenaZaDobe());
+			
+		}
+	}
 }
 
