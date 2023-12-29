@@ -2,6 +2,8 @@
 
 IF "%1" == "" GOTO help
 
+:: download submodules
+git submodule update --init --recursive
 vendor\bin\premake5.exe %1
 goto:eof
 
