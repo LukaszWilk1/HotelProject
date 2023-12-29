@@ -10,7 +10,7 @@ typy_pokoji:
     opis: "Przestronny pokoj"
     maxOsob: 2
     cena: 120.00
-  - id: 3
+  - id: 2
     nazwa: "Pokoj trzyosobowy"
     opis: "Przestronny pokoj"
     maxOsob: 3

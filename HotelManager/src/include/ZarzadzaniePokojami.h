@@ -23,8 +23,7 @@ namespace hotel_klasowy
 			ZarzadzaniePokojami();
 
 			int znajdzWolnyPokoj(int typPokoju, hotel_klasowy::Termin termin);
-			const Pokoj& getPokoj(int idPokoju);
-			bool zablokujPokoj(int id);
+			Pokoj& getPokoj(int idPokoju);
 			const std::vector<OpisPokoju>& getRodzajePokoji() const {
 				return rodzajePokoji;
 			}

@@ -7,8 +7,8 @@ using namespace std;
 namespace hotel_klasowy {
 	class OpisPokoju {
 	public:
-		OpisPokoju() : _id(-1),  _nazwa(""), _opis(""), _maxOsob(0), _cenaZaDobe(0) {}
-		OpisPokoju(int id, string n, string o, int m, int c) : _id(id), _nazwa(n), _opis(o), _maxOsob(m), _cenaZaDobe(c) {}
+		OpisPokoju() : _id(-1),  _nazwa(""), _opis(""), _maxOsob(0), _cenaZaDobe(0.0) {}
+		OpisPokoju(int id, string n, string o, int m, float c) : _id(id), _nazwa(n), _opis(o), _maxOsob(m), _cenaZaDobe(c) {}
         int id() const {
             return _id;
         }

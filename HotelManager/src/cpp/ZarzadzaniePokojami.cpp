@@ -1,7 +1,6 @@
 #include <exception>
 #include <fstream>
 #include <Utils.h>
-#include <iostream>
 #include <yaml-cpp/yaml.h>
 #include "fmt/core.h"
 #include "ZarzadzaniePokojami.h"
@@ -20,13 +19,11 @@ int hotel_klasowy::ZarzadzaniePokojami::znajdzWolnyPokoj(int typPokoju, hotel_kl
 	throw "Not yet implemented";
 }
 
-const hotel_klasowy::Pokoj& hotel_klasowy::ZarzadzaniePokojami::getPokoj(int idPokoju) {
-	throw "Not yet implemented";
-}
-
-bool hotel_klasowy::ZarzadzaniePokojami::zablokujPokoj(int id)
-{
-	return false;
+hotel_klasowy::Pokoj& hotel_klasowy::ZarzadzaniePokojami::getPokoj(int idPokoju) {
+	for (auto& p : listaPokoi) {
+		if (p.numer == idPokoju) return p;
+	}
+	return Pokoj();
 }
 
 void hotel_klasowy::ZarzadzaniePokojami::zapiszPokoje()
@@ -67,16 +64,15 @@ void hotel_klasowy::ZarzadzaniePokojami::odczytajPokoje()
 
 void hotel_klasowy::ZarzadzaniePokojami::odczytajRodzajePokoji()
 {
-	YAML::Node n;
-	
 	YAML::Node config = YAML::LoadFile(DATA_FOLDER("hotel_data.yaml"));
 	if (config["typy_pokoji"]) {
 		for (auto& n : config["typy_pokoji"]) {
 			OpisPokoju p = n.as<OpisPokoju>();
 			rodzajePokoji.push_back(p);
-			std::cout << fmt::format("{};{};{};{}\n", p.id(), p.nazwa(), p.opis(), p.cenaZaDobe());
-			
 		}
+	}
+	else {
+		throw "Missing typy_pokoji in hotel_data.yaml";
 	}
 }
 
