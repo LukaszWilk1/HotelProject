@@ -12,38 +12,21 @@ using namespace std;
 #include "ObslugaSprzataczki.h"
 
 void hotel_klasowy::ZarzadzanieHotelem::start() {
-	int id;
-	cout << "------------------------------------------------------------------------------------------------------------------" << endl;
-	cout << "-                                                                                                                -" << endl;
-	cout << "-                                                                                                                -" << endl;
-	cout << "-                                                                                                                -" << endl;
-	cout << "-                                                                                                                -" << endl;
-	cout << "-                                                  LOGOWANIE                                                     -" << endl;
-	cout << "-                                           =======================                                              -" << endl;
-	cout << "-                                           |                     |                                              -" << endl;
-	cout << "-                                           |      Podaj ID:      |                                              -" << endl;
-	cout << "-                                           |                     |                                              -" << endl;
-	cout << "-                                           =======================                                              -" << endl;
-	cout << "-                                                                                                                -" << endl;
-	cout << "-                                                                                                                -" << endl;
-	cout << "-                                                                                                                -" << endl;
-	cout << "-                                                                                                                -" << endl;
-	cout << "------------------------------------------------------------------------------------------------------------------" << endl;
-	cin >> id;
-	hotel_klasowy::Osoba uzytkownik = bazaUzytkownikow.getUzytkownik(id);
-	hotel_klasowy::TypKonta typKonta = uzytkownik.typ_konta;
-
-	while (typKonta == NONE) {
-		system("cls");
+	int id, opcja;
+	bool zarejestrowano = true;
+	while (zarejestrowano) {
+		zarejestrowano = false;
 		cout << "------------------------------------------------------------------------------------------------------------------" << endl;
 		cout << "-                                                                                                                -" << endl;
 		cout << "-                                                                                                                -" << endl;
 		cout << "-                                                                                                                -" << endl;
 		cout << "-                                                                                                                -" << endl;
-		cout << "-                                                  LOGOWANIE                                                     -" << endl;
+		cout << "-                                                    WITAJ                                                       -" << endl;
 		cout << "-                                           =======================                                              -" << endl;
 		cout << "-                                           |                     |                                              -" << endl;
-		cout << "-                                           |      Podaj ID:      |                                              -" << endl;
+		cout << "-                                           |    1. Logowanie     |                                              -" << endl;
+		cout << "-                                           |                     |                                              -" << endl;
+		cout << "-                                           |   2. Rejestracja    |                                              -" << endl;
 		cout << "-                                           |                     |                                              -" << endl;
 		cout << "-                                           =======================                                              -" << endl;
 		cout << "-                                                                                                                -" << endl;
@@ -51,21 +34,115 @@ void hotel_klasowy::ZarzadzanieHotelem::start() {
 		cout << "-                                                                                                                -" << endl;
 		cout << "-                                                                                                                -" << endl;
 		cout << "------------------------------------------------------------------------------------------------------------------" << endl;
-		cout << "Uzytkownik o tym ID nie istnieje! Wprowadz poprawne ID: ";
-		cin >> id;
-		typKonta = bazaUzytkownikow.getUzytkownik(id).typ_konta;
-	}
+		cin >> opcja;
+		while (opcja != 1 && opcja != 2) {
+			system("cls");
+			cout << "------------------------------------------------------------------------------------------------------------------" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                    WITAJ                                                       -" << endl;
+			cout << "-                                           =======================                                              -" << endl;
+			cout << "-                                           |                     |                                              -" << endl;
+			cout << "-                                           |    1. Logowanie     |                                              -" << endl;
+			cout << "-                                           |                     |                                              -" << endl;
+			cout << "-                                           |   2. Rejestracja    |                                              -" << endl;
+			cout << "-                                           |                     |                                              -" << endl;
+			cout << "-                                           =======================                                              -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "------------------------------------------------------------------------------------------------------------------" << endl;
+			cout << "Nie ma takiej opcji!" << endl;
+			cin >> opcja;
+		};
 
-	if (typKonta == KLIENT) {
-		hotel_klasowy::ObslugaKlienta obslugaKlienta(uzytkownik);
-		obslugaKlienta.interfejs(uzytkownik);
-	}
-	else if (typKonta == RECEPCJA) {
-		hotel_klasowy::ObslugaRecepcji obslugaRecepcji(uzytkownik);
-		obslugaRecepcji.interfejs(uzytkownik);
-	}
-	else if (typKonta == SPRZATACZKA) {
-		hotel_klasowy::ObslugaSprzataczki obslugaSprzataczki(uzytkownik);
-		obslugaSprzataczki.interfejs(uzytkownik);
+		if (opcja == 1) {
+			system("cls");
+			cout << "------------------------------------------------------------------------------------------------------------------" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                  LOGOWANIE                                                     -" << endl;
+			cout << "-                                           =======================                                              -" << endl;
+			cout << "-                                           |                     |                                              -" << endl;
+			cout << "-                                           |      Podaj ID:      |                                              -" << endl;
+			cout << "-                                           |                     |                                              -" << endl;
+			cout << "-                                           =======================                                              -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "------------------------------------------------------------------------------------------------------------------" << endl;
+			cin >> id;
+			hotel_klasowy::Osoba uzytkownik = bazaUzytkownikow.getUzytkownik(id);
+			hotel_klasowy::TypKonta typKonta = uzytkownik.typ_konta;
+
+			while (typKonta == NONE) {
+				system("cls");
+				cout << "------------------------------------------------------------------------------------------------------------------" << endl;
+				cout << "-                                                                                                                -" << endl;
+				cout << "-                                                                                                                -" << endl;
+				cout << "-                                                                                                                -" << endl;
+				cout << "-                                                                                                                -" << endl;
+				cout << "-                                                  LOGOWANIE                                                     -" << endl;
+				cout << "-                                           =======================                                              -" << endl;
+				cout << "-                                           |                     |                                              -" << endl;
+				cout << "-                                           |      Podaj ID:      |                                              -" << endl;
+				cout << "-                                           |                     |                                              -" << endl;
+				cout << "-                                           =======================                                              -" << endl;
+				cout << "-                                                                                                                -" << endl;
+				cout << "-                                                                                                                -" << endl;
+				cout << "-                                                                                                                -" << endl;
+				cout << "-                                                                                                                -" << endl;
+				cout << "------------------------------------------------------------------------------------------------------------------" << endl;
+				cout << "Uzytkownik o tym ID nie istnieje! Wprowadz poprawne ID: ";
+				cin >> id;
+				typKonta = bazaUzytkownikow.getUzytkownik(id).typ_konta;
+			}
+
+			if (typKonta == KLIENT) {
+				hotel_klasowy::ObslugaKlienta obslugaKlienta(uzytkownik);
+				obslugaKlienta.interfejs(uzytkownik);
+			}
+			else if (typKonta == RECEPCJA) {
+				hotel_klasowy::ObslugaRecepcji obslugaRecepcji(uzytkownik);
+				obslugaRecepcji.interfejs(uzytkownik);
+			}
+			else if (typKonta == SPRZATACZKA) {
+				hotel_klasowy::ObslugaSprzataczki obslugaSprzataczki(uzytkownik);
+				obslugaSprzataczki.interfejs(uzytkownik);
+			}
+		}
+
+		else if (opcja == 2) {
+			system("cls");
+			string imie, nazwisko;
+			cout << "------------------------------------------------------------------------------------------------------------------" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                 REJESTRACJA                                                    -" << endl;
+			cout << "-                                         ============================                                           -" << endl;
+			cout << "-                                         |                          |                                           -" << endl;
+			cout << "-                                         |  Podaj Imie i Nazwisko:  |                                           -" << endl;
+			cout << "-                                         |                          |                                           -" << endl;
+			cout << "-                                         ============================                                           -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "------------------------------------------------------------------------------------------------------------------" << endl;
+			cin >> imie >> nazwisko;
+			hotel_klasowy::BazaUzytkownikow baza;
+			baza.dodajUzytkownika(imie, nazwisko, KLIENT);
+			system("cls");
+			cout << "Uzytkownik pomyslnie dodany." << endl;
+			zarejestrowano = true;
+		}
 	}
 }
