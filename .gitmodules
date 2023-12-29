@@ -1,3 +1,4 @@
 [submodule "HotelManager/vendor/yaml-cpp"]
 	path = HotelManager/vendor/yaml-cpp
 	url = https://github.com/reKOmo/yaml-cpp.git
+	branch = master
