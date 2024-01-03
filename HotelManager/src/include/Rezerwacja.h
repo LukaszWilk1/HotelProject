@@ -18,6 +18,14 @@ namespace hotel_klasowy
 {
 	class Rezerwacja
 	{
+	public: Rezerwacja() {
+		id = NULL;
+		id_kllienta = NULL;
+		nr_pokoju = NULL;
+		archiwalna = false;
+		zakwaterowana = false;
+		oplacona = false;
+	}
 		public: int id;
 		public: int id_kllienta;
 		public: int nr_pokoju;

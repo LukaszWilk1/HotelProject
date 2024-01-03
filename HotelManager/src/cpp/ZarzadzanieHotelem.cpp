@@ -16,6 +16,7 @@ void hotel_klasowy::ZarzadzanieHotelem::start() {
 	bool zarejestrowano = true;
 	while (zarejestrowano) {
 		zarejestrowano = false;
+		system("cls");
 		cout << "------------------------------------------------------------------------------------------------------------------" << endl;
 		cout << "-                                                                                                                -" << endl;
 		cout << "-                                                                                                                -" << endl;
