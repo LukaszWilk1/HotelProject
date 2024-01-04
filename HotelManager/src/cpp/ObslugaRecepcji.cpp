@@ -29,9 +29,14 @@ void hotel_klasowy::ObslugaRecepcji::wyswietlWszystkiePokoje() {
 	cout << "Oto wszystkie pokoje" << endl;
 }
 
-bool hotel_klasowy::ObslugaRecepcji::zablokujPokoj(string idPokoju) {
+bool hotel_klasowy::ObslugaRecepcji::zablokujPokoj(int idPokoju) {
 	system("cls");
 	cout << "Zablokowano pokoj" << endl;
+	hotel_klasowy::ZarzadzaniePokojami z;
+	hotel_klasowy::Pokoj p = z.getPokoj(idPokoju);
+	p.zablokowany = true;
+	cout << "Pokoj o id: " << p.numer << " pomyslnie zablokowany." << endl;
+	z.zapiszPokoje();
 	return true;
 }
 
@@ -160,7 +165,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs(Osoba osoba) {
 		wyswietlWszystkiePokoje();
 		break;
 	case 9:
-		zablokujPokoj("id");
+		zablokujPokoj(4);
 		break;
 	case 10:
 		zakwateruj(4);

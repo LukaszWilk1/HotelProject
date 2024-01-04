@@ -28,7 +28,7 @@ namespace hotel_klasowy
 			hotel_klasowy::Recepcjonista recepcjonista;
 			void wyswietlPokoj(int idPokoju);
 			void wyswietlWszystkiePokoje();
-			bool zablokujPokoj(string idPokoju);
+			bool zablokujPokoj(int idPokoju);
 			bool zakwateruj(int idRezerwacji);
 			bool wykwateruj(int idRezerwacji);
 			void odblokujPokoj(int idPokoju);
