@@ -88,5 +88,16 @@ namespace UnitTestTest
 			Assert::IsTrue(u.nazwisko == "Wojtas");
 			Assert::IsTrue(u.typ_konta == hotel_klasowy::KLIENT);
 		}
+
+		TEST_METHOD(DodawanieUzytkownikow)
+		{
+			hotel_klasowy::BazaUzytkownikow b;
+			int id = b.dodajUzytkownika("Maria", "Wojtas", hotel_klasowy::KLIENT);
+			auto u = b.getUzytkownik(id);
+			Assert::IsTrue(u.id == id);
+			Assert::IsTrue(u.imie == "Maria");
+			Assert::IsTrue(u.nazwisko == "Wojtas");
+			Assert::IsTrue(u.typ_konta == hotel_klasowy::KLIENT);
+		}
 	};
 }
