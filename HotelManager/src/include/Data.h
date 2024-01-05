@@ -31,6 +31,7 @@ namespace hotel_klasowy
 		int operator-(const Data& rhs);
 		Data operator-(const int& rhs);
 		Data operator+(const int& rhs);
+		bool operator==(const Data& rhs);
 		friend std::ostream& operator<<(std::ostream& stream, const Data& matrix);
 	};
 }
