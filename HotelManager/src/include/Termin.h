@@ -4,7 +4,7 @@ using namespace std;
 #ifndef __Termin_h__
 #define __Termin_h__
 
-#include "Date.h"
+#include "Data.h"
 
 namespace hotel_klasowy
 {
@@ -17,8 +17,8 @@ namespace hotel_klasowy
 	class Termin
 	{
 	public: 
-		hotel_klasowy::Date from;
-		hotel_klasowy::Date to;
+		hotel_klasowy::Data from;
+		hotel_klasowy::Data to;
 		int dlugosPobytu();
 	};
 }
