@@ -1,4 +1,3 @@
-#include <exception>
 using namespace std;
 
 #ifndef __Termin_h__
@@ -16,10 +15,16 @@ namespace hotel_klasowy
 {
 	class Termin
 	{
-	public: 
-		hotel_klasowy::Data from;
-		hotel_klasowy::Data to;
+	public:
+		Termin() {};
+		Termin(Data o, Data d) : odDnia(o), doDnia(d) {}
+		hotel_klasowy::Data odDnia;
+		hotel_klasowy::Data doDnia;
 		int dlugosPobytu();
+		/**
+		*	Sprawdza czy terminy nie zachodza na siebie
+		**/
+		bool operator^(const Termin& rhs);
 	};
 }
 
