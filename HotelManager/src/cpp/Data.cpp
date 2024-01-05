@@ -109,6 +109,16 @@ bool hotel_klasowy::Data::operator==(const Data& rhs)
 	return dzien == rhs.dzien && miesiac == rhs.miesiac && rok == rhs.rok;
 }
 
+bool hotel_klasowy::Data::operator>(const Data& rhs)
+{
+	return naDni() > rhs.naDni();
+}
+
+bool hotel_klasowy::Data::operator<(const Data& rhs)
+{
+	return naDni() < rhs.naDni();
+}
+
 std::ostream& hotel_klasowy::operator<<(std::ostream& stream, const Data& d)
 {
 	stream << fmt::format("{}.{}.{}", d.dzien, d.miesiac, d.rok);
