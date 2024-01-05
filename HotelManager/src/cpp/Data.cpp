@@ -104,6 +104,11 @@ hotel_klasowy::Data hotel_klasowy::Data::operator+(const int& rhs) {
 	return Data(d);
 }
 
+bool hotel_klasowy::Data::operator==(const Data& rhs)
+{
+	return dzien == rhs.dzien && miesiac == rhs.miesiac && rok == rhs.rok;
+}
+
 std::ostream& hotel_klasowy::operator<<(std::ostream& stream, const Data& d)
 {
 	stream << fmt::format("{}.{}.{}", d.dzien, d.miesiac, d.rok);
