@@ -12,7 +12,7 @@ int hotel_klasowy::BazaUzytkownikow::dodajUzytkownika(string imie, string nazwis
 {
     uzytkownicy.push_back({ imie, nazwisko, nextID++, typ });
 	zapiszDane();
-    return nextID;
+    return nextID - 1;
 }
 
 /**

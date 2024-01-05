@@ -1,3 +1,4 @@
+#include <filesystem>
 #include "pch.h"
 #include "CppUnitTest.h"
 #include "Utils.cpp"
@@ -73,6 +74,7 @@ namespace UnitTestTest
 			for (auto& s : sp) {
 				Logger::WriteMessage(fmt::format("{}\n", s).c_str());
 			}
+			Logger::WriteMessage(DATA_FOLDER("aaa"));
 			Assert::AreEqual(expected.size(), sp.size());
 			Assert::IsTrue(expected == sp);
 		}
