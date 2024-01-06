@@ -5,6 +5,7 @@
 #include "fmt/core.h"
 #include "BazaUzytkownikow.cpp"
 #include "TypyKont.h"
+#include "Data.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -101,5 +102,18 @@ namespace UnitTestTest
 			Assert::IsTrue(u.nazwisko == "Wojtas");
 			Assert::IsTrue(u.typ_konta == hotel_klasowy::KLIENT);
 		}
+
+		TEST_METHOD(TestDoTworzeniaDaty)
+		{
+			hotel_klasowy::Data d(6, 1, 2024);
+			int dzien = d.getDzien();
+			int miesiac = d.getMiesiac();
+			int rok = d.getRok();
+			Assert::IsTrue(dzien == 6);
+			Assert::IsTrue(miesiac == 1);
+			Assert::IsTrue(rok == 2024);
+		}
+
+
 	};
 }
