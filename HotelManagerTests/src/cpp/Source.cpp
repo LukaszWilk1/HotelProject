@@ -114,6 +114,13 @@ namespace UnitTestTest
 			Assert::IsTrue(rok == 2024);
 		}
 
+		TEST_METHOD(TestRoznicaMiedzyDatami)
+		{
+			hotel_klasowy::Data d_1(6, 1, 2024);
+			hotel_klasowy::Data d_2(9, 1, 2024);
+			int roznica = d_2 - d_1;
+			Assert::IsTrue(roznica == 3);
+		}
 
 	};
 }
