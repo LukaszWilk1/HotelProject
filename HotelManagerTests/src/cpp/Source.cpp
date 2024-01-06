@@ -122,5 +122,12 @@ namespace UnitTestTest
 			Assert::IsTrue(roznica == 3);
 		}
 
+		TEST_METHOD(TestSetData)
+		{
+			hotel_klasowy::Data d(1, 2, 2023);
+			d.setDzien(0);
+			Assert::AreEqual(1, d.getDzien()); 
+		}
+
 	};
 }
