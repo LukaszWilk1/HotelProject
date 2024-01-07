@@ -6,7 +6,7 @@ using namespace std;
 #include "Klient.h"
 #include "Termin.h"
 
-int hotel_klasowy::ZarzadzanieRezerwacjami::dodajRezerwacje(hotel_klasowy::Klient klient, hotel_klasowy::Termin termin, int typPokoju) {
+int hotel_klasowy::ZarzadzanieRezerwacjami::dodajRezerwacje(hotel_klasowy::Klient osoba, hotel_klasowy::Termin termin, int typPokoju) {
 	throw "Not yet implemented";
 }
 

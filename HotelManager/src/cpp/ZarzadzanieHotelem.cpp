@@ -106,16 +106,16 @@ void hotel_klasowy::ZarzadzanieHotelem::start() {
 			}
 
 			if (typKonta == KLIENT) {
-				hotel_klasowy::ObslugaKlienta obslugaKlienta(uzytkownik);
-				obslugaKlienta.interfejs(uzytkownik);
+				hotel_klasowy::ObslugaKlienta obslugaKlienta(uzytkownik, zarzadzanieRezerwacjami, zarzadzaniePokojami);
+				obslugaKlienta.interfejs();
 			}
 			else if (typKonta == RECEPCJA) {
-				hotel_klasowy::ObslugaRecepcji obslugaRecepcji(uzytkownik);
-				obslugaRecepcji.interfejs(uzytkownik);
+				hotel_klasowy::ObslugaRecepcji obslugaRecepcji(uzytkownik, zarzadzanieRezerwacjami, zarzadzaniePokojami);
+				obslugaRecepcji.interfejs();
 			}
 			else if (typKonta == SPRZATACZKA) {
-				hotel_klasowy::ObslugaSprzataczki obslugaSprzataczki(uzytkownik);
-				obslugaSprzataczki.interfejs(uzytkownik);
+				hotel_klasowy::ObslugaSprzataczki obslugaSprzataczki(uzytkownik, zarzadzaniePokojami);
+				obslugaSprzataczki.interfejs();
 			}
 		}
 

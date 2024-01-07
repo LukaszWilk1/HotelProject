@@ -5,24 +5,21 @@ using namespace std;
 #define __ObslugaSprzataczki_h__
 
 #include "Sprzataczka.h"
-
-namespace hotel_klasowy
-{
-	class Sprzataczka;
-	class ObslugaSprzataczki;
-}
+#include "ZarzadzaniePokojami.h"
 
 namespace hotel_klasowy
 {
 	class ObslugaSprzataczki
 	{
 		public:
-			ObslugaSprzataczki(Sprzataczka s) : sprzataczka(s) {}
-			void interfejs(Osoba osoba);
+			ObslugaSprzataczki(Sprzataczka s, ZarzadzaniePokojami& zp) : osoba(s), zarzadzaniePokojami(zp) {}
+			void interfejs();
 			void wyswietlPokojeDoPosprzatania();
 			bool oznaczPokojJakoPosprzatany(int idPokoju);
 
-		private: hotel_klasowy::Sprzataczka sprzataczka;
+		private:
+			const Sprzataczka osoba;
+			const ZarzadzaniePokojami& zarzadzaniePokojami;
 	};
 }
 

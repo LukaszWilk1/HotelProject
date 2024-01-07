@@ -21,7 +21,6 @@ namespace hotel_klasowy
 	{
 		public:
 			ZarzadzaniePokojami();
-			void zapiszPokoje();
 			int znajdzWolnyPokoj(int typPokoju, hotel_klasowy::Termin termin);
 			Pokoj& getPokoj(int idPokoju);
 			const std::vector<OpisPokoju>& getRodzajePokoji() const {
