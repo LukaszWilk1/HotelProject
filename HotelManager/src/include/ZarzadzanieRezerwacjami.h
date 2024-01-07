@@ -10,19 +10,11 @@ using namespace std;
 
 namespace hotel_klasowy
 {
-	class Rezerwacja;
-	class Klient;
-	class Termin;
-	class ZaradzanieRezerwacjami;
-}
-
-namespace hotel_klasowy
-{
 	class ZarzadzanieRezerwacjami
 	{
 		private: std::vector<hotel_klasowy::Rezerwacja> rezerwacje;
 
-		public: int dodajRezerwacje(hotel_klasowy::Klient klient, hotel_klasowy::Termin termin, int typPokoju);
+		public: int dodajRezerwacje(hotel_klasowy::Klient osoba, hotel_klasowy::Termin termin, int typPokoju);
 
 		public: bool anulujRezerwacje(int idRezerwacji);
 

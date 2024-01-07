@@ -18,9 +18,8 @@ namespace hotel_klasowy
 	class ObslugaKlienta : public hotel_klasowy::PodstawowaObsluga 
 	{
 	public:
-		ObslugaKlienta() {}
-		ObslugaKlienta(Osoba k) : PodstawowaObsluga(k) {}
-		virtual void interfejs(Osoba osoba) override;
+		ObslugaKlienta(Osoba k, ZarzadzanieRezerwacjami& zr, ZarzadzaniePokojami& zp) : PodstawowaObsluga(k, zr, zp) {}
+		virtual void interfejs() override;
 
 	private:
 		virtual void dodajRezerwacje() override;
@@ -28,6 +27,7 @@ namespace hotel_klasowy
 		virtual void anulujRezerwacje(int idRezerwacji) override;
 		virtual void wyswietlRezerwacje(int idRezerwacji) override;
 		virtual bool zmienTerminRezerwacji(int idRezerwacji) override;
+		virtual void anulujRezerwacje(string idRezerwacji) override;
 	};
 }
 

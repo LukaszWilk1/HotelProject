@@ -6,7 +6,7 @@ using namespace std;
 #include "Klient.h"
 #include "PodstawowaObsluga.h"
 
-void hotel_klasowy::ObslugaKlienta::interfejs(Osoba osoba) {
+void hotel_klasowy::ObslugaKlienta::interfejs() {
 	system("cls");
 	cout << "------------------------------------------------------------------------------------------------------------------" << endl;
 	cout << "-                                                                                                    "<< osoba.imie << " " << osoba.nazwisko << " - " << endl;
@@ -111,5 +111,9 @@ bool hotel_klasowy::ObslugaKlienta::zmienTerminRezerwacji(int idRezerwacji)
 	system("cls");
 	cout << "Zmiana terminu rezerwacji" << endl;
 	return false;
+}
+
+void hotel_klasowy::ObslugaKlienta::anulujRezerwacje(string idRezerwacji)
+{
 }
 

@@ -14,8 +14,7 @@ bool hotel_klasowy::ObslugaRecepcji::oplacRezerwacje(int idRezerwacji) {
 
 void hotel_klasowy::ObslugaRecepcji::wyswietlPokoj(int idPokoju) {
 	system("cls");
-	hotel_klasowy::ZarzadzaniePokojami z;
-	hotel_klasowy::Pokoj p = z.getPokoj(idPokoju);
+	hotel_klasowy::Pokoj p = zarzadzaniePokojami.getPokoj(idPokoju);
 	cout << "Oto pokoj" << endl;
 	cout << p.numer << endl;
 	cout <<p.typ_pokoju<< endl;
@@ -32,11 +31,10 @@ void hotel_klasowy::ObslugaRecepcji::wyswietlWszystkiePokoje() {
 bool hotel_klasowy::ObslugaRecepcji::zablokujPokoj(int idPokoju) {
 	system("cls");
 	cout << "Zablokowano pokoj" << endl;
-	hotel_klasowy::ZarzadzaniePokojami z;
-	hotel_klasowy::Pokoj p = z.getPokoj(idPokoju);
+	hotel_klasowy::Pokoj p = zarzadzaniePokojami.getPokoj(idPokoju);
 	p.zablokowany = true;
 	cout << "Pokoj o id: " << p.numer << " pomyslnie zablokowany." << endl;
-	z.zapiszPokoje();
+	zarzadzaniePokojami.zapiszPokoje();
 	return true;
 }
 
@@ -57,7 +55,7 @@ void hotel_klasowy::ObslugaRecepcji::odblokujPokoj(int idPokoju) {
 	cout << "Pokoj odblokowano" << endl;
 }
 
-void hotel_klasowy::ObslugaRecepcji::interfejs(Osoba osoba) {
+void hotel_klasowy::ObslugaRecepcji::interfejs() {
 	system("cls");
 	cout << "------------------------------------------------------------------------------------------------------------------" << endl;
 	cout << "-                                                                                                    " << osoba.imie << " " << osoba.nazwisko << " - " << endl;
@@ -205,5 +203,9 @@ bool hotel_klasowy::ObslugaRecepcji::zmienTerminRezerwacji(int idRezerwacji) {
 	system("cls");
 	cout << "Zmiana terminu rezerwacji" << endl;
 	return true;
+}
+
+void hotel_klasowy::ObslugaRecepcji::anulujRezerwacje(string idRezerwacji)
+{
 }
 
