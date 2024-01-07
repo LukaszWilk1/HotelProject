@@ -29,7 +29,7 @@ hotel_klasowy::Pokoj& hotel_klasowy::ZarzadzaniePokojami::getPokoj(int idPokoju)
 void hotel_klasowy::ZarzadzaniePokojami::zapiszPokoje()
 {
 	ofstream myfile;
-	myfile.open(DATA_FOLDER("users.hotel"));
+	myfile.open(DATA_FOLDER("pokoje.hotel"));
 	if (myfile.is_open()) {
 		for (auto& p : listaPokoi) {
 			myfile << fmt::format("{:d};{:d};{:b};{:b};{}\n", p.numer, p.typ_pokoju, p.zablokowany, p.do_sprzatania, p.uwagi);
