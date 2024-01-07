@@ -27,6 +27,10 @@ namespace hotel_klasowy
 			const std::vector<OpisPokoju>& getRodzajePokoji() const {
 				return rodzajePokoji;
 			}
+			const std::vector<Pokoj>& getPokoje() const {
+				return listaPokoi;
+			}
+			void zapiszPokoje();
 
 
 		private: 

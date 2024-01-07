@@ -27,13 +27,15 @@ project "HotelManager"
     filter { "system:windows" }
         defines {
             "WINDOWS",
-            "YAML_CPP_STATIC_DEFINE"
+            "YAML_CPP_STATIC_DEFINE",
+            "CWD=\""..os.getcwd().."\""
         }
 
     filter { "system:linux" }
         defines {
             "LINUX",
-            "YAML_CPP_STATIC_DEFINE"
+            "YAML_CPP_STATIC_DEFINE",
+            "CWD=\""..os.getcwd().."\""
         }
 
     filter { "configurations:Debug" }
