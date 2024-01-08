@@ -1,6 +1,6 @@
+#pragma once
 #include <string>
 #include <yaml-cpp/yaml.h>
-#pragma once
 
 using namespace std;
 

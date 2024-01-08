@@ -26,6 +26,7 @@ namespace hotel_klasowy
 		bool wykwateruj(int idRezerwacji);
 		const Rezerwacja getRezerwacja(int idRezerwacji) const;
 		void zapiszRezerwacje();
+		friend class ZarzadzaniePokojami;
 	};
 }
 
