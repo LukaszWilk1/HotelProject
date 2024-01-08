@@ -8,23 +8,27 @@ using namespace std;
 #include "Klient.h"
 #include "Termin.h"
 
+
 namespace hotel_klasowy
 {
+	class ZarzadzaniePokojami;
 	class ZarzadzanieRezerwacjami
 	{
 	private: 
-		std::vector<hotel_klasowy::Rezerwacja> rezerwacje;
+		std::vector<Rezerwacja> rezerwacje;
 		void odczytajRezerwacje();
+		Rezerwacja& znajdzRezerwacje(int id);
 		int nastepneId = 0;
+		ZarzadzaniePokojami* zarzadzaniePokojami;
 
 	public:
-		ZarzadzanieRezerwacjami();
+		ZarzadzanieRezerwacjami(ZarzadzaniePokojami* zp);
 		int dodajRezerwacje(Klient osoba, Termin termin, int typPokoju);
 		bool anulujRezerwacje(int idRezerwacji);
 		bool zmienTerminRezerwacji(int idRezerwacji, Termin nowy);
 		bool zakwateruj(int idRezerwacji);
 		bool wykwateruj(int idRezerwacji);
-		const Rezerwacja getRezerwacja(int idRezerwacji) const;
+		const Rezerwacja getRezerwacja(int idRezerwacji);
 		void zapiszRezerwacje();
 		friend class ZarzadzaniePokojami;
 	};

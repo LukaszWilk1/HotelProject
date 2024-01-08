@@ -16,21 +16,28 @@ namespace hotel_klasowy
 {
 	class Rezerwacja {
 	public:
-		Rezerwacja(): id(-1), idKllienta(-1) {
+		Rezerwacja(): id(-1), idKlienta(-1) {
 			nrPokoju = -1;
 			archiwalna = false;
 			zakwaterowana = false;
 			oplacona = false;
 		}
 		Rezerwacja(int id, int idKlienta, int nPokoju, Termin t, bool archiwalna = false, bool zak = false, bool op = false) 
-			: id(-1), idKllienta(idKlienta), terminPobytu(t), nrPokoju(nPokoju), archiwalna(archiwalna), zakwaterowana(zak), oplacona(op) {}
-		const int id;
-		const int idKllienta;
+			: id(-1), idKlienta(idKlienta), terminPobytu(t), nrPokoju(nPokoju), archiwalna(archiwalna), zakwaterowana(zak), oplacona(op) {}
+		inline const int getId() const {
+			return id;
+		}
+		inline const int getIdKlienta() const {
+			return idKlienta;
+		}
 		int nrPokoju;
 		bool archiwalna;
 		Termin terminPobytu;
 		bool zakwaterowana;
 		bool oplacona;
+	private:
+		int id;
+		int idKlienta;
 	};
 }
 
