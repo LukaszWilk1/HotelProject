@@ -10,9 +10,9 @@ hotel_klasowy::BazaUzytkownikow::BazaUzytkownikow()
 
 int hotel_klasowy::BazaUzytkownikow::dodajUzytkownika(string imie, string nazwisko, TypKonta typ)
 {
-    uzytkownicy.push_back({ imie, nazwisko, nextID++, typ });
+    uzytkownicy.push_back({ imie, nazwisko, nastepneId++, typ });
 	zapiszDane();
-    return nextID - 1;
+    return nastepneId - 1;
 }
 
 /**
@@ -33,7 +33,7 @@ void hotel_klasowy::BazaUzytkownikow::zapiszDane() {
 	ofstream myfile;
 	myfile.open(DATA_FOLDER("users.hotel"));
 	if (myfile.is_open()) {
-		myfile << nextID << "\n";
+		myfile << nastepneId << "\n";
 		for (auto& o : uzytkownicy) {
 			myfile << fmt::format("{:d};{};{};{:d}\n", o.id, o.imie, o.nazwisko, (int)o.typ_konta);
 		}
@@ -52,7 +52,7 @@ void hotel_klasowy::BazaUzytkownikow::odczytajDane() {
 	if (myfile.is_open()) {
 		string line;
 		getline(myfile, line);
-		nextID = stoi(line);
+		nastepneId = stoi(line);
 		while (getline(myfile, line))
 		{
 			auto sp = Utils::split(line, ";");

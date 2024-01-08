@@ -25,6 +25,7 @@ namespace hotel_klasowy
 			BazaUzytkownikow bazaUzytkownikow;
 
 		public:
+			ZarzadzanieHotelem() : zarzadzanieRezerwacjami(&zarzadzaniePokojami), zarzadzaniePokojami(&zarzadzanieRezerwacjami) {}
 			void start();
 	};
 }

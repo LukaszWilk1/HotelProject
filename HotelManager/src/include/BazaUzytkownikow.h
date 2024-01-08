@@ -19,7 +19,7 @@ namespace hotel_klasowy {
 		const Osoba& getUzytkownik(int id) const;
 	private:
 		vector<Osoba> uzytkownicy;
-		int nextID = 0;
+		int nastepneId = 0;
 		void zapiszDane();
 		void odczytajDane();
 	};

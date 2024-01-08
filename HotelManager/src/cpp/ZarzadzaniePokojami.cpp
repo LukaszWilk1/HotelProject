@@ -9,14 +9,21 @@
 
 using namespace std;
 
-hotel_klasowy::ZarzadzaniePokojami::ZarzadzaniePokojami()
+hotel_klasowy::ZarzadzaniePokojami::ZarzadzaniePokojami(ZarzadzanieRezerwacjami* zr) : zarzadzanieRezerwacjami(zr)
 {
 	odczytajRodzajePokoji();
 	odczytajPokoje();
 }
 
-int hotel_klasowy::ZarzadzaniePokojami::znajdzWolnyPokoj(int typPokoju, hotel_klasowy::Termin termin) {
-	throw "Not yet implemented";
+int hotel_klasowy::ZarzadzaniePokojami::znajdzWolnyPokoj(int typPokoju, Termin termin) {
+	std::vector<int> zajetePokojeWTerminie(10);
+	for (auto& rezerwacja : zarzadzanieRezerwacjami->rezerwacje) {
+		if (!rezerwacja.archiwalna && termin ^ rezerwacja.terminPobytu) {
+			zajetePokojeWTerminie.push_back(rezerwacja.nrPokoju);
+		}
+	}
+
+	return -1;
 }
 
 hotel_klasowy::Pokoj& hotel_klasowy::ZarzadzaniePokojami::getPokoj(int idPokoju) {
@@ -29,7 +36,7 @@ hotel_klasowy::Pokoj& hotel_klasowy::ZarzadzaniePokojami::getPokoj(int idPokoju)
 void hotel_klasowy::ZarzadzaniePokojami::zapiszPokoje()
 {
 	ofstream myfile;
-	myfile.open(DATA_FOLDER("users.hotel"));
+	myfile.open(DATA_FOLDER("pokoje.hotel"));
 	if (myfile.is_open()) {
 		for (auto& p : listaPokoi) {
 			myfile << fmt::format("{:d};{:d};{:b};{:b};{}\n", p.numer, p.typ_pokoju, p.zablokowany, p.do_sprzatania, p.uwagi);
