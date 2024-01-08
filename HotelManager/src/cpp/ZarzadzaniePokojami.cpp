@@ -9,15 +9,15 @@
 
 using namespace std;
 
-hotel_klasowy::ZarzadzaniePokojami::ZarzadzaniePokojami()
+hotel_klasowy::ZarzadzaniePokojami::ZarzadzaniePokojami(ZarzadzanieRezerwacjami* zr) : zarzadzanieRezerwacjami(zr)
 {
 	odczytajRodzajePokoji();
 	odczytajPokoje();
 }
 
-int hotel_klasowy::ZarzadzaniePokojami::znajdzWolnyPokoj(int typPokoju, Termin termin, ZarzadzanieRezerwacjami& zr) {
+int hotel_klasowy::ZarzadzaniePokojami::znajdzWolnyPokoj(int typPokoju, Termin termin) {
 	std::vector<int> zajetePokojeWTerminie(10);
-	for (auto& rezerwacja : zr.rezerwacje) {
+	for (auto& rezerwacja : zarzadzanieRezerwacjami->rezerwacje) {
 		if (!rezerwacja.archiwalna && termin ^ rezerwacja.terminPobytu) {
 			zajetePokojeWTerminie.push_back(rezerwacja.nrPokoju);
 		}
