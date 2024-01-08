@@ -129,7 +129,7 @@ namespace UnitTestTest
 			Assert::AreEqual(1, d.getDzien()); 
 		}
 
-		TEST_METHOD(TestRoznicaMiedzyDatami)
+		TEST_METHOD(TestRowneDaty)
 		{
 			hotel_klasowy::Data d_1(6, 1, 2024);
 			hotel_klasowy::Data d_2(9, 1, 2024);
