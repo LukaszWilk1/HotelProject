@@ -15,8 +15,15 @@ hotel_klasowy::ZarzadzaniePokojami::ZarzadzaniePokojami()
 	odczytajPokoje();
 }
 
-int hotel_klasowy::ZarzadzaniePokojami::znajdzWolnyPokoj(int typPokoju, hotel_klasowy::Termin termin) {
-	throw "Not yet implemented";
+int hotel_klasowy::ZarzadzaniePokojami::znajdzWolnyPokoj(int typPokoju, Termin termin, ZarzadzanieRezerwacjami& zr) {
+	std::vector<int> zajetePokojeWTerminie(10);
+	for (auto& rezerwacja : zr.rezerwacje) {
+		if (!rezerwacja.archiwalna && termin ^ rezerwacja.terminPobytu) {
+			zajetePokojeWTerminie.push_back(rezerwacja.nrPokoju);
+		}
+	}
+
+	return -1;
 }
 
 hotel_klasowy::Pokoj& hotel_klasowy::ZarzadzaniePokojami::getPokoj(int idPokoju) {
