@@ -15,8 +15,10 @@ namespace hotel_klasowy
 	private: 
 		std::vector<hotel_klasowy::Rezerwacja> rezerwacje;
 		void odczytajRezerwacje();
+		int nastepneId = 0;
 
-	public: 
+	public:
+		ZarzadzanieRezerwacjami();
 		int dodajRezerwacje(Klient osoba, Termin termin, int typPokoju);
 		bool anulujRezerwacje(int idRezerwacji);
 		bool zmienTerminRezerwacji(int idRezerwacji, Termin nowy);
