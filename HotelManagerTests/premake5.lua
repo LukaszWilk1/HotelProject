@@ -32,18 +32,20 @@ project "HotelManagerTests"
     filter { "system:windows" }
         defines {
             "WINDOWS",
+            "CWD=\""..os.getcwd().."/../HotelManager\""
         }
 
     filter { "system:linux" }
         defines {
-            "LINUX"
+            "LINUX",
+            "CWD=\""..os.getcwd().."/../HotelManager\""
         }
 
     filter { "configurations:Debug" }
         runtime "Debug"
         symbols "on"
         defines {
-            "DEBUG"
+            "DEBUG",
         }
         
     
@@ -52,5 +54,5 @@ project "HotelManagerTests"
         optimize "on"
         symbols "on"
         defines {
-            "NDEBUG"
+            "NDEBUG",
         }

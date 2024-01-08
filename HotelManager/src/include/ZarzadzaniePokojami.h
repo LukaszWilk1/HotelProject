@@ -21,18 +21,20 @@ namespace hotel_klasowy
 	{
 		public:
 			ZarzadzaniePokojami();
-
 			int znajdzWolnyPokoj(int typPokoju, hotel_klasowy::Termin termin);
 			Pokoj& getPokoj(int idPokoju);
 			const std::vector<OpisPokoju>& getRodzajePokoji() const {
 				return rodzajePokoji;
 			}
+			const std::vector<Pokoj>& getPokoje() const {
+				return listaPokoi;
+			}
+			void zapiszPokoje();
 
 
 		private: 
 			std::vector<Pokoj> listaPokoi;
 			std::vector<OpisPokoju> rodzajePokoji;
-			void zapiszPokoje();
 			void odczytajPokoje();
 			void odczytajRodzajePokoji();
 	};

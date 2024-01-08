@@ -19,16 +19,15 @@ namespace hotel_klasowy
 	class ObslugaRecepcji: public hotel_klasowy::PodstawowaObsluga
 	{
 		public:
-			ObslugaRecepcji() {};
-			ObslugaRecepcji(Osoba r) : recepcjonista(r) {};
+			ObslugaRecepcji(Osoba r, ZarzadzanieRezerwacjami zr, ZarzadzaniePokojami zp) : PodstawowaObsluga(r, zr, zp) {};
 			bool oplacRezerwacje(int idRezerwacji);
-			virtual void interfejs(Osoba osoba) override;
+			virtual void interfejs() override;
 
 		private: 
 			hotel_klasowy::Recepcjonista recepcjonista;
 			void wyswietlPokoj(int idPokoju);
 			void wyswietlWszystkiePokoje();
-			bool zablokujPokoj(string idPokoju);
+			bool zablokujPokoj(int idPokoju);
 			bool zakwateruj(int idRezerwacji);
 			bool wykwateruj(int idRezerwacji);
 			void odblokujPokoj(int idPokoju);
@@ -39,6 +38,7 @@ namespace hotel_klasowy
 			virtual void anulujRezerwacje(int idRezerwacji) override;
 			virtual void wyswietlRezerwacje(int idRezerwacji) override;
 			virtual bool zmienTerminRezerwacji(int idRezerwacji) override;
+			virtual void anulujRezerwacje(string idRezerwacji) override;
 	};
 }
 
