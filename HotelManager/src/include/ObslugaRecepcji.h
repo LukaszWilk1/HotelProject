@@ -19,7 +19,7 @@ namespace hotel_klasowy
 	class ObslugaRecepcji: public hotel_klasowy::PodstawowaObsluga
 	{
 		public:
-			ObslugaRecepcji(Osoba r, ZarzadzanieRezerwacjami zr, ZarzadzaniePokojami zp) : PodstawowaObsluga(r, zr, zp) {};
+			ObslugaRecepcji(Osoba r, ZarzadzanieRezerwacjami& zr, ZarzadzaniePokojami& zp) : PodstawowaObsluga(r, zr, zp) {};
 			bool oplacRezerwacje(int idRezerwacji);
 			virtual void interfejs() override;
 
