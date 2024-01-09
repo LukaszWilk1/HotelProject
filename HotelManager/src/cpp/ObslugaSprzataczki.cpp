@@ -6,30 +6,8 @@ using namespace std;
 #include "Sprzataczka.h"
 
 void hotel_klasowy::ObslugaSprzataczki::interfejs() {
-	system("cls");
-	cout << "------------------------------------------------------------------------------------------------------------------" << endl;
-	cout << "-                                                                                                    " << osoba.imie << " " << osoba.nazwisko << " - " << endl;
-	cout << "-                                    Jestes zalogowany/a jako Sprzatacz/ka                                     " << osoba.id << " -" << endl;
-	cout << "-                                                                                                                -" << endl;
-	cout << "-                                                                                                                -" << endl;
-	cout << "-                                                   OPCJE                                                        -" << endl;
-	cout << "-                                                                                                                -" << endl;
-	cout << "-                                  ========================================                                      -" << endl;
-	cout << "-                                  |                                      |                                      -" << endl;
-	cout << "-                                  |  1. Wyswietl pokoje do posprzatania  |                                      -" << endl;
-	cout << "-                                  |                                      |                                      -" << endl;
-	cout << "-                                  |   2. Oznacz pokoj jako posprzatany   |                                      -" << endl;
-	cout << "-                                  |                                      |                                      -" << endl;
-	cout << "-                                  ========================================                                      -" << endl;
-	cout << "-                                                                                                                -" << endl;
-	cout << "-                                                                                                                -" << endl;
-	cout << "-                                                                                                                -" << endl;
-	cout << "-                                                                                                                -" << endl;
-	cout << "------------------------------------------------------------------------------------------------------------------" << endl;
-	int opcja = 0;
-	cin >> opcja;
-
-	while (opcja != 1 && opcja != 2) {
+	string exit;
+	do {
 		system("cls");
 		cout << "------------------------------------------------------------------------------------------------------------------" << endl;
 		cout << "-                                                                                                    " << osoba.imie << " " << osoba.nazwisko << " - " << endl;
@@ -50,20 +28,52 @@ void hotel_klasowy::ObslugaSprzataczki::interfejs() {
 		cout << "-                                                                                                                -" << endl;
 		cout << "-                                                                                                                -" << endl;
 		cout << "------------------------------------------------------------------------------------------------------------------" << endl;
-		cout << "Nie ma takiej operacji!" << endl;
+		int opcja = 0;
 		cin >> opcja;
-	}
 
-	switch (opcja) {
-	case 1:
-		wyswietlPokojeDoPosprzatania();
-		break;
-	case 2:
-		oznaczPokojJakoPosprzatany(5);
-		break;
-	default:
-		cout << "Cos poszlo nie tak" << endl;
-	}
+		while (opcja != 1 && opcja != 2 && opcja != 3) {
+			system("cls");
+			cout << "------------------------------------------------------------------------------------------------------------------" << endl;
+			cout << "-                                                                                                    " << osoba.imie << " " << osoba.nazwisko << " - " << endl;
+			cout << "-                                    Jestes zalogowany/a jako Sprzatacz/ka                                     " << osoba.id << " -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                   OPCJE                                                        -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                  ========================================                                      -" << endl;
+			cout << "-                                  |                                      |                                      -" << endl;
+			cout << "-                                  |  1. Wyswietl pokoje do posprzatania  |                                      -" << endl;
+			cout << "-                                  |                                      |                                      -" << endl;
+			cout << "-                                  |   2. Oznacz pokoj jako posprzatany   |                                      -" << endl;
+			cout << "-                                  |                                      |                                      -" << endl;
+			cout << "-                                  ========================================                                      -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "-                                                                                                                -" << endl;
+			cout << "------------------------------------------------------------------------------------------------------------------" << endl;
+			cout << "Nie ma takiej operacji!" << endl;
+			cin >> opcja;
+		}
+
+		switch (opcja) {
+		case 1:
+			wyswietlPokojeDoPosprzatania();
+			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cin >> exit;
+			break;
+		case 2:
+			oznaczPokojJakoPosprzatany(5);
+			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cin >> exit;
+			break;
+		case 3:
+			exit = "q";
+			break;
+		default:
+			cout << "Cos poszlo nie tak" << endl;
+		}
+	} while (exit != "Q" && exit != "q");
 }
 
 void hotel_klasowy::ObslugaSprzataczki::wyswietlPokojeDoPosprzatania() {
