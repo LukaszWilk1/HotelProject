@@ -16,25 +16,28 @@ bool hotel_klasowy::ObslugaRecepcji::oplacRezerwacje(int idRezerwacji) {
 void hotel_klasowy::ObslugaRecepcji::wyswietlPokoj(int idPokoju) {
 	system("cls");
 	hotel_klasowy::Pokoj p = zarzadzaniePokojami.getPokoj(idPokoju);
-	cout << "Oto pokoj" << endl;
-	cout << p.numer << endl;
-	cout <<p.typ_pokoju<< endl;
-	cout <<p.uwagi<< endl;
-	cout << p.do_sprzatania << endl;
-	cout << p.zablokowany << endl;
+	cout << "Numer pokoju: " << p.numer << endl;
+	cout << "Typ pokoju: " << p.typ_pokoju << endl;
+	cout << "Czy do sprzatania: " << p.do_sprzatania << endl;
+	cout << "Czy zablokowany: " << p.zablokowany << endl;
+	cout << "Uwagi: " << "" << p.uwagi << endl;
 }
 
 void hotel_klasowy::ObslugaRecepcji::wyswietlWszystkiePokoje() {
 	system("cls");
 	cout << "Oto wszystkie pokoje" << endl;
 	for (auto& p : zarzadzaniePokojami.getPokoje()) {
-		cout << "Nr pokoju: " << p.numer << endl;
+		cout << "Numer pokoju: " << p.numer << endl;
+		cout << "Typ pokoju: " << p.typ_pokoju << endl;
+		cout << "Czy do sprzatania: " << p.do_sprzatania << endl;
+		cout << "Czy zablokowany: " << p.zablokowany << endl;
+		cout << "Uwagi: " << "" << p.uwagi << endl;
+		cout << "-----------------------------------------" << endl;
 	}
 }
 
 bool hotel_klasowy::ObslugaRecepcji::zablokujPokoj(int idPokoju) {
 	system("cls");
-	cout << "Zablokowano pokoj" << endl;
 	hotel_klasowy::Pokoj& p = zarzadzaniePokojami.getPokoj(idPokoju);
 	p.zablokowany = true;
 	cout << "Pokoj o id: " << p.numer << " pomyslnie zablokowany." << endl;
@@ -95,11 +98,13 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 		cout << "-                                  |                                      |                                      -" << endl;
 		cout << "-                                  |          9. Zablokoj pokoj           |                                      -" << endl;
 		cout << "-                                  |                                      |                                      -" << endl;
-		cout << "-                                  |           10. Zakwateruj             |                                      -" << endl;
+		cout << "-                                  |            10. Zakwateruj            |                                      -" << endl;
 		cout << "-                                  |                                      |                                      -" << endl;
-		cout << "-                                  |           11. Wykwateruj             |                                      -" << endl;
+		cout << "-                                  |            11. Wykwateruj            |                                      -" << endl;
 		cout << "-                                  |                                      |                                      -" << endl;
-		cout << "-                                  |         12. Odblokuj pokoj           |                                      -" << endl;
+		cout << "-                                  |          12. Odblokuj pokoj          |                                      -" << endl;
+		cout << "-                                  |                                      |                                      -" << endl;
+		cout << "-                                  |             13. Zakoncz              |                                      -" << endl;
 		cout << "-                                  |                                      |                                      -" << endl;
 		cout << "-                                  ========================================                                      -" << endl;
 		cout << "-                                                                                                                -" << endl;
@@ -169,22 +174,34 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 4:
-			wyswietlRezerwacje(4);
+			cout << "Podaj ID rezerwacji do wyswietlenia: ";
+			int idWyswietlenia;
+			cin >> idWyswietlenia;
+			wyswietlRezerwacje(idWyswietlenia);
 			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
 			cin >> exit;
 			break;
 		case 5:
-			zmienTerminRezerwacji(4);
+			cout << "Podaj ID rezerwacji do zmiany terminu: ";
+			int idZmianyTerminu;
+			cin >> idZmianyTerminu;
+			zmienTerminRezerwacji(idZmianyTerminu);
 			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
 			cin >> exit;
 			break;
 		case 6:
-			oplacRezerwacje(4);
+			cout << "Podaj ID rezerwacji do oplacenia: ";
+			int idDoOplacenia;
+			cin >> idDoOplacenia;
+			oplacRezerwacje(idDoOplacenia);
 			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
 			cin >> exit;
 			break;
 		case 7:
-			wyswietlPokoj(4);
+			cout << "Podaj ID pokoju do wyswietlenia: ";
+			int idPokoju;
+			cin >> idPokoju;
+			wyswietlPokoj(idPokoju);
 			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
 			cin >> exit;
 			break;
@@ -233,7 +250,6 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 }
 
 void hotel_klasowy::ObslugaRecepcji::dodajRezerwacje() {
-	system("cls");
 	string dataOd, dataDo;
 	system("cls");
 	cout << "Podaj poczatek pobytu (dd-mm-yyyy): " << endl;
@@ -245,11 +261,22 @@ void hotel_klasowy::ObslugaRecepcji::dodajRezerwacje() {
 	Data od(stoi(dataOdS[0]), stoi(dataOdS[1]), stoi(dataOdS[2]));
 	Data DO(stoi(dataDoS[0]), stoi(dataDoS[1]), stoi(dataDoS[2]));
 	Termin termin(od, DO);
+	cout << "Rodzaje pokoi" << endl;
+	vector <hotel_klasowy::OpisPokoju> opisy = zarzadzaniePokojami.getRodzajePokoji();
+	for (auto& r : opisy) {
+		cout << "Id: " << r.getId() << endl;
+		cout << "Nazwa: " << r.getNazwa() << endl;
+		cout << "Opis: " << r.getOpis() << endl;
+		cout << "Maksymalna ilosc osob: " << r.getMaxOsob() << endl;
+		cout << "Cena za dobe: " << r.getCenaZaDobe() << endl;
+		cout << "-----------------------------------------" << endl;
+	}
 	cout << "Podaj rodzaj pokoju: " << endl;
 	int typ;
 	cin >> typ;
-	int info = zarzadzanieRezerwacjami.dodajRezerwacje(osoba, termin, typ);
-	if (info == -1) cout << "Nie udalo sie zarezerwowac w danym terminie." << endl;
+	int idRezerwacji = zarzadzanieRezerwacjami.dodajRezerwacje(osoba, termin, typ);
+	if (idRezerwacji == -1) cout << "Nie udalo sie zarezerwowac w danym terminie." << endl;
+	else cout << "Pomyslnie zarezerwowano pobyt. Twoja rezerwacja ma id: " << idRezerwacji << endl;
 }
 
 void hotel_klasowy::ObslugaRecepcji::wyswietlWszstkieRezerwacje() {
@@ -265,11 +292,14 @@ void hotel_klasowy::ObslugaRecepcji::anulujRezerwacje(int idRezerwacji)
 	system("cls");
 	bool czyAnulowano = zarzadzanieRezerwacjami.anulujRezerwacje(idRezerwacji);
 	if (!czyAnulowano) cout << "Nie udalo sie anulowac rezerwacji" << endl;
+	else cout << "Rezerwacja anulowana pomyslnie" << endl;
 }
 
 void hotel_klasowy::ObslugaRecepcji::wyswietlRezerwacje(int idRezerwacji) {
 	system("cls");
-	cout << "Wyswietlono rezerwacje" << endl;
+	cout << "Wyswietlenie rezerwacji" << endl;
+	hotel_klasowy::Rezerwacja rez = zarzadzanieRezerwacjami.getRezerwacja(idRezerwacji);
+	cout << "Nr. rezerwacji: " << rez.getId() << "; Od: " << rez.terminPobytu.odDnia << "; Do: " << rez.terminPobytu.doDnia << "\n";
 }
 
 bool hotel_klasowy::ObslugaRecepcji::zmienTerminRezerwacji(int idRezerwacji) {
@@ -285,12 +315,10 @@ bool hotel_klasowy::ObslugaRecepcji::zmienTerminRezerwacji(int idRezerwacji) {
 	Data od(stoi(dataOdS[0]), stoi(dataOdS[1]), stoi(dataOdS[2]));
 	Data DO(stoi(dataDoS[0]), stoi(dataDoS[1]), stoi(dataDoS[2]));
 	Termin termin(od, DO);
-	cout << "Podaj id pokoju: " << endl;
-	int id;
-	cin >> id;
-	int czyZmieniono = zarzadzanieRezerwacjami.zmienTerminRezerwacji(id, termin);
+	int czyZmieniono = zarzadzanieRezerwacjami.zmienTerminRezerwacji(idRezerwacji, termin);
 	if (czyZmieniono == -1) cout << "Nie udalo sie zmienic terminu rezerwacji" << endl;
-	return true;
+	else cout << "Pomyslnie zmieniono termin rezerwacji." << endl;
+	return false;
 }
 
 void hotel_klasowy::ObslugaRecepcji::anulujRezerwacje(string idRezerwacji)
