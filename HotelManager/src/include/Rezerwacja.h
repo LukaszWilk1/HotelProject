@@ -23,7 +23,7 @@ namespace hotel_klasowy
 			oplacona = false;
 		}
 		Rezerwacja(int id, int idKlienta, int nPokoju, Termin t, bool archiwalna = false, bool zak = false, bool op = false) 
-			: id(-1), idKlienta(idKlienta), terminPobytu(t), nrPokoju(nPokoju), archiwalna(archiwalna), zakwaterowana(zak), oplacona(op) {}
+			: id(id), idKlienta(idKlienta), terminPobytu(t), nrPokoju(nPokoju), archiwalna(archiwalna), zakwaterowana(zak), oplacona(op) {}
 		inline const int getId() const {
 			return id;
 		}

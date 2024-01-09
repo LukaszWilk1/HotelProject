@@ -20,6 +20,7 @@ void hotel_klasowy::ZarzadzanieRezerwacjami::odczytajRezerwacje() {
 		string line;
 		getline(myfile, line);
 		nastepneId = std::stoi(line);
+		std::cout << nastepneId;
 		while (getline(myfile, line))
 		{
 			auto sp = Utils::split(line, ";");
@@ -141,7 +142,7 @@ void hotel_klasowy::ZarzadzanieRezerwacjami::zapiszRezerwacje() {
 	myfile << nastepneId << "\n";
 	if (myfile.is_open()) {
 		for (auto& r : rezerwacje) {
-			myfile << fmt::format("{};{};{};{};{};{};{}\n", r.getId(), r.getIdKlienta(), r.nrPokoju, r.terminPobytu.naString(), r.zakwaterowana, r.archiwalna, r.oplacona);
+			myfile << fmt::format("{};{};{};{};{:d};{:d};{:d}\n", r.getId(), r.getIdKlienta(), r.nrPokoju, r.terminPobytu.naString(), r.zakwaterowana, r.archiwalna, r.oplacona);
 		}
 		myfile.close();
 	}
