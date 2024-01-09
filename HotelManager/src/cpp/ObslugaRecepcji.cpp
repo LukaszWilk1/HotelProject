@@ -5,6 +5,7 @@ using namespace std;
 #include "ObslugaRecepcji.h"
 #include "PodstawowaObsluga.h"
 #include "ZarzadzaniePokojami.h"
+#include "Utils.h"
 
 bool hotel_klasowy::ObslugaRecepcji::oplacRezerwacje(int idRezerwacji) {
 	system("cls");
@@ -204,17 +205,17 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			break;
 		case 11:
 			cout << "Podaj ID pokoju do wykwaterowania: ";
-			int id;
-			cin >> id;
-			wykwateruj(id);
+			int id1;
+			cin >> id1;
+			wykwateruj(id1);
 			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
 			cin >> exit;
 			break;
 		case 12:
 			cout << "Podaj ID pokoju do odblokowania: ";
-			int id;
-			cin >> id;
-			odblokujPokoj(id);
+			int id2;
+			cin >> id2;
+			odblokujPokoj(id2);
 			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
 			cin >> exit;
 			break;
@@ -227,7 +228,22 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 
 void hotel_klasowy::ObslugaRecepcji::dodajRezerwacje() {
 	system("cls");
-	cout << "Dodano rezerwacje" << endl;
+	string dataOd, dataDo;
+	system("cls");
+	cout << "Podaj poczatek pobytu (dd-mm-yyyy): " << endl;
+	cin >> dataOd;
+	cout << "Podaj koniec pobytu (dd-mm-yyyy): " << endl;
+	cin >> dataDo;
+	auto dataOdS = Utils::split(dataOd, "-");
+	auto dataDoS = Utils::split(dataDo, "-");
+	Data od(stoi(dataOdS[0]), stoi(dataOdS[1]), stoi(dataOdS[2]));
+	Data DO(stoi(dataDoS[0]), stoi(dataDoS[1]), stoi(dataDoS[2]));
+	Termin termin(od, DO);
+	cout << "Podaj rodzaj pokoju: " << endl;
+	int typ;
+	cin >> typ;
+	int info = zarzadzanieRezerwacjami.dodajRezerwacje(osoba, termin, typ);
+	if (info == -1) cout << "Nie udalo sie zarezerwowac w danym terminie." << endl;
 }
 
 void hotel_klasowy::ObslugaRecepcji::wyswietlWszstkieRezerwacje() {
