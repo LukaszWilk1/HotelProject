@@ -20,7 +20,6 @@ void hotel_klasowy::ZarzadzanieRezerwacjami::odczytajRezerwacje() {
 		string line;
 		getline(myfile, line);
 		nastepneId = std::stoi(line);
-		std::cout << nastepneId;
 		while (getline(myfile, line))
 		{
 			auto sp = Utils::split(line, ";");
