@@ -26,6 +26,9 @@ void hotel_klasowy::ObslugaRecepcji::wyswietlPokoj(int idPokoju) {
 void hotel_klasowy::ObslugaRecepcji::wyswietlWszystkiePokoje() {
 	system("cls");
 	cout << "Oto wszystkie pokoje" << endl;
+	for (auto& p : zarzadzaniePokojami.getPokoje()) {
+		cout << "Nr pokoju: " << p.numer << endl;
+	}
 }
 
 bool hotel_klasowy::ObslugaRecepcji::zablokujPokoj(int idPokoju) {
@@ -52,6 +55,8 @@ bool hotel_klasowy::ObslugaRecepcji::wykwateruj(int idRezerwacji) {
 
 void hotel_klasowy::ObslugaRecepcji::odblokujPokoj(int idPokoju) {
 	system("cls");
+	zarzadzaniePokojami.getPokoj(idPokoju).zablokowany = false;
+	zarzadzaniePokojami.zapiszPokoje();
 	cout << "Pokoj odblokowano" << endl;
 }
 
@@ -163,7 +168,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 		wyswietlWszystkiePokoje();
 		break;
 	case 9:
-		zablokujPokoj(4);
+		zablokujPokoj(2);
 		break;
 	case 10:
 		zakwateruj(4);
@@ -172,7 +177,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 		wykwateruj(4);
 		break;
 	case 12:
-		odblokujPokoj(4);
+		odblokujPokoj(2);
 		break;
 	}
 
