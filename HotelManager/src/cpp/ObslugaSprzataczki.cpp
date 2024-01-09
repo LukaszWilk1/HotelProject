@@ -78,7 +78,12 @@ void hotel_klasowy::ObslugaSprzataczki::interfejs() {
 
 void hotel_klasowy::ObslugaSprzataczki::wyswietlPokojeDoPosprzatania() {
 	system("cls");
-	cout << "Lista pokoi do posprzatania" << endl;
+	cout << "Lista pokoi do posprzatania:" << endl;
+	for (auto& p : zarzadzaniePokojami.getPokoje()) {
+		if (p.do_sprzatania) {
+			cout << "Nr. pokoju: " << p.numer << "; Uwagi: " << p.uwagi << "\n";
+		}
+	}
 }
 
 bool hotel_klasowy::ObslugaSprzataczki::oznaczPokojJakoPosprzatany(int idPokoju) {

@@ -12,14 +12,14 @@ namespace hotel_klasowy
 	class ObslugaSprzataczki
 	{
 		public:
-			ObslugaSprzataczki(Sprzataczka s, ZarzadzaniePokojami& zp) : osoba(s), zarzadzaniePokojami(zp) {}
+			ObslugaSprzataczki(Sprzataczka s, ZarzadzaniePokojami* zp) : osoba(s), zarzadzaniePokojami(zp) {}
 			void interfejs();
 			void wyswietlPokojeDoPosprzatania();
 			bool oznaczPokojJakoPosprzatany(int idPokoju);
 
 		private:
 			const Sprzataczka osoba;
-			const ZarzadzaniePokojami& zarzadzaniePokojami;
+			ZarzadzaniePokojami* zarzadzaniePokojami;
 	};
 }
 
