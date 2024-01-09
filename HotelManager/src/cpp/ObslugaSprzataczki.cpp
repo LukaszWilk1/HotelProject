@@ -2,7 +2,10 @@
 #include <iostream>
 using namespace std;
 
+#include "PodstawowaObsluga.h"
 #include "ObslugaSprzataczki.h"
+#include "ZarzadzaniePokojami.h"
+#include "ZarzadzanieRezerwacjami.h"
 #include "Sprzataczka.h"
 
 void hotel_klasowy::ObslugaSprzataczki::interfejs() {
@@ -21,6 +24,8 @@ void hotel_klasowy::ObslugaSprzataczki::interfejs() {
 		cout << "-                                  |  1. Wyswietl pokoje do posprzatania  |                                      -" << endl;
 		cout << "-                                  |                                      |                                      -" << endl;
 		cout << "-                                  |   2. Oznacz pokoj jako posprzatany   |                                      -" << endl;
+		cout << "-                                  |                                      |                                      -" << endl;
+		cout << "-                                  |              3. Zakoncz              |                                      -" << endl;
 		cout << "-                                  |                                      |                                      -" << endl;
 		cout << "-                                  ========================================                                      -" << endl;
 		cout << "-                                                                                                                -" << endl;
@@ -46,6 +51,8 @@ void hotel_klasowy::ObslugaSprzataczki::interfejs() {
 			cout << "-                                  |                                      |                                      -" << endl;
 			cout << "-                                  |   2. Oznacz pokoj jako posprzatany   |                                      -" << endl;
 			cout << "-                                  |                                      |                                      -" << endl;
+			cout << "-                                  |              3. Zakoncz              |                                      -" << endl;
+			cout << "-                                  |                                      |                                      -" << endl;
 			cout << "-                                  ========================================                                      -" << endl;
 			cout << "-                                                                                                                -" << endl;
 			cout << "-                                                                                                                -" << endl;
@@ -60,7 +67,7 @@ void hotel_klasowy::ObslugaSprzataczki::interfejs() {
 		switch (opcja) {
 		case 1:
 			wyswietlPokojeDoPosprzatania();
-			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> exit;
 			break;
 		case 2:

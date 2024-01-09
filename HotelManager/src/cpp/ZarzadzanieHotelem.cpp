@@ -140,9 +140,12 @@ void hotel_klasowy::ZarzadzanieHotelem::start() {
 			cout << "------------------------------------------------------------------------------------------------------------------" << endl;
 			cin >> imie >> nazwisko;
 			hotel_klasowy::BazaUzytkownikow baza;
-			baza.dodajUzytkownika(imie, nazwisko, KLIENT);
+			int id = baza.dodajUzytkownika(imie, nazwisko, KLIENT);
 			system("cls");
-			cout << "Uzytkownik pomyslnie dodany." << endl;
+			cout << "Uzytkownik pomyslnie dodany. Twoje ID do logowania to: " << id <<endl;
+			string dalej;
+			cout << "Wpisz q aby kontynuowac" << endl;
+			cin >> dalej;
 			zarejestrowano = true;
 		}
 	}
