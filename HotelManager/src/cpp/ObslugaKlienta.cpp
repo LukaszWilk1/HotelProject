@@ -145,7 +145,22 @@ void hotel_klasowy::ObslugaKlienta::wyswietlRezerwacje(int idRezerwacji)
 bool hotel_klasowy::ObslugaKlienta::zmienTerminRezerwacji(int idRezerwacji)
 {
 	system("cls");
-	cout << "Zmiana terminu rezerwacji" << endl;
+	string dataOd, dataDo;
+	system("cls");
+	cout << "Podaj poczatek pobytu (dd-mm-yyyy): " << endl;
+	cin >> dataOd;
+	cout << "Podaj koniec pobytu (dd-mm-yyyy): " << endl;
+	cin >> dataDo;
+	auto dataOdS = Utils::split(dataOd, "-");
+	auto dataDoS = Utils::split(dataDo, "-");
+	Data od(stoi(dataOdS[0]), stoi(dataOdS[1]), stoi(dataOdS[2]));
+	Data DO(stoi(dataDoS[0]), stoi(dataDoS[1]), stoi(dataDoS[2]));
+	Termin termin(od, DO);
+	cout << "Podaj id pokoju: " << endl;
+	int id;
+	cin >> id;
+	int czyZmieniono = zarzadzanieRezerwacjami.zmienTerminRezerwacji(id, termin);
+	if (czyZmieniono == -1) cout << "Nie udalo sie zmienic terminu rezerwacji" << endl;
 	return false;
 }
 
