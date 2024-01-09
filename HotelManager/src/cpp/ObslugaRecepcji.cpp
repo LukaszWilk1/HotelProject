@@ -161,7 +161,10 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 3:
-			anulujRezerwacje(4);
+			cout << "Podaj ID rezerwacji do anulowania: ";
+			int idAnulowania;
+			cin >> idAnulowania;
+			anulujRezerwacje(idAnulowania);
 			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
 			cin >> exit;
 			break;
@@ -197,17 +200,17 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			break;
 		case 10:
 			cout << "Podaj ID pokoju do zakwaterowania: ";
-			int id;
-			cin >> id;
-			zakwateruj(id);
+			int idZawkaterowania;
+			cin >> idZawkaterowania;
+			zakwateruj(idZawkaterowania);
 			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
 			cin >> exit;
 			break;
 		case 11:
 			cout << "Podaj ID pokoju do wykwaterowania: ";
-			int id1;
-			cin >> id1;
-			wykwateruj(id1);
+			int idWykwaterowania;
+			cin >> idWykwaterowania;
+			wykwateruj(idWykwaterowania);
 			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
 			cin >> exit;
 			break;
@@ -254,7 +257,8 @@ void hotel_klasowy::ObslugaRecepcji::wyswietlWszstkieRezerwacje() {
 void hotel_klasowy::ObslugaRecepcji::anulujRezerwacje(int idRezerwacji)
 {
 	system("cls");
-	cout << "Anulowano rezerwacje" << endl;
+	bool czyAnulowano = zarzadzanieRezerwacjami.anulujRezerwacje(idRezerwacji);
+	if (!czyAnulowano) cout << "Nie udalo sie anulowac rezerwacji" << endl;
 }
 
 void hotel_klasowy::ObslugaRecepcji::wyswietlRezerwacje(int idRezerwacji) {
