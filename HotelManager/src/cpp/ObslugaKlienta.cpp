@@ -1,9 +1,11 @@
 #include <exception>
 #include <iostream>
+#include "Utils.h"
 using namespace std;
 
 #include "ObslugaKlienta.h"
 #include "Klient.h"
+#include <string>
 #include "PodstawowaObsluga.h"
 
 void hotel_klasowy::ObslugaKlienta::interfejs() {
@@ -84,8 +86,22 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 
 void hotel_klasowy::ObslugaKlienta::dodajRezerwacje()
 {
+	string dataOd,dataDo;
 	system("cls");
-	cout << "Dodawanie rezerwacji" << endl;
+	cout << "Podaj poczatek pobytu (dd-mm-yyyy): " << endl;
+	cin >> dataOd;
+	cout << "Podaj koniec pobytu (dd-mm-yyyy): " << endl;
+	cin >> dataDo;
+	auto dataOdS = Utils::split(dataOd,"-");
+	auto dataDoS = Utils::split(dataDo, "-");
+	Data od(stoi(dataOdS[0]), stoi(dataOdS[1]), stoi(dataOdS[2]));
+	Data DO(stoi(dataDoS[0]), stoi(dataDoS[1]), stoi(dataDoS[2]));
+	Termin termin(od, DO);
+	cout << "Podaj rodzaj pokoju: " << endl;
+	int typ;
+	cin >> typ;
+	int info = zarzadzanieRezerwacjami.dodajRezerwacje(osoba, termin, typ);
+	if (info == -1) cout << "Nie udalo sie zarezerwowac w danym terminie." << endl;
 }
 
 void hotel_klasowy::ObslugaKlienta::wyswietlWszstkieRezerwacje()
