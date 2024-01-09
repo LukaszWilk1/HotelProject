@@ -43,12 +43,16 @@ bool hotel_klasowy::ObslugaRecepcji::zablokujPokoj(int idPokoju) {
 
 bool hotel_klasowy::ObslugaRecepcji::zakwateruj(int idRezerwacji) {
 	system("cls");
+	hotel_klasowy::Rezerwacja p = zarzadzanieRezerwacjami.getRezerwacja(idRezerwacji);
+	p.zakwaterowana = true;
 	cout << "Zakwaterowano" << endl;
 	return true;
 }
 
 bool hotel_klasowy::ObslugaRecepcji::wykwateruj(int idRezerwacji) {
 	system("cls");
+	hotel_klasowy::Rezerwacja p = zarzadzanieRezerwacjami.getRezerwacja(idRezerwacji);
+	p.zakwaterowana = false;
 	cout << "Wykwaterowano" << endl;
 	return true;
 }
@@ -191,17 +195,26 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 10:
-			zakwateruj(4);
+			cout << "Podaj ID pokoju do zakwaterowania: ";
+			int id;
+			cin >> id;
+			zakwateruj(id);
 			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
 			cin >> exit;
 			break;
 		case 11:
-			wykwateruj(4);
+			cout << "Podaj ID pokoju do wykwaterowania: ";
+			int id;
+			cin >> id;
+			wykwateruj(id);
 			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
 			cin >> exit;
 			break;
 		case 12:
-			odblokujPokoj(2);
+			cout << "Podaj ID pokoju do odblokowania: ";
+			int id;
+			cin >> id;
+			odblokujPokoj(id);
 			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
 			cin >> exit;
 			break;
