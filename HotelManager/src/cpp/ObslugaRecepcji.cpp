@@ -147,6 +147,8 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cout << "-                                  |                                      |                                      -" << endl;
 			cout << "-                                  |         12. Odblokuj pokoj           |                                      -" << endl;
 			cout << "-                                  |                                      |                                      -" << endl;
+			cout << "-                                  |             13. Zakoncz              |                                      -" << endl;
+			cout << "-                                  |                                      |                                      -" << endl;
 			cout << "-                                  ========================================                                      -" << endl;
 			cout << "-                                                                                                                -" << endl;
 			cout << "------------------------------------------------------------------------------------------------------------------" << endl;
@@ -157,12 +159,12 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 		switch (opcja) {
 		case 1:
 			dodajRezerwacje();
-			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> exit;
 			break;
 		case 2:
 			wyswietlWszstkieRezerwacje();
-			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> exit;
 			break;
 		case 3:
@@ -170,7 +172,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			int idAnulowania;
 			cin >> idAnulowania;
 			anulujRezerwacje(idAnulowania);
-			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> exit;
 			break;
 		case 4:
@@ -178,7 +180,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			int idWyswietlenia;
 			cin >> idWyswietlenia;
 			wyswietlRezerwacje(idWyswietlenia);
-			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> exit;
 			break;
 		case 5:
@@ -186,7 +188,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			int idZmianyTerminu;
 			cin >> idZmianyTerminu;
 			zmienTerminRezerwacji(idZmianyTerminu);
-			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> exit;
 			break;
 		case 6:
@@ -194,7 +196,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			int idDoOplacenia;
 			cin >> idDoOplacenia;
 			oplacRezerwacje(idDoOplacenia);
-			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> exit;
 			break;
 		case 7:
@@ -202,12 +204,12 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			int idPokoju;
 			cin >> idPokoju;
 			wyswietlPokoj(idPokoju);
-			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> exit;
 			break;
 		case 8:
 			wyswietlWszystkiePokoje();
-			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> exit;
 			break;
 		case 9:
@@ -215,7 +217,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			int idZablokowania;
 			cin >> idZablokowania;
 			zablokujPokoj(idZablokowania);
-			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> exit;
 			break;
 		case 10:
@@ -223,7 +225,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			int idZawkaterowania;
 			cin >> idZawkaterowania;
 			zakwateruj(idZawkaterowania);
-			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> exit;
 			break;
 		case 11:
@@ -231,7 +233,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			int idWykwaterowania;
 			cin >> idWykwaterowania;
 			wykwateruj(idWykwaterowania);
-			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> exit;
 			break;
 		case 12:
@@ -239,7 +241,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			int id2;
 			cin >> id2;
 			odblokujPokoj(id2);
-			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> exit;
 			break;
 		case 13:

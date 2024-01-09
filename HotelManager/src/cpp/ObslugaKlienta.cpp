@@ -32,6 +32,8 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 		cout << "-                                  |                                      |                                      -" << endl;
 		cout << "-                                  |      5. Zmien termin rezerwacji      |                                      -" << endl;
 		cout << "-                                  |                                      |                                      -" << endl;
+		cout << "-                                  |              6. Zakoncz              |                                      -" << endl;
+		cout << "-                                  |                                      |                                      -" << endl;
 		cout << "-                                  ========================================                                      -" << endl;
 		cout << "-                                                                                                                -" << endl;
 		cout << "------------------------------------------------------------------------------------------------------------------" << endl;
@@ -60,6 +62,8 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 			cout << "-                                  |                                      |                                      -" << endl;
 			cout << "-                                  |      5. Zmien termin rezerwacji      |                                      -" << endl;
 			cout << "-                                  |                                      |                                      -" << endl;
+			cout << "-                                  |              6. Zakoncz              |                                      -" << endl;
+			cout << "-                                  |                                      |                                      -" << endl;
 			cout << "-                                  ========================================                                      -" << endl;
 			cout << "-                                                                                                                -" << endl;
 			cout << "------------------------------------------------------------------------------------------------------------------" << endl;
@@ -70,12 +74,12 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 		switch (opcja) {
 		case 1:
 			dodajRezerwacje();
-			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> exit;
 			break;
 		case 2:
 			wyswietlWszstkieRezerwacje();
-			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> exit;
 			break;
 		case 3:
@@ -83,7 +87,7 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 			int id;
 			cin >> id;
 			anulujRezerwacje(id);
-			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> exit;
 			break;
 		case 4:
@@ -91,7 +95,7 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 			int idWyswietleniaRezerwacji;
 			cin >> idWyswietleniaRezerwacji;
 			wyswietlRezerwacje(idWyswietleniaRezerwacji);
-			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> exit;
 			break;
 		case 5:
@@ -99,7 +103,7 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 			int idZmianyTerminu;
 			cin >> idZmianyTerminu;
 			zmienTerminRezerwacji(idZmianyTerminu);
-			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> exit;
 			break;
 		case 6:
