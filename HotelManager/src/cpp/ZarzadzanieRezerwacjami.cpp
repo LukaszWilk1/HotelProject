@@ -137,14 +137,14 @@ const hotel_klasowy::Rezerwacja hotel_klasowy::ZarzadzanieRezerwacjami::getRezer
 
 const std::vector<hotel_klasowy::Rezerwacja> hotel_klasowy::ZarzadzanieRezerwacjami::getRezerwacjeUzytkownika(int idKlienta) const
 {
-	std::vector<Rezerwacja> rezerwacje(10);
+	std::vector<Rezerwacja> rezUzytkoniwka;
 	for (auto& r : rezerwacje) {
 		if (r.getIdKlienta() == idKlienta) {
-			rezerwacje.push_back(r);
+			rezUzytkoniwka.push_back(r);
 		}
 	}
-
-	return rezerwacje;
+	
+	return rezUzytkoniwka;
 }
 
 void hotel_klasowy::ZarzadzanieRezerwacjami::zapiszRezerwacje() {
