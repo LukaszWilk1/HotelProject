@@ -30,6 +30,9 @@ namespace hotel_klasowy
 		bool wykwateruj(int idRezerwacji);
 		const Rezerwacja getRezerwacja(int idRezerwacji);
 		const std::vector<Rezerwacja> getRezerwacjeUzytkownika(int idKlienta) const;
+		const std::vector<Rezerwacja> getWszystkieRezerwacje() const {
+			return rezerwacje;
+		}
 		void zapiszRezerwacje();
 		friend class ZarzadzaniePokojami;
 	};
