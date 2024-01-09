@@ -2,7 +2,10 @@
 #include <iostream>
 using namespace std;
 
+#include "PodstawowaObsluga.h"
 #include "ObslugaSprzataczki.h"
+#include "ZarzadzaniePokojami.h"
+#include "ZarzadzanieRezerwacjami.h"
 #include "Sprzataczka.h"
 
 void hotel_klasowy::ObslugaSprzataczki::interfejs() {
@@ -63,7 +66,10 @@ void hotel_klasowy::ObslugaSprzataczki::interfejs() {
 			cin >> exit;
 			break;
 		case 2:
-			oznaczPokojJakoPosprzatany(5);
+			cout << "Podaj id pokoju do pospratania: ";
+			int idDoSprzatania;
+			cin >> idDoSprzatania;
+			oznaczPokojJakoPosprzatany(idDoSprzatania);
 			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
 			cin >> exit;
 			break;
@@ -79,6 +85,9 @@ void hotel_klasowy::ObslugaSprzataczki::interfejs() {
 void hotel_klasowy::ObslugaSprzataczki::wyswietlPokojeDoPosprzatania() {
 	system("cls");
 	cout << "Lista pokoi do posprzatania" << endl;
+	for (auto& p : zarzadzaniePokojami.getPokoje()) {
+		if(p.do_sprzatania) cout << "Nr pokoju: " << p.numer << endl;
+	}
 }
 
 bool hotel_klasowy::ObslugaSprzataczki::oznaczPokojJakoPosprzatany(int idPokoju) {
