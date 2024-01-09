@@ -26,6 +26,9 @@ void hotel_klasowy::ObslugaRecepcji::wyswietlPokoj(int idPokoju) {
 void hotel_klasowy::ObslugaRecepcji::wyswietlWszystkiePokoje() {
 	system("cls");
 	cout << "Oto wszystkie pokoje" << endl;
+	for (auto& p : zarzadzaniePokojami.getPokoje()) {
+		cout << "Nr pokoju: " << p.numer << endl;
+	}
 }
 
 bool hotel_klasowy::ObslugaRecepcji::zablokujPokoj(int idPokoju) {
