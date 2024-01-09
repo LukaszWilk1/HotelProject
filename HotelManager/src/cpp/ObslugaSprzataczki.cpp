@@ -56,6 +56,7 @@ void hotel_klasowy::ObslugaSprzataczki::interfejs() {
 			cin >> opcja;
 		}
 
+		int wpisano;
 		switch (opcja) {
 		case 1:
 			wyswietlPokojeDoPosprzatania();
@@ -63,7 +64,14 @@ void hotel_klasowy::ObslugaSprzataczki::interfejs() {
 			cin >> exit;
 			break;
 		case 2:
-			oznaczPokojJakoPosprzatany(5);
+			cout << "Podaj numer pokoju: ";
+			cin >> wpisano;
+			if (oznaczPokojJakoPosprzatany(wpisano)) {
+				cout << "Pokoj nr. " << wpisano << " zostal oznaczony jako posprzatany.\n";
+			}
+			else {
+				cout << "Nie ma pokoju o takim numerze\n";
+			}
 			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
 			cin >> exit;
 			break;
@@ -81,14 +89,19 @@ void hotel_klasowy::ObslugaSprzataczki::wyswietlPokojeDoPosprzatania() {
 	cout << "Lista pokoi do posprzatania:" << endl;
 	for (auto& p : zarzadzaniePokojami.getPokoje()) {
 		if (p.do_sprzatania) {
-			cout << "Nr. pokoju: " << p.numer << "; Uwagi: " << p.uwagi << "\n";
+			cout << "Nr. pokoju: " << p.numer << "; Uwagi: " << (p.uwagi.length() == 0 ? "Brak" : p.uwagi) << "\n";
 		}
 	}
 }
 
 bool hotel_klasowy::ObslugaSprzataczki::oznaczPokojJakoPosprzatany(int idPokoju) {
 	system("cls");
-	cout << "Pokoj posprzatany" << endl;
-	return true;
+	auto& p = zarzadzaniePokojami.getPokoj(idPokoju);
+	if (p.numer != -1) {
+		p.do_sprzatania = false;
+		zarzadzaniePokojami.zapiszPokoje();
+		return true;
+	}
+	return false;
 }
 
