@@ -19,7 +19,7 @@ namespace hotel_klasowy
 
 		private:
 			const Sprzataczka osoba;
-			const ZarzadzaniePokojami& zarzadzaniePokojami;
+			ZarzadzaniePokojami& zarzadzaniePokojami;
 	};
 }
 

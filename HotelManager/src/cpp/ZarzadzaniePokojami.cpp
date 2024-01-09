@@ -73,7 +73,7 @@ void hotel_klasowy::ZarzadzaniePokojami::odczytajPokoje()
 		while (getline(myfile, line))
 		{
 			auto sp = Utils::split(line, ";");
-			Pokoj p(stoi(sp[0]), stoi(sp[1]), stoi(sp[2]), stoi(sp[3]), sp[4]);
+			Pokoj p(stoi(sp[0]), stoi(sp[1]), stoi(sp[3]), stoi(sp[2]), sp[4]);
 			listaPokoi.push_back(p);
 		}
 		myfile.close();
