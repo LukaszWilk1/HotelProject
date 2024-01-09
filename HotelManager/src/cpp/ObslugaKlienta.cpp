@@ -123,7 +123,10 @@ void hotel_klasowy::ObslugaKlienta::dodajRezerwacje()
 void hotel_klasowy::ObslugaKlienta::wyswietlWszstkieRezerwacje()
 {
 	system("cls");
-	cout << "Wyswietlanie wszystkich rezerwacji" << endl;
+	cout << "Rezerwacje:" << endl;
+	for (auto& rez : zarzadzanieRezerwacjami.getRezerwacjeUzytkownika(osoba.id)) {
+		cout << "Nr. rezerwacji: "<<rez.getId() << "; Od: " << rez.terminPobytu.odDnia << "; Do: " << rez.terminPobytu.doDnia <<  "\n";
+	}
 }
 
 void hotel_klasowy::ObslugaKlienta::anulujRezerwacje(int idRezerwacji)
