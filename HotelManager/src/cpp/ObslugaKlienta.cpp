@@ -79,7 +79,10 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 			cin >> exit;
 			break;
 		case 3:
-			anulujRezerwacje(2);
+			cout << "Podaj ID rezerwacji do anulowania: ";
+			int id;
+			cin >> id;
+			anulujRezerwacje(id);
 			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
 			cin >> exit;
 			break;
@@ -129,7 +132,8 @@ void hotel_klasowy::ObslugaKlienta::wyswietlWszstkieRezerwacje()
 void hotel_klasowy::ObslugaKlienta::anulujRezerwacje(int idRezerwacji)
 {
 	system("cls");
-	cout << "Anulowanie rezerwacji" << endl;
+	bool czyAnulowano = zarzadzanieRezerwacjami.anulujRezerwacje(idRezerwacji);
+	if (!czyAnulowano) cout << "Nie udalo sie anulowac rezerwacji" << endl;
 }
 
 void hotel_klasowy::ObslugaKlienta::wyswietlRezerwacje(int idRezerwacji)
