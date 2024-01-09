@@ -9,19 +9,19 @@ namespace hotel_klasowy {
 	public:
 		OpisPokoju() : _id(-1),  _nazwa(""), _opis(""), _maxOsob(0), _cenaZaDobe(0.0) {}
 		OpisPokoju(int id, string n, string o, int m, float c) : _id(id), _nazwa(n), _opis(o), _maxOsob(m), _cenaZaDobe(c) {}
-        int id() const {
+        int getId() const {
             return _id;
         }
-        string nazwa() const {
+        string getNazwa() const {
             return _nazwa;
         }
-        string opis() const {
+        string getOpis() const {
             return _opis;
         }
-        int maxOsob() const {
+        int getMaxOsob() const {
             return _maxOsob;
         }
-        float cenaZaDobe() const {
+        float getCenaZaDobe() const {
             return _cenaZaDobe;
         }
 
