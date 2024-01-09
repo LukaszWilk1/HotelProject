@@ -103,7 +103,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 		int opcja = 0;
 		cin >> opcja;
 
-		while (opcja != 1 && opcja != 2 && opcja != 3 && opcja != 4 && opcja != 5 && opcja != 6 && opcja != 7 && opcja != 8 && opcja != 9 && opcja != 10 && opcja != 11 && opcja != 12) {
+		while (opcja != 1 && opcja != 2 && opcja != 3 && opcja != 4 && opcja != 5 && opcja != 6 && opcja != 7 && opcja != 8 && opcja != 9 && opcja != 10 && opcja != 11 && opcja != 12 && opcja != 13) {
 			system("cls");
 			cout << "------------------------------------------------------------------------------------------------------------------" << endl;
 			cout << "-                                                                                                    " << osoba.imie << " " << osoba.nazwisko << " - " << endl;
@@ -204,6 +204,9 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			odblokujPokoj(2);
 			cout << "Wpisz q aby wyjsc lub cokolwiek innego aby wrocic do listy opcji: ";
 			cin >> exit;
+			break;
+		case 13:
+			exit = "q";
 			break;
 		}
 	} while (exit != "Q" && exit != "q");
