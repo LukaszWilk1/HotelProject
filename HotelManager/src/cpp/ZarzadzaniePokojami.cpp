@@ -16,12 +16,26 @@ hotel_klasowy::ZarzadzaniePokojami::ZarzadzaniePokojami(ZarzadzanieRezerwacjami*
 }
 
 int hotel_klasowy::ZarzadzaniePokojami::znajdzWolnyPokoj(int typPokoju, Termin termin) {
-	std::vector<int> zajetePokojeWTerminie(10);
+	std::set<int> zajetePokojeWTerminie;
 	for (auto& rezerwacja : zarzadzanieRezerwacjami->rezerwacje) {
 		if (!rezerwacja.archiwalna && termin ^ rezerwacja.terminPobytu) {
-			zajetePokojeWTerminie.push_back(rezerwacja.nrPokoju);
+			zajetePokojeWTerminie.insert(rezerwacja.nrPokoju);
 		}
 	}
+
+	std::set<int> numeryPokojiChcianegoTypu;
+	for (auto& p : listaPokoi) {
+		if (p.typ_pokoju == typPokoju) {
+			numeryPokojiChcianegoTypu.insert(p.numer);
+		}
+	}
+
+	for (auto& nrPokoju : numeryPokojiChcianegoTypu) {
+		if (zajetePokojeWTerminie.find(nrPokoju) == zajetePokojeWTerminie.end()) {
+			return nrPokoju;
+		}
+	}
+
 
 	return -1;
 }
