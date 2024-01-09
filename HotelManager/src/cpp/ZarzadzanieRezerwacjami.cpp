@@ -135,6 +135,18 @@ const hotel_klasowy::Rezerwacja hotel_klasowy::ZarzadzanieRezerwacjami::getRezer
 	return znajdzRezerwacje(id);
 }
 
+const std::vector<hotel_klasowy::Rezerwacja> hotel_klasowy::ZarzadzanieRezerwacjami::getRezerwacjeUzytkownika(int idKlienta) const
+{
+	std::vector<Rezerwacja> rezUzytkoniwka;
+	for (auto& r : rezerwacje) {
+		if (r.getIdKlienta() == idKlienta) {
+			rezUzytkoniwka.push_back(r);
+		}
+	}
+	
+	return rezUzytkoniwka;
+}
+
 void hotel_klasowy::ZarzadzanieRezerwacjami::zapiszRezerwacje() {
 	ofstream myfile;
 	myfile.open(DATA_FOLDER("rezerwacje.hotel"));
