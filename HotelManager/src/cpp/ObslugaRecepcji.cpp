@@ -168,7 +168,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 3:
-			cout << "Podaj ID rezerwacji do anulowania: ";
+			cout << "Podaj nr. rezerwacji do anulowania: ";
 			int idAnulowania;
 			cin >> idAnulowania;
 			anulujRezerwacje(idAnulowania);
@@ -176,7 +176,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 4:
-			cout << "Podaj ID rezerwacji do wyswietlenia: ";
+			cout << "Podaj nr. rezerwacji do wyswietlenia: ";
 			int idWyswietlenia;
 			cin >> idWyswietlenia;
 			wyswietlRezerwacje(idWyswietlenia);
@@ -184,7 +184,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 5:
-			cout << "Podaj ID rezerwacji do zmiany terminu: ";
+			cout << "Podaj nr. rezerwacji do zmiany terminu: ";
 			int idZmianyTerminu;
 			cin >> idZmianyTerminu;
 			zmienTerminRezerwacji(idZmianyTerminu);
@@ -192,7 +192,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 6:
-			cout << "Podaj ID rezerwacji do oplacenia: ";
+			cout << "Podaj nr. rezerwacji do oplacenia: ";
 			int idDoOplacenia;
 			cin >> idDoOplacenia;
 			oplacRezerwacje(idDoOplacenia);
@@ -200,7 +200,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 7:
-			cout << "Podaj ID pokoju do wyswietlenia: ";
+			cout << "Podaj nr. pokoju do wyswietlenia: ";
 			int idPokoju;
 			cin >> idPokoju;
 			wyswietlPokoj(idPokoju);
@@ -213,7 +213,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 9:
-			cout << "Podaj ID pokoju do zablokowania: ";
+			cout << "Podaj nr. pokoju do zablokowania: ";
 			int idZablokowania;
 			cin >> idZablokowania;
 			zablokujPokoj(idZablokowania);
@@ -221,7 +221,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 10:
-			cout << "Podaj ID pokoju do zakwaterowania: ";
+			cout << "Podaj nr. pokoju do zakwaterowania: ";
 			int idZawkaterowania;
 			cin >> idZawkaterowania;
 			zakwateruj(idZawkaterowania);
@@ -229,7 +229,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 11:
-			cout << "Podaj ID pokoju do wykwaterowania: ";
+			cout << "Podaj nr. rezerwacji do wykwaterowania: ";
 			int idWykwaterowania;
 			cin >> idWykwaterowania;
 			wykwateruj(idWykwaterowania);
@@ -237,7 +237,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 12:
-			cout << "Podaj ID pokoju do odblokowania: ";
+			cout << "Podaj nr. pokoju do odblokowania: ";
 			int id2;
 			cin >> id2;
 			odblokujPokoj(id2);

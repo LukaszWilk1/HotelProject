@@ -83,7 +83,7 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 			cin >> exit;
 			break;
 		case 3:
-			cout << "Podaj ID rezerwacji do anulowania: ";
+			cout << "Podaj nr. rezerwacji do anulowania: ";
 			int id;
 			cin >> id;
 			anulujRezerwacje(id);
@@ -91,7 +91,7 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 			cin >> exit;
 			break;
 		case 4:
-			cout << "Podaj ID rezerwacji do wyswietlenia: ";
+			cout << "Podaj nr. rezerwacji do wyswietlenia: ";
 			int idWyswietleniaRezerwacji;
 			cin >> idWyswietleniaRezerwacji;
 			wyswietlRezerwacje(idWyswietleniaRezerwacji);
@@ -99,7 +99,7 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 			cin >> exit;
 			break;
 		case 5:
-			cout << "Podaj ID rezerwacji do zmiany terminu: ";
+			cout << "Podaj nr. rezerwacji do zmiany terminu: ";
 			int idZmianyTerminu;
 			cin >> idZmianyTerminu;
 			zmienTerminRezerwacji(idZmianyTerminu);
@@ -197,9 +197,5 @@ bool hotel_klasowy::ObslugaKlienta::zmienTerminRezerwacji(int idRezerwacji)
 	if (czyZmieniono == -1) cout << "Nie udalo sie zmienic terminu rezerwacji" << endl;
 	else cout << "Pomyslnie zmieniono termin rezerwacji." << endl;
 	return false;
-}
-
-void hotel_klasowy::ObslugaKlienta::anulujRezerwacje(string idRezerwacji)
-{
 }
 
