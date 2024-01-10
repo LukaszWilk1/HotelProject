@@ -53,7 +53,7 @@ hotel_klasowy::ZarzadzanieRezerwacjami::ZarzadzanieRezerwacjami(ZarzadzaniePokoj
 int hotel_klasowy::ZarzadzanieRezerwacjami::dodajRezerwacje(hotel_klasowy::Klient osoba, hotel_klasowy::Termin termin, int typPokoju) {
 	int nrPokoju = zarzadzaniePokojami->znajdzWolnyPokoj(typPokoju, termin);
 	if (nrPokoju != -1) {
-		Rezerwacja r(nastepneId++, nrPokoju, osoba.id, termin);
+		Rezerwacja r(nastepneId++, osoba.id, nrPokoju, termin);
 		rezerwacje.push_back(r);
 		zapiszRezerwacje();
 		return r.getId();
@@ -143,6 +143,8 @@ const std::vector<hotel_klasowy::Rezerwacja> hotel_klasowy::ZarzadzanieRezerwacj
 			rezUzytkoniwka.push_back(r);
 		}
 	}
+
+	std::cout << rezUzytkoniwka.size();
 	
 	return rezUzytkoniwka;
 }
