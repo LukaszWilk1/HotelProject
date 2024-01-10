@@ -95,7 +95,7 @@ void hotel_klasowy::ObslugaSprzataczki::wyswietlPokojeDoPosprzatania() {
 	system("cls");
 	cout << "Lista pokoi do posprzatania:" << endl;
 	for (auto& p : zarzadzaniePokojami.getPokoje()) {
-		if (p.do_sprzatania) {
+		if (p.doSprzatania) {
 			cout << "Nr. pokoju: " << p.numer << "; Uwagi: " << (p.uwagi.length() == 0 ? "Brak" : p.uwagi) << "\n";
 		}
 	}
@@ -105,7 +105,7 @@ bool hotel_klasowy::ObslugaSprzataczki::oznaczPokojJakoPosprzatany(int idPokoju)
 	system("cls");
 	auto& p = zarzadzaniePokojami.getPokoj(idPokoju);
 	if (p.numer != -1) {
-		p.do_sprzatania = false;
+		p.doSprzatania = false;
 		zarzadzaniePokojami.zapiszPokoje();
 		return true;
 	}
