@@ -192,5 +192,17 @@ namespace UnitTestTest
 			Assert::AreNotEqual(-1, nrPok2);
 		}
 
+		TEST_METHOD(TestDodawanieRezerwacji)
+		{
+			TestZarzadzanieHotelem tz;
+			hotel_klasowy::Osoba o("Kamil", "Buczek", 0, hotel_klasowy::KLIENT);
+			hotel_klasowy::Termin t({ 5,5,2026 }, { 8,5,2026 });
+			int rezId = tz.zr.dodajRezerwacje(o, t, 0);
+			Assert::AreNotEqual(-1, rezId);
+			auto rezTest = tz.zr.getRezerwacja(rezId);
+			Assert::IsTrue(rezTest.getId() == rezId);
+			Assert::IsTrue(rezTest.terminPobytu.odDnia == t.odDnia && rezTest.terminPobytu.doDnia == t.doDnia);
+			Assert::IsTrue(rezTest.getIdKlienta() == o.id);
+		}
 	};
 };
