@@ -25,7 +25,7 @@ int hotel_klasowy::ZarzadzaniePokojami::znajdzWolnyPokoj(int typPokoju, Termin t
 
 	std::set<int> numeryPokojiChcianegoTypu;
 	for (auto& p : listaPokoi) {
-		if (p.typ_pokoju == typPokoju) {
+		if (p.typPokoju == typPokoju) {
 			numeryPokojiChcianegoTypu.insert(p.numer);
 		}
 	}
@@ -53,7 +53,7 @@ void hotel_klasowy::ZarzadzaniePokojami::zapiszPokoje()
 	myfile.open(DATA_FOLDER("pokoje.hotel"));
 	if (myfile.is_open()) {
 		for (auto& p : listaPokoi) {
-			myfile << fmt::format("{:d};{:d};{:b};{:b};{}\n", p.numer, p.typ_pokoju, p.zablokowany, p.do_sprzatania, p.uwagi);
+			myfile << fmt::format("{:d};{:d};{:b};{:b};{}\n", p.numer, p.typPokoju, p.zablokowany, p.doSprzatania, p.uwagi);
 		}
 		myfile.close();
 	}

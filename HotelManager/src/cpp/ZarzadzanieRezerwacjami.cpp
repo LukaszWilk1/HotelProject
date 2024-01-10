@@ -73,7 +73,7 @@ bool hotel_klasowy::ZarzadzanieRezerwacjami::anulujRezerwacje(int idRezerwacji) 
 	if (!rez.archiwalna) {
 		if (rez.zakwaterowana) {
 			//ustaw pokoj do posprzatania
-			zarzadzaniePokojami->getPokoj(rez.nrPokoju).do_sprzatania = true;
+			zarzadzaniePokojami->getPokoj(rez.nrPokoju).doSprzatania = true;
 		}
 		rez.archiwalna = true;
 		zapiszRezerwacje();
@@ -91,7 +91,7 @@ bool hotel_klasowy::ZarzadzanieRezerwacjami::zmienTerminRezerwacji(int idRezerwa
 	auto& rez = znajdzRezerwacje(idRezerwacji);
 	if (rez.getId() != -1 && !rez.archiwalna && !rez.zakwaterowana) {
 		auto& orgPokoj = zarzadzaniePokojami->getPokoj(rez.nrPokoju);
-		int nowyNrPokoju = zarzadzaniePokojami->znajdzWolnyPokoj(orgPokoj.typ_pokoju, nowy);
+		int nowyNrPokoju = zarzadzaniePokojami->znajdzWolnyPokoj(orgPokoj.typPokoju, nowy);
 		if (nowyNrPokoju != -1) {
 			rez.terminPobytu = nowy;
 			rez.nrPokoju = nowyNrPokoju;
@@ -123,7 +123,7 @@ bool hotel_klasowy::ZarzadzanieRezerwacjami::wykwateruj(int idRezerwacji) {
 	if (rez.getId() != -1 && !rez.archiwalna && rez.oplacona) {
 		rez.archiwalna = true;
 		auto& pokoj = zarzadzaniePokojami->getPokoj(rez.nrPokoju);
-		pokoj.do_sprzatania = true;
+		pokoj.doSprzatania = true;
 		zapiszRezerwacje();
 		return true;
 	}

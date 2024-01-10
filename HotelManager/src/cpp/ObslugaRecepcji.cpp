@@ -17,8 +17,8 @@ void hotel_klasowy::ObslugaRecepcji::wyswietlPokoj(int idPokoju) {
 	system("cls");
 	hotel_klasowy::Pokoj p = zarzadzaniePokojami.getPokoj(idPokoju);
 	cout << "Numer pokoju: " << p.numer << endl;
-	cout << "Typ pokoju: " << p.typ_pokoju << endl;
-	cout << "Czy do sprzatania: " << p.do_sprzatania << endl;
+	cout << "Typ pokoju: " << p.typPokoju << endl;
+	cout << "Czy do sprzatania: " << p.doSprzatania << endl;
 	cout << "Czy zablokowany: " << p.zablokowany << endl;
 	cout << "Uwagi: " << "" << p.uwagi << endl;
 }
@@ -28,8 +28,8 @@ void hotel_klasowy::ObslugaRecepcji::wyswietlWszystkiePokoje() {
 	cout << "Oto wszystkie pokoje" << endl;
 	for (auto& p : zarzadzaniePokojami.getPokoje()) {
 		cout << "Numer pokoju: " << p.numer << endl;
-		cout << "Typ pokoju: " << p.typ_pokoju << endl;
-		cout << "Czy do sprzatania: " << p.do_sprzatania << endl;
+		cout << "Typ pokoju: " << p.typPokoju << endl;
+		cout << "Czy do sprzatania: " << p.doSprzatania << endl;
 		cout << "Czy zablokowany: " << p.zablokowany << endl;
 		cout << "Uwagi: " << "" << p.uwagi << endl;
 		cout << "-----------------------------------------" << endl;
