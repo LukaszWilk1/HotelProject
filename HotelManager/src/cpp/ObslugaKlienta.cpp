@@ -32,7 +32,9 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 		cout << "-                                  |                                      |                                      -" << endl;
 		cout << "-                                  |      5. Zmien termin rezerwacji      |                                      -" << endl;
 		cout << "-                                  |                                      |                                      -" << endl;
-		cout << "-                                  |              6. Zakoncz              |                                      -" << endl;
+		cout << "-                                  |        6. Wyswietl typy pokoi        |                                      -" << endl;
+		cout << "-                                  |                                      |                                      -" << endl;
+		cout << "-                                  |              7. Zakoncz              |                                      -" << endl;
 		cout << "-                                  |                                      |                                      -" << endl;
 		cout << "-                                  ========================================                                      -" << endl;
 		cout << "-                                                                                                                -" << endl;
@@ -40,7 +42,7 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 		int opcja = 0;
 		cin >> opcja;
 
-		while (opcja != 1 && opcja != 2 && opcja != 3 && opcja != 4 && opcja != 5 && opcja != 6) {
+		while (opcja != 1 && opcja != 2 && opcja != 3 && opcja != 4 && opcja != 5 && opcja != 6 && opcja != 7) {
 			system("cls");
 			cout << "------------------------------------------------------------------------------------------------------------------" << endl;
 			cout << "-                                                                                                    " << osoba.imie << " " << osoba.nazwisko << " - " << endl;
@@ -62,7 +64,9 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 			cout << "-                                  |                                      |                                      -" << endl;
 			cout << "-                                  |      5. Zmien termin rezerwacji      |                                      -" << endl;
 			cout << "-                                  |                                      |                                      -" << endl;
-			cout << "-                                  |              6. Zakoncz              |                                      -" << endl;
+			cout << "-                                  |        6. Wyswietl typy pokoi        |                                      -" << endl;
+			cout << "-                                  |                                      |                                      -" << endl;
+			cout << "-                                  |              7. Zakoncz              |                                      -" << endl;
 			cout << "-                                  |                                      |                                      -" << endl;
 			cout << "-                                  ========================================                                      -" << endl;
 			cout << "-                                                                                                                -" << endl;
@@ -83,7 +87,7 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 			cin >> exit;
 			break;
 		case 3:
-			cout << "Podaj ID rezerwacji do anulowania: ";
+			cout << "Podaj nr. rezerwacji do anulowania: ";
 			int id;
 			cin >> id;
 			anulujRezerwacje(id);
@@ -91,7 +95,7 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 			cin >> exit;
 			break;
 		case 4:
-			cout << "Podaj ID rezerwacji do wyswietlenia: ";
+			cout << "Podaj nr. rezerwacji do wyswietlenia: ";
 			int idWyswietleniaRezerwacji;
 			cin >> idWyswietleniaRezerwacji;
 			wyswietlRezerwacje(idWyswietleniaRezerwacji);
@@ -99,7 +103,7 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 			cin >> exit;
 			break;
 		case 5:
-			cout << "Podaj ID rezerwacji do zmiany terminu: ";
+			cout << "Podaj nr. rezerwacji do zmiany terminu: ";
 			int idZmianyTerminu;
 			cin >> idZmianyTerminu;
 			zmienTerminRezerwacji(idZmianyTerminu);
@@ -107,6 +111,11 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 			cin >> exit;
 			break;
 		case 6:
+			wyswietlTypyPokoi();
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
+			cin >> exit;
+			break;
+		case 7:
 			exit = "q";
 			break;
 		}
@@ -149,7 +158,7 @@ void hotel_klasowy::ObslugaKlienta::wyswietlWszstkieRezerwacje()
 	system("cls");
 	cout << "Rezerwacje:" << endl;
 	for (auto& rez : zarzadzanieRezerwacjami.getRezerwacjeUzytkownika(osoba.id)) {
-		cout << "Nr. rezerwacji: "<<rez.getId() << "; Od: " << rez.terminPobytu.odDnia << "; Do: " << rez.terminPobytu.doDnia <<  "\n";
+		cout << "Nr. rezerwacji: "<<rez.getId() << "; Od: " << rez.terminPobytu.odDnia << "; Do: " << rez.terminPobytu.doDnia << (rez.archiwalna ? " - ARCHIWALNA" : "") << "\n";
 	}
 }
 
@@ -166,7 +175,17 @@ void hotel_klasowy::ObslugaKlienta::wyswietlRezerwacje(int idRezerwacji)
 	system("cls");
 	cout << "Wyswietlenie rezerwacji" << endl;
 	hotel_klasowy::Rezerwacja rez = zarzadzanieRezerwacjami.getRezerwacja(idRezerwacji);
-	cout << "Nr. rezerwacji: " << rez.getId() << "; Od: " << rez.terminPobytu.odDnia << "; Do: " << rez.terminPobytu.doDnia << "\n";
+	if (rez.getId() != -1) {
+		cout << "Nr. rezerwacji: " << rez.getId() << "\n";
+		cout << "Od: " << rez.terminPobytu.odDnia << "\n";
+		cout << "Do: " << rez.terminPobytu.doDnia << "\n";
+		cout << "Zakwaterowana: " << (rez.zakwaterowana ? "tak" : "nie") << "\n";
+		cout << "Oplacona: " << (rez.oplacona ? "tak" : "nie") << "\n";
+		cout << "Archiwalna: " << (rez.archiwalna ? "tak" : "nie") << "\n";
+	}
+	else {
+		cout << "Niepoprawne id rezerwacji\n";
+	}
 }
 
 bool hotel_klasowy::ObslugaKlienta::zmienTerminRezerwacji(int idRezerwacji)
@@ -189,7 +208,16 @@ bool hotel_klasowy::ObslugaKlienta::zmienTerminRezerwacji(int idRezerwacji)
 	return false;
 }
 
-void hotel_klasowy::ObslugaKlienta::anulujRezerwacje(string idRezerwacji)
+void hotel_klasowy::ObslugaKlienta::wyswietlTypyPokoi()
 {
+	system("cls");
+	vector <hotel_klasowy::OpisPokoju> opisy = zarzadzaniePokojami.getRodzajePokoji();
+	for (auto& r : opisy) {
+		cout << "Id: " << r.getId() << endl;
+		cout << "Nazwa: " << r.getNazwa() << endl;
+		cout << "Opis: " << r.getOpis() << endl;
+		cout << "Maksymalna ilosc osob: " << r.getMaxOsob() << endl;
+		cout << "Cena za dobe: " << r.getCenaZaDobe() << endl;
+		cout << "-----------------------------------------" << endl;
+	}
 }
-

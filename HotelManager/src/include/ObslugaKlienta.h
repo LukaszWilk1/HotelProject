@@ -27,7 +27,7 @@ namespace hotel_klasowy
 		virtual void anulujRezerwacje(int idRezerwacji) override;
 		virtual void wyswietlRezerwacje(int idRezerwacji) override;
 		virtual bool zmienTerminRezerwacji(int idRezerwacji) override;
-		virtual void anulujRezerwacje(string idRezerwacji) override;
+		virtual void wyswietlTypyPokoi();
 	};
 }
 

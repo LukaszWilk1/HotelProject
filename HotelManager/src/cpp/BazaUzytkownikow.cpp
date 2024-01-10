@@ -35,7 +35,7 @@ void hotel_klasowy::BazaUzytkownikow::zapiszDane() {
 	if (myfile.is_open()) {
 		myfile << nastepneId << "\n";
 		for (auto& o : uzytkownicy) {
-			myfile << fmt::format("{:d};{};{};{:d}\n", o.id, o.imie, o.nazwisko, (int)o.typ_konta);
+			myfile << fmt::format("{:d};{};{};{:d}\n", o.id, o.imie, o.nazwisko, (int)o.typKonta);
 		}
 		myfile.close();
 	}

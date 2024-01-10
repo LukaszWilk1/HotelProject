@@ -80,7 +80,7 @@ void hotel_klasowy::ZarzadzanieHotelem::start() {
 			cout << "------------------------------------------------------------------------------------------------------------------" << endl;
 			cin >> id;
 			hotel_klasowy::Osoba uzytkownik = bazaUzytkownikow.getUzytkownik(id);
-			hotel_klasowy::TypKonta typKonta = uzytkownik.typ_konta;
+			hotel_klasowy::TypKonta typKonta = uzytkownik.typKonta;
 
 			while (typKonta == NONE) {
 				system("cls");
@@ -102,7 +102,7 @@ void hotel_klasowy::ZarzadzanieHotelem::start() {
 				cout << "------------------------------------------------------------------------------------------------------------------" << endl;
 				cout << "Uzytkownik o tym ID nie istnieje! Wprowadz poprawne ID: ";
 				cin >> id;
-				typKonta = bazaUzytkownikow.getUzytkownik(id).typ_konta;
+				typKonta = bazaUzytkownikow.getUzytkownik(id).typKonta;
 			}
 
 			if (typKonta == KLIENT) {
@@ -110,7 +110,7 @@ void hotel_klasowy::ZarzadzanieHotelem::start() {
 				obslugaKlienta.interfejs();
 			}
 			else if (typKonta == RECEPCJA) {
-				hotel_klasowy::ObslugaRecepcji obslugaRecepcji(uzytkownik, zarzadzanieRezerwacjami, zarzadzaniePokojami);
+				hotel_klasowy::ObslugaRecepcji obslugaRecepcji(uzytkownik, zarzadzanieRezerwacjami, zarzadzaniePokojami, bazaUzytkownikow);
 				obslugaRecepcji.interfejs();
 			}
 			else if (typKonta == SPRZATACZKA) {
@@ -139,8 +139,7 @@ void hotel_klasowy::ZarzadzanieHotelem::start() {
 			cout << "-                                                                                                                -" << endl;
 			cout << "------------------------------------------------------------------------------------------------------------------" << endl;
 			cin >> imie >> nazwisko;
-			hotel_klasowy::BazaUzytkownikow baza;
-			int id = baza.dodajUzytkownika(imie, nazwisko, KLIENT);
+			int id = bazaUzytkownikow.dodajUzytkownika(imie, nazwisko, KLIENT);
 			system("cls");
 			cout << "Uzytkownik pomyslnie dodany. Twoje ID do logowania to: " << id <<endl;
 			string dalej;

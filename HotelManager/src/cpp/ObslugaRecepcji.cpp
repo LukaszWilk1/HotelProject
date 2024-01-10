@@ -17,8 +17,8 @@ void hotel_klasowy::ObslugaRecepcji::wyswietlPokoj(int idPokoju) {
 	system("cls");
 	hotel_klasowy::Pokoj p = zarzadzaniePokojami.getPokoj(idPokoju);
 	cout << "Numer pokoju: " << p.numer << endl;
-	cout << "Typ pokoju: " << p.typ_pokoju << endl;
-	cout << "Czy do sprzatania: " << p.do_sprzatania << endl;
+	cout << "Typ pokoju: " << p.typPokoju << endl;
+	cout << "Czy do sprzatania: " << p.doSprzatania << endl;
 	cout << "Czy zablokowany: " << p.zablokowany << endl;
 	cout << "Uwagi: " << "" << p.uwagi << endl;
 }
@@ -28,8 +28,8 @@ void hotel_klasowy::ObslugaRecepcji::wyswietlWszystkiePokoje() {
 	cout << "Oto wszystkie pokoje" << endl;
 	for (auto& p : zarzadzaniePokojami.getPokoje()) {
 		cout << "Numer pokoju: " << p.numer << endl;
-		cout << "Typ pokoju: " << p.typ_pokoju << endl;
-		cout << "Czy do sprzatania: " << p.do_sprzatania << endl;
+		cout << "Typ pokoju: " << p.typPokoju << endl;
+		cout << "Czy do sprzatania: " << p.doSprzatania << endl;
 		cout << "Czy zablokowany: " << p.zablokowany << endl;
 		cout << "Uwagi: " << "" << p.uwagi << endl;
 		cout << "-----------------------------------------" << endl;
@@ -168,7 +168,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 3:
-			cout << "Podaj ID rezerwacji do anulowania: ";
+			cout << "Podaj nr. rezerwacji do anulowania: ";
 			int idAnulowania;
 			cin >> idAnulowania;
 			anulujRezerwacje(idAnulowania);
@@ -176,7 +176,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 4:
-			cout << "Podaj ID rezerwacji do wyswietlenia: ";
+			cout << "Podaj nr. rezerwacji do wyswietlenia: ";
 			int idWyswietlenia;
 			cin >> idWyswietlenia;
 			wyswietlRezerwacje(idWyswietlenia);
@@ -184,7 +184,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 5:
-			cout << "Podaj ID rezerwacji do zmiany terminu: ";
+			cout << "Podaj nr. rezerwacji do zmiany terminu: ";
 			int idZmianyTerminu;
 			cin >> idZmianyTerminu;
 			zmienTerminRezerwacji(idZmianyTerminu);
@@ -192,7 +192,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 6:
-			cout << "Podaj ID rezerwacji do oplacenia: ";
+			cout << "Podaj nr. rezerwacji do oplacenia: ";
 			int idDoOplacenia;
 			cin >> idDoOplacenia;
 			oplacRezerwacje(idDoOplacenia);
@@ -200,7 +200,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 7:
-			cout << "Podaj ID pokoju do wyswietlenia: ";
+			cout << "Podaj nr. pokoju do wyswietlenia: ";
 			int idPokoju;
 			cin >> idPokoju;
 			wyswietlPokoj(idPokoju);
@@ -213,7 +213,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 9:
-			cout << "Podaj ID pokoju do zablokowania: ";
+			cout << "Podaj nr. pokoju do zablokowania: ";
 			int idZablokowania;
 			cin >> idZablokowania;
 			zablokujPokoj(idZablokowania);
@@ -221,7 +221,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 10:
-			cout << "Podaj ID pokoju do zakwaterowania: ";
+			cout << "Podaj nr. pokoju do zakwaterowania: ";
 			int idZawkaterowania;
 			cin >> idZawkaterowania;
 			zakwateruj(idZawkaterowania);
@@ -229,7 +229,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 11:
-			cout << "Podaj ID pokoju do wykwaterowania: ";
+			cout << "Podaj nr. rezerwacji do wykwaterowania: ";
 			int idWykwaterowania;
 			cin >> idWykwaterowania;
 			wykwateruj(idWykwaterowania);
@@ -237,7 +237,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cin >> exit;
 			break;
 		case 12:
-			cout << "Podaj ID pokoju do odblokowania: ";
+			cout << "Podaj nr. pokoju do odblokowania: ";
 			int id2;
 			cin >> id2;
 			odblokujPokoj(id2);
@@ -254,6 +254,14 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 void hotel_klasowy::ObslugaRecepcji::dodajRezerwacje() {
 	string dataOd, dataDo;
 	system("cls");
+	int idKlienta;
+	cout << "Podaj nr. klienta dla ktorego jest tworzona rezerwacja:\n";
+	cin >> idKlienta;
+	auto& klient = bazaUzytkownikow.getUzytkownik(idKlienta);
+	if (klient.id == -1) {
+		cout << "Klient o takim numerze nie istnieje\n";
+		return;
+	}
 	cout << "Podaj poczatek pobytu (dd-mm-yyyy): " << endl;
 	cin >> dataOd;
 	cout << "Podaj koniec pobytu (dd-mm-yyyy): " << endl;
@@ -276,7 +284,7 @@ void hotel_klasowy::ObslugaRecepcji::dodajRezerwacje() {
 	cout << "Podaj rodzaj pokoju: " << endl;
 	int typ;
 	cin >> typ;
-	int idRezerwacji = zarzadzanieRezerwacjami.dodajRezerwacje(osoba, termin, typ);
+	int idRezerwacji = zarzadzanieRezerwacjami.dodajRezerwacje(klient, termin, typ);
 	if (idRezerwacji == -1) cout << "Nie udalo sie zarezerwowac w danym terminie." << endl;
 	else cout << "Pomyslnie zarezerwowano pobyt. Twoja rezerwacja ma id: " << idRezerwacji << endl;
 }
@@ -301,7 +309,18 @@ void hotel_klasowy::ObslugaRecepcji::wyswietlRezerwacje(int idRezerwacji) {
 	system("cls");
 	cout << "Wyswietlenie rezerwacji" << endl;
 	hotel_klasowy::Rezerwacja rez = zarzadzanieRezerwacjami.getRezerwacja(idRezerwacji);
-	cout << "Nr. rezerwacji: " << rez.getId() << "; Od: " << rez.terminPobytu.odDnia << "; Do: " << rez.terminPobytu.doDnia << "\n";
+	if (rez.getId() != -1) {
+		cout << "Nr. rezerwacji: " << rez.getId() << "\n";
+		cout << "Nr. klienta: " << rez.getIdKlienta() << "\n";
+		cout << "Od: " << rez.terminPobytu.odDnia << "\n";
+		cout << "Do: " << rez.terminPobytu.doDnia << "\n";
+		cout << "Zakwaterowana: " << (rez.zakwaterowana ? "tak" : "nie") << "\n";
+		cout << "Oplacona: " << (rez.oplacona ? "tak" : "nie") << "\n";
+		cout << "Archiwalna: " << (rez.archiwalna ? "tak" : "nie") << "\n";
+	}
+	else {
+		cout << "Niepoprawne id rezerwacji\n";
+	}
 }
 
 bool hotel_klasowy::ObslugaRecepcji::zmienTerminRezerwacji(int idRezerwacji) {
@@ -321,9 +340,5 @@ bool hotel_klasowy::ObslugaRecepcji::zmienTerminRezerwacji(int idRezerwacji) {
 	if (czyZmieniono == -1) cout << "Nie udalo sie zmienic terminu rezerwacji" << endl;
 	else cout << "Pomyslnie zmieniono termin rezerwacji." << endl;
 	return false;
-}
-
-void hotel_klasowy::ObslugaRecepcji::anulujRezerwacje(string idRezerwacji)
-{
 }
 

@@ -18,11 +18,11 @@ namespace hotel_klasowy
 	class Pokoj
 	{
 	public:
-		Pokoj() : numer(-1), typ_pokoju(-1), do_sprzatania(0), zablokowany(0), uwagi("") {}
-		Pokoj(int n, int typ, bool s, bool z, string u) : numer(n), typ_pokoju(typ), do_sprzatania(s), zablokowany(z), uwagi(u) {}
+		Pokoj() : numer(-1), typPokoju(-1), doSprzatania(0), zablokowany(0), uwagi("") {}
+		Pokoj(int n, int typ, bool s, bool z, string u) : numer(n), typPokoju(typ), doSprzatania(s), zablokowany(z), uwagi(u) {}
 		const int numer;
-		const int typ_pokoju;
-		bool do_sprzatania;
+		const int typPokoju;
+		bool doSprzatania;
 		bool zablokowany;
 		string uwagi;
 	};
