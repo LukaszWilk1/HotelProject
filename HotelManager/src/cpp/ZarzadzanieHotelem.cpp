@@ -110,7 +110,7 @@ void hotel_klasowy::ZarzadzanieHotelem::start() {
 				obslugaKlienta.interfejs();
 			}
 			else if (typKonta == RECEPCJA) {
-				hotel_klasowy::ObslugaRecepcji obslugaRecepcji(uzytkownik, zarzadzanieRezerwacjami, zarzadzaniePokojami);
+				hotel_klasowy::ObslugaRecepcji obslugaRecepcji(uzytkownik, zarzadzanieRezerwacjami, zarzadzaniePokojami, bazaUzytkownikow);
 				obslugaRecepcji.interfejs();
 			}
 			else if (typKonta == SPRZATACZKA) {

@@ -254,6 +254,14 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 void hotel_klasowy::ObslugaRecepcji::dodajRezerwacje() {
 	string dataOd, dataDo;
 	system("cls");
+	int idKlienta;
+	cout << "Podaj nr. klienta dla ktorego jest tworzona rezerwacja:\n";
+	cin >> idKlienta;
+	auto& klient = bazaUzytkownikow.getUzytkownik(idKlienta);
+	if (klient.id == -1) {
+		cout << "Klient o takim numerze nie istnieje\n";
+		return;
+	}
 	cout << "Podaj poczatek pobytu (dd-mm-yyyy): " << endl;
 	cin >> dataOd;
 	cout << "Podaj koniec pobytu (dd-mm-yyyy): " << endl;
@@ -276,7 +284,7 @@ void hotel_klasowy::ObslugaRecepcji::dodajRezerwacje() {
 	cout << "Podaj rodzaj pokoju: " << endl;
 	int typ;
 	cin >> typ;
-	int idRezerwacji = zarzadzanieRezerwacjami.dodajRezerwacje(osoba, termin, typ);
+	int idRezerwacji = zarzadzanieRezerwacjami.dodajRezerwacje(klient, termin, typ);
 	if (idRezerwacji == -1) cout << "Nie udalo sie zarezerwowac w danym terminie." << endl;
 	else cout << "Pomyslnie zarezerwowano pobyt. Twoja rezerwacja ma id: " << idRezerwacji << endl;
 }
