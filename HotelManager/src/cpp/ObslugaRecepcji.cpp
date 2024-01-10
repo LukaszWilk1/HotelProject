@@ -301,7 +301,18 @@ void hotel_klasowy::ObslugaRecepcji::wyswietlRezerwacje(int idRezerwacji) {
 	system("cls");
 	cout << "Wyswietlenie rezerwacji" << endl;
 	hotel_klasowy::Rezerwacja rez = zarzadzanieRezerwacjami.getRezerwacja(idRezerwacji);
-	cout << "Nr. rezerwacji: " << rez.getId() << "; Od: " << rez.terminPobytu.odDnia << "; Do: " << rez.terminPobytu.doDnia << "\n";
+	if (rez.getId() != -1) {
+		cout << "Nr. rezerwacji: " << rez.getId() << "\n";
+		cout << "Nr. klienta: " << rez.getIdKlienta() << "\n";
+		cout << "Od: " << rez.terminPobytu.odDnia << "\n";
+		cout << "Do: " << rez.terminPobytu.doDnia << "\n";
+		cout << "Zakwaterowana: " << (rez.zakwaterowana ? "tak" : "nie") << "\n";
+		cout << "Oplacona: " << (rez.oplacona ? "tak" : "nie") << "\n";
+		cout << "Archiwalna: " << (rez.archiwalna ? "tak" : "nie") << "\n";
+	}
+	else {
+		cout << "Niepoprawne id rezerwacji\n";
+	}
 }
 
 bool hotel_klasowy::ObslugaRecepcji::zmienTerminRezerwacji(int idRezerwacji) {

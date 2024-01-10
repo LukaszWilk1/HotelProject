@@ -149,7 +149,7 @@ void hotel_klasowy::ObslugaKlienta::wyswietlWszstkieRezerwacje()
 	system("cls");
 	cout << "Rezerwacje:" << endl;
 	for (auto& rez : zarzadzanieRezerwacjami.getRezerwacjeUzytkownika(osoba.id)) {
-		cout << "Nr. rezerwacji: "<<rez.getId() << "; Od: " << rez.terminPobytu.odDnia << "; Do: " << rez.terminPobytu.doDnia <<  "\n";
+		cout << "Nr. rezerwacji: "<<rez.getId() << "; Od: " << rez.terminPobytu.odDnia << "; Do: " << rez.terminPobytu.doDnia << (rez.archiwalna ? " - ARCHIWALNA" : "") << "\n";
 	}
 }
 
@@ -166,7 +166,17 @@ void hotel_klasowy::ObslugaKlienta::wyswietlRezerwacje(int idRezerwacji)
 	system("cls");
 	cout << "Wyswietlenie rezerwacji" << endl;
 	hotel_klasowy::Rezerwacja rez = zarzadzanieRezerwacjami.getRezerwacja(idRezerwacji);
-	cout << "Nr. rezerwacji: " << rez.getId() << "; Od: " << rez.terminPobytu.odDnia << "; Do: " << rez.terminPobytu.doDnia << "\n";
+	if (rez.getId() != -1) {
+		cout << "Nr. rezerwacji: " << rez.getId() << "\n";
+		cout << "Od: " << rez.terminPobytu.odDnia << "\n";
+		cout << "Do: " << rez.terminPobytu.doDnia << "\n";
+		cout << "Zakwaterowana: " << (rez.zakwaterowana ? "tak" : "nie") << "\n";
+		cout << "Oplacona: " << (rez.oplacona ? "tak" : "nie") << "\n";
+		cout << "Archiwalna: " << (rez.archiwalna ? "tak" : "nie") << "\n";
+	}
+	else {
+		cout << "Niepoprawne id rezerwacji\n";
+	}
 }
 
 bool hotel_klasowy::ObslugaKlienta::zmienTerminRezerwacji(int idRezerwacji)

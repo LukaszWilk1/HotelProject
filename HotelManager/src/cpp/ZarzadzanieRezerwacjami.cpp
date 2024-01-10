@@ -143,8 +143,6 @@ const std::vector<hotel_klasowy::Rezerwacja> hotel_klasowy::ZarzadzanieRezerwacj
 			rezUzytkoniwka.push_back(r);
 		}
 	}
-
-	std::cout << rezUzytkoniwka.size();
 	
 	return rezUzytkoniwka;
 }
