@@ -7,6 +7,8 @@
 #include "TypyKont.h"
 #include "Data.cpp"
 #include "Termin.cpp"
+#include "ZarzadzaniePokojami.cpp"
+#include "ZarzadzanieRezerwacjami.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -163,5 +165,32 @@ namespace UnitTestTest
 			Assert::IsTrue(t1.odDnia == t2.odDnia);
 			Assert::IsTrue(t1.doDnia == t2.doDnia);
 		}
+
+		class TestZarzadzanieHotelem {
+		public:
+			hotel_klasowy::ZarzadzaniePokojami zp;
+			hotel_klasowy::ZarzadzanieRezerwacjami zr;
+
+			TestZarzadzanieHotelem() : zp(&zr), zr(&zp) {}
+		};
+
+		TEST_METHOD(TestZnajdzWolnyPokoj)
+		{
+			TestZarzadzanieHotelem tz;
+			hotel_klasowy::Osoba o("Kamil", "Buczek", 0, hotel_klasowy::KLIENT);
+			hotel_klasowy::Termin t({ 20,5,2026 }, { 28,5,2026 });
+			int typPokoju = 2;
+			//termin zachadzacy
+			hotel_klasowy::Termin t2({ 25,5,2026 }, { 30,5,2026 });
+			//termin nie zachadzacy
+			hotel_klasowy::Termin t3({ 4,5,2026 }, { 5,5,2026 });
+			int rezId = tz.zr.dodajRezerwacje(o, t, typPokoju);
+			int nrPok1 = tz.zp.znajdzWolnyPokoj(typPokoju, t2);
+			int nrPok2 = tz.zp.znajdzWolnyPokoj(typPokoju, t3);
+
+			Assert::AreEqual(-1, nrPok1);
+			Assert::AreNotEqual(-1, nrPok2);
+		}
+
 	};
 };
