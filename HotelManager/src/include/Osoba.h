@@ -16,13 +16,13 @@ namespace hotel_klasowy
 	{
 	public:
 		Osoba() {}
-		Osoba(string im, string n, int i, TypKonta t) : imie(im), nazwisko(n), id(i), typ_konta(t) {}
-		Osoba(const Osoba& o) : imie (o.imie), nazwisko(o.nazwisko), id(o.id), typ_konta(o.typ_konta) {}
+		Osoba(string im, string n, int i, TypKonta t) : imie(im), nazwisko(n), id(i), typKonta(t) {}
+		Osoba(const Osoba& o) : imie (o.imie), nazwisko(o.nazwisko), id(o.id), typKonta(o.typKonta) {}
     
 		const string imie = "";
 		const string nazwisko = "";
 		const int id = -1;
-		const TypKonta typ_konta = NONE;
+		const TypKonta typKonta = NONE;
 	};
 }
 

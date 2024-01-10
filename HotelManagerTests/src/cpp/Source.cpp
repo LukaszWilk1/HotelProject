@@ -89,7 +89,7 @@ namespace UnitTestTest
 			Assert::IsTrue(u.id == id);
 			Assert::IsTrue(u.imie == "Maria");
 			Assert::IsTrue(u.nazwisko == "Wojtas");
-			Assert::IsTrue(u.typ_konta == hotel_klasowy::KLIENT);
+			Assert::IsTrue(u.typKonta == hotel_klasowy::KLIENT);
 		}
 
 		TEST_METHOD(DodawanieUzytkownikow)
@@ -100,7 +100,7 @@ namespace UnitTestTest
 			Assert::IsTrue(u.id == id);
 			Assert::IsTrue(u.imie == "Maria");
 			Assert::IsTrue(u.nazwisko == "Wojtas");
-			Assert::IsTrue(u.typ_konta == hotel_klasowy::KLIENT);
+			Assert::IsTrue(u.typKonta == hotel_klasowy::KLIENT);
 		}
 
 		TEST_METHOD(TestDoTworzeniaDaty)
