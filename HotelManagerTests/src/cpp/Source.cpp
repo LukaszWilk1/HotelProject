@@ -6,6 +6,7 @@
 #include "BazaUzytkownikow.cpp"
 #include "TypyKont.h"
 #include "Data.cpp"
+#include "Termin.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -136,5 +137,18 @@ namespace UnitTestTest
 			Assert::IsTrue(d_1 == d_2);
 		}
 
+		TEST_METHOD(CzyDatyZachodzaNaSiebie)
+		{
+			hotel_klasowy::Data dataOd(6, 1, 2024);
+			hotel_klasowy::Data dataDo(9, 1, 2024);
+			hotel_klasowy::Data dataOd_2(4, 1, 2024);
+			hotel_klasowy::Data dataDo_2(7, 1, 2024);
+
+			auto t1 = hotel_klasowy::Termin(dataOd, dataDo);
+			auto t2 = hotel_klasowy::Termin(dataOd_2, dataDo_2); 
+
+			bool zachodza = t1 ^ t2;
+			Assert::IsTrue(zachodza);
+		}
 	};
 }
