@@ -150,5 +150,18 @@ namespace UnitTestTest
 			bool zachodza = t1 ^ t2;
 			Assert::IsTrue(zachodza);
 		}
+
+		TEST_METHOD(TestFunkcjiNastring)
+		{
+			hotel_klasowy::Data dataOd(6, 1, 2024);
+			hotel_klasowy::Data dataDo(9, 1, 2024);
+	
+			auto t1 = hotel_klasowy::Termin(dataOd, dataDo);
+			std::string s = t1.naString();
+			hotel_klasowy::Termin t2(s);
+
+			Assert::IsTrue(t1.odDnia == t2.odDnia);
+			Assert::IsTrue(t1.doDnia == t2.doDnia);
+		}
 	};
-}
+};
