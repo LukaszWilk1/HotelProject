@@ -22,7 +22,12 @@ project "HotelManagerTests"
         "$(VCInstallDir)UnitTest\\include",
         "../HotelManager/src/include",
         "../HotelManager/src/cpp",
-        "vendor/fmt/include"
+        "vendor/fmt/include",
+        "../HotelManager/vendor/yaml-cpp/include"
+    }
+
+    links {
+        "yaml-cpp"
     }
 
     libdirs {
@@ -32,27 +37,33 @@ project "HotelManagerTests"
     filter { "system:windows" }
         defines {
             "WINDOWS",
+            "YAML_CPP_STATIC_DEFINE",
             "CWD=\""..os.getcwd().."/../HotelManager\""
         }
 
     filter { "system:linux" }
         defines {
             "LINUX",
+            "YAML_CPP_STATIC_DEFINE",
             "CWD=\""..os.getcwd().."/../HotelManager\""
         }
 
     filter { "configurations:Debug" }
+        buildoptions "/MTd"
         runtime "Debug"
         symbols "on"
         defines {
             "DEBUG",
+            "YAML_CPP_STATIC_DEFINE",
         }
         
     
     filter { "configurations:Release" }
+        buildoptions "/MT"
         runtime "Release"
         optimize "on"
         symbols "on"
         defines {
             "NDEBUG",
+            "YAML_CPP_STATIC_DEFINE",
         }
