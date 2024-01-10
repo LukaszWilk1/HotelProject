@@ -32,7 +32,9 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 		cout << "-                                  |                                      |                                      -" << endl;
 		cout << "-                                  |      5. Zmien termin rezerwacji      |                                      -" << endl;
 		cout << "-                                  |                                      |                                      -" << endl;
-		cout << "-                                  |              6. Zakoncz              |                                      -" << endl;
+		cout << "-                                  |        6. Wyswietl typy pokoi        |                                      -" << endl;
+		cout << "-                                  |                                      |                                      -" << endl;
+		cout << "-                                  |              7. Zakoncz              |                                      -" << endl;
 		cout << "-                                  |                                      |                                      -" << endl;
 		cout << "-                                  ========================================                                      -" << endl;
 		cout << "-                                                                                                                -" << endl;
@@ -40,7 +42,7 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 		int opcja = 0;
 		cin >> opcja;
 
-		while (opcja != 1 && opcja != 2 && opcja != 3 && opcja != 4 && opcja != 5 && opcja != 6) {
+		while (opcja != 1 && opcja != 2 && opcja != 3 && opcja != 4 && opcja != 5 && opcja != 6 && opcja != 7) {
 			system("cls");
 			cout << "------------------------------------------------------------------------------------------------------------------" << endl;
 			cout << "-                                                                                                    " << osoba.imie << " " << osoba.nazwisko << " - " << endl;
@@ -62,7 +64,9 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 			cout << "-                                  |                                      |                                      -" << endl;
 			cout << "-                                  |      5. Zmien termin rezerwacji      |                                      -" << endl;
 			cout << "-                                  |                                      |                                      -" << endl;
-			cout << "-                                  |              6. Zakoncz              |                                      -" << endl;
+			cout << "-                                  |        6. Wyswietl typy pokoi        |                                      -" << endl;
+			cout << "-                                  |                                      |                                      -" << endl;
+			cout << "-                                  |              7. Zakoncz              |                                      -" << endl;
 			cout << "-                                  |                                      |                                      -" << endl;
 			cout << "-                                  ========================================                                      -" << endl;
 			cout << "-                                                                                                                -" << endl;
@@ -107,6 +111,11 @@ void hotel_klasowy::ObslugaKlienta::interfejs() {
 			cin >> exit;
 			break;
 		case 6:
+			wyswietlTypyPokoi();
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
+			cin >> exit;
+			break;
+		case 7:
 			exit = "q";
 			break;
 		}
@@ -199,3 +208,16 @@ bool hotel_klasowy::ObslugaKlienta::zmienTerminRezerwacji(int idRezerwacji)
 	return false;
 }
 
+void hotel_klasowy::ObslugaKlienta::wyswietlTypyPokoi()
+{
+	system("cls");
+	vector <hotel_klasowy::OpisPokoju> opisy = zarzadzaniePokojami.getRodzajePokoji();
+	for (auto& r : opisy) {
+		cout << "Id: " << r.getId() << endl;
+		cout << "Nazwa: " << r.getNazwa() << endl;
+		cout << "Opis: " << r.getOpis() << endl;
+		cout << "Maksymalna ilosc osob: " << r.getMaxOsob() << endl;
+		cout << "Cena za dobe: " << r.getCenaZaDobe() << endl;
+		cout << "-----------------------------------------" << endl;
+	}
+}
