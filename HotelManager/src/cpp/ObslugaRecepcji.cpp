@@ -342,7 +342,3 @@ bool hotel_klasowy::ObslugaRecepcji::zmienTerminRezerwacji(int idRezerwacji) {
 	return false;
 }
 
-void hotel_klasowy::ObslugaRecepcji::anulujRezerwacje(string idRezerwacji)
-{
-}
-
