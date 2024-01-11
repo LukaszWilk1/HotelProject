@@ -143,7 +143,7 @@ void hotel_klasowy::ZarzadzanieHotelem::start() {
 			system("cls");
 			cout << "Uzytkownik pomyslnie dodany. Twoje ID do logowania to: " << id <<endl;
 			string dalej;
-			cout << "Wpisz q aby kontynuowac" << endl;
+			cout << "Wpisz dowolny znak (poza q) aby wrocic: ";
 			cin >> dalej;
 			zarejestrowano = true;
 		}
