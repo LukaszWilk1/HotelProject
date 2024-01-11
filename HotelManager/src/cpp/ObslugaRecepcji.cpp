@@ -96,7 +96,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 		cout << "-                                                                                                                -" << endl;
 		cout << "-                                  ========================================                                      -" << endl;
 		cout << "-                                  |                                      |                                      -" << endl;
-		cout << "-                                  |         1. Dodaj Recerwacje          |                                      -" << endl;
+		cout << "-                                  |         1. Dodaj Rezerwacje          |                                      -" << endl;
 		cout << "-                                  |                                      |                                      -" << endl;
 		cout << "-                                  |   2. Wyswietl wszystkie rezerwacje   |                                      -" << endl;
 		cout << "-                                  |                                      |                                      -" << endl;
@@ -139,7 +139,7 @@ void hotel_klasowy::ObslugaRecepcji::interfejs() {
 			cout << "-                                                                                                                -" << endl;
 			cout << "-                                  ========================================                                      -" << endl;
 			cout << "-                                  |                                      |                                      -" << endl;
-			cout << "-                                  |         1. Dodaj Recerwacje          |                                      -" << endl;
+			cout << "-                                  |         1. Dodaj Rezerwacje          |                                      -" << endl;
 			cout << "-                                  |                                      |                                      -" << endl;
 			cout << "-                                  |   2. Wyswietl wszystkie rezerwacje   |                                      -" << endl;
 			cout << "-                                  |                                      |                                      -" << endl;
