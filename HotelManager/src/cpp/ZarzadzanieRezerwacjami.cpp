@@ -131,6 +131,17 @@ bool hotel_klasowy::ZarzadzanieRezerwacjami::wykwateruj(int idRezerwacji) {
 	return false;
 }
 
+bool hotel_klasowy::ZarzadzanieRezerwacjami::oplacRezerwacje(int idRezerwacji)
+{
+	auto& rez = znajdzRezerwacje(idRezerwacji);
+	if (rez.getId() != -1) {
+		rez.oplacona = true;
+		zapiszRezerwacje();
+		return true;
+	}
+	return false;
+}
+
 const hotel_klasowy::Rezerwacja hotel_klasowy::ZarzadzanieRezerwacjami::getRezerwacja(int id) {
 	return znajdzRezerwacje(id);
 }

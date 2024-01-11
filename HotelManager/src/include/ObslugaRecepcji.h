@@ -21,7 +21,6 @@ namespace hotel_klasowy
 	{
 		public:
 			ObslugaRecepcji(Osoba r, ZarzadzanieRezerwacjami& zr, ZarzadzaniePokojami& zp, BazaUzytkownikow& b) : PodstawowaObsluga(r, zr, zp), bazaUzytkownikow(b) {};
-			bool oplacRezerwacje(int idRezerwacji);
 			virtual void interfejs() override;
 
 		private: 
@@ -33,6 +32,7 @@ namespace hotel_klasowy
 			bool zakwateruj(int idRezerwacji);
 			bool wykwateruj(int idRezerwacji);
 			void odblokujPokoj(int idPokoju);
+			bool oplacRezerwacje(int idRezerwacji);
 
 		protected: 
 			virtual void dodajRezerwacje() override;

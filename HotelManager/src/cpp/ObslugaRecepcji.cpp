@@ -9,7 +9,15 @@ using namespace std;
 
 bool hotel_klasowy::ObslugaRecepcji::oplacRezerwacje(int idRezerwacji) {
 	system("cls");
-	cout << "Oplacono rezerwacje" << endl;
+	auto rezerwacja = zarzadzanieRezerwacjami.getRezerwacja(idRezerwacji);
+	auto typPokoju = zarzadzaniePokojami.getPokoj(rezerwacja.nrPokoju).typPokoju;
+	int doZaplacenia = zarzadzaniePokojami.getRodzajePokoji()[typPokoju].getCenaZaDobe() * (rezerwacja.terminPobytu.dlugosPobytu());
+	cout << "Do zaplacenia: " << doZaplacenia << "zl\n";
+	if (zarzadzanieRezerwacjami.oplacRezerwacje(idRezerwacji)) {
+		cout << "Oplacono rezerwacje" << endl;
+		return true;
+	}
+	cout << "Niepoprawne id rezerwacji" << endl;
 	return true;
 }
 
@@ -47,17 +55,25 @@ bool hotel_klasowy::ObslugaRecepcji::zablokujPokoj(int idPokoju) {
 
 bool hotel_klasowy::ObslugaRecepcji::zakwateruj(int idRezerwacji) {
 	system("cls");
-	hotel_klasowy::Rezerwacja p = zarzadzanieRezerwacjami.getRezerwacja(idRezerwacji);
-	p.zakwaterowana = true;
-	cout << "Zakwaterowano" << endl;
+	if (zarzadzanieRezerwacjami.zakwateruj(idRezerwacji)) {
+		cout << "Zakwaterowano" << endl;
+	}
+	else {
+		cout << "Niepoprawne id rezerwcji" << endl;
+	}
+	
 	return true;
 }
 
 bool hotel_klasowy::ObslugaRecepcji::wykwateruj(int idRezerwacji) {
 	system("cls");
-	hotel_klasowy::Rezerwacja p = zarzadzanieRezerwacjami.getRezerwacja(idRezerwacji);
-	p.zakwaterowana = false;
-	cout << "Wykwaterowano" << endl;
+	if (zarzadzanieRezerwacjami.wykwateruj(idRezerwacji)) {
+		cout << "Wykwaterowano" << endl;
+	}
+	else {
+		cout << "Niepoprawne id rezerwcji lub brak platnosci" << endl;
+	}
+
 	return true;
 }
 
